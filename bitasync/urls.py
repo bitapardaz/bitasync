@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from bitasync_site import views
+
 
 urlpatterns = [
+    url(r'^$', views.homepage),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^bitasync/', include('bitasync_site.urls')),
 ]
