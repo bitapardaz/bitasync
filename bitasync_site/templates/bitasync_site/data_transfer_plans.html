@@ -1,0 +1,39 @@
+{% if plan_list %}
+
+<table>
+
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+
+td {
+    padding: 15px;
+}
+</style>
+
+  <tr>
+    <th> Plan Name </th>
+    <th> Frequency </th>
+    <th> Duration </th>
+  </tr>
+
+  {% for plan in plan_list %}
+
+        <tr>
+
+            <td> {{plan.plan_name}} </td>
+            <td> {{plan.freq}} </td>
+            <td> {{plan.duration}} </td>
+
+        </tr>
+
+  {% endfor %}
+
+</table>
+
+{% else %}
+  <p>
+    No data transfer plans available.
+  </p>
+{% endif %}
