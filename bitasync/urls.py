@@ -22,4 +22,9 @@ urlpatterns = [
     url(r'^$', views.homepage),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^bitasync/', include('bitasync_site.urls')),
+    url(r'^accounts/login/$', 'bitasync.views.login'),
+    url(r'^accounts/auth/$', 'bitasync.views.auth_view'),
+    url(r'^accounts/logout/$', 'bitasync.views.logout'),
+    url(r'^accounts/loggedin/$', 'bitasync.views.loggedin'),
+    url(r'^accounts/invalid/$', 'bitasync.views.invalid'),
 ]

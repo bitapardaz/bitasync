@@ -38,8 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bitasync_site',
-    'django.contrib.sites',
-    'account',
+    'user_profile'
+#    'django.contrib.sites',
+#    'account',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -67,8 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'account.context_processors.account',
+#                'django.contrib.messages.context_processors.messages',
+#                'account.context_processors.account',
             ],
         },
     },
