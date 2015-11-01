@@ -14,7 +14,10 @@ def login(request):
 
 
 def logout(request):
-    pass
+    auth.logout(request)
+    template = loader.get_template('user_profile/loggedout.html')
+    context = RequestContext(request)
+    return HttpResponse(template.render(context))
 
 
 def auth_view(request):
@@ -34,9 +37,12 @@ def auth_view(request):
 
 def loggedin(request):
     template = loader.get_template('user_profile/loggedin.html')
-    context = RequestContext(request)
+    name = request.user.username
+    context = RequestContext(request, {'fullname': name})
     return HttpResponse(template.render(context))
 
 
 def invalid(request):
-    pass
+    template = loader.get_template('user_profile/invalid.html')
+    context = RequestContext(request)
+    return HttpResponse(template.render(context))

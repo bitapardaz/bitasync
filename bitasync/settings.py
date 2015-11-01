@@ -38,8 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bitasync_site',
-    'user_profile'
-#    'django.contrib.sites',
+    'user_profile',
+    'code_test',
+    'django.contrib.sites',
 #    'account',
 )
 

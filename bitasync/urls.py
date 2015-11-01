@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^accounts/logout/$', 'bitasync.views.logout'),
     url(r'^accounts/loggedin/$', 'bitasync.views.loggedin'),
     url(r'^accounts/invalid/$', 'bitasync.views.invalid'),
+    url(r'^code_test/', include('code_test.urls')),
 ]
