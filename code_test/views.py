@@ -2,7 +2,6 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from .forms.forms import KidForm
 from .forms.forms import ContactForm
-from django.core.mail import send_mail
 
 
 def contact_me_view(request):
