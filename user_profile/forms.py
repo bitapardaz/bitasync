@@ -1,6 +1,7 @@
 from django import forms
 from .models import UserProfile
 
+
 class UserProfileForm(forms.Form): 
     # additional information regarding a customer that we get 
     # at the point of registration. 
@@ -10,11 +11,18 @@ class UserProfileForm(forms.Form):
     is_shop = forms.BooleanField(required=False)    
     #email_subscription = forms.BooleanField(required=False)
 
-
     address = forms.CharField(max_length=100, required=False)
     telephone = forms.CharField(max_length=20, required=False)  
     read_agreement = forms.BooleanField(required=True)
     
-        
     
+class MyProfileCustomerForm(forms.Form): 
+
+    username = forms.CharField()
+    email = forms.EmailField()
+    mobile = forms.CharField()
+    email_subscription = forms.BooleanField()
+   
     
+class MyProfileShopForm(forms.Form): 
+    pass
