@@ -1,0 +1,98 @@
+.we-create li {
+	font-size: 170% !important;
+}
+
+.we-create {
+    margin: 35px 0 25px !important;
+}
+.header {
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eeeeee+0,eeeeee+100;Grey+Flat */
+background: rgb(238,238,238); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+
+padding: 80px 0 !important;
+}
+
+.logo {
+   
+    width: 100%  !important;
+}
+.header h1 {
+    color: peru !important;
+	font-family: 'B mehr',tahoma !important;
+}
+
+h1, h2, h3, h4, h5{
+	font-family: 'B mehr',tahoma !important;
+}
+
+.link {
+   
+    color: #fff !important;
+   
+    font-family: 'B mehr',tahoma !important;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 25px;
+    margin-bottom: 20px;
+    padding: 10px 17px !important;;
+   
+}
+.main-nav li a{
+    font-family: B mehr !important;
+	font-size: 120%;
+}
+.Portfolio-nav li a {
+    font-family: B mehr !important;
+	font-size: 100%;
+}
+
+.container {
+direction: rtl;
+}
+body {
+   
+    font-family: B vahid ,tahoma !important;
+	  font-size: 16px !important;
+}
+
+#download {
+	padding: 90px 0 40px !important;
+}
+.contact-info-box h3 {
+    float: right;
+}
+
+.main-section.team {
+    background-color: #fafafa;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
