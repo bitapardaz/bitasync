@@ -67,14 +67,17 @@
           <!--  <li><a href="#service">Services</a></li>-->
         
             <li><a href="#download">دانلود</a></li>
-			   <li><a href="#">عضویت</a></li>
+ <li><a href="#">راهنمای استفاده</a></li>
+		
           
             <li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li>
-			  <li><a href="#Portfolio">تعرفه ها</a></li>
+ <li><a href="#contact">تماس با ما</a></li>
+<li><a href="#">عضویت</a></li>	
+<li><a href="/accounts/login">ورود</a></li>
          <!--   <li><a href="#client">Clients</a></li>-->
            <!-- <li><a href="#team">Team</a></li>-->
-		     <li><a href="#">راهنمای استفاده</a></li>
-            <li><a href="#contact">تماس با ما</a></li>
+		    
+           
         </ul>
         <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
     </div>
@@ -239,7 +242,7 @@
         </div>
     	<ul class="client wow fadeIn delay-05s">
         	<li><a href="#">
-            	<img src="img/client-pic1.jpg" alt="">
+            	<img src="{% static "bitasync_site/img/client-pic1.jpg" %}" alt="">
                 <h3>علیرضا</h3>
                 <span></span>
             </a></li>
@@ -265,7 +268,7 @@
             <div class="team-leader-box">
                 <div class="team-leader wow fadeInDown delay-03s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="img/team-leader-pic1.jpg" alt="">
+                    <img src="{% static "bitasync_site/img/team-leader-pic1.jpg" %}" alt="">
                    <ul>
                         <li><a href="#" class="fa-twitter"></a></li>
                         <li><a href="#" class="fa-facebook"></a></li>
@@ -280,7 +283,7 @@
             <div class="team-leader-box">
                 <div class="team-leader  wow fadeInDown delay-06s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="img/team-leader-pic2.jpg" alt="">
+                    <img src="{% static "bitasync_site/img/team-leader-pic2.jpg" %}" alt="">
                     <ul>
                         <li><a href="#" class="fa-twitter"></a></li>
                         <li><a href="#" class="fa-facebook"></a></li>
@@ -295,7 +298,7 @@
             <div class="team-leader-box">
                 <div class="team-leader wow fadeInDown delay-09s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="img/team-leader-pic3.jpg" alt="">
+                    <img src="{% static "bitasync_site/img/team-leader-pic3.jpg" %}" alt="">
                     <ul>
                         <li><a href="#" class="fa-twitter"></a></li>
                         <li><a href="#" class="fa-facebook"></a></li>
@@ -361,7 +364,7 @@
 </div>
 <footer class="footer">
     <div class="container">
-        <div class="footer-logo"><a href="#"><img src="img/footer-logo.png" alt=""></a></div>
+        <div class="footer-logo"><a href="#"><img src="{% static "bitasync_site/img/footer-logo.png" %}" alt=""></a></div>
         <span class="copyright"> تمامی حقوق برای شرکت بیتاپرداز محفوظ است (<span style="color:red">نسخه آزمایشی</span>)     .Bitapardaz Co &copy;</span>
     </div>
 </footer>
