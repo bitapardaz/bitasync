@@ -9,12 +9,46 @@ from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
 from .models import ShopProfile
 from .models import CustomerProfile
 
 from .forms import UserProfileForm
+from .forms import MyProfileCustomerForm
+from .forms import MyProfileShopForm
+
+   
+@login_required    
+def myprofile(request): 
+
+    if request.method == 'POST' : 
+        pass 
+        
+    else: 
+    
+        args = {}
+        args.update(csrf(request))
+    
+        #user = User.objects.get(username=request.user.username)
+        user_profile = UserProfile.objects.get(user=request.user)
+    
+        # depending on the type of the user, the template will respond differently. 
+        args['is_shop'] = user_profile.is_shop
+        
+        if user_profile.is_shop: 
+            args['shop_details_form'] = MyProfileShopForm()
+        else: 
+            args['customer_details_form'] = MyProfileCustomerForm()
+
+        
+    
+        template = loader.get_template('user_profile/myprofile.html')
+        context = RequestContext(request,args)
+        return HttpResponse(template.render(context))    
+
+    return HttpResponse("Your profile") 
     
 def register(request):
 

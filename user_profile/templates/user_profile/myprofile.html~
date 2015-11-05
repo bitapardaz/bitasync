@@ -1,0 +1,28 @@
+<h2> Your Bit@Sync Profile</h2>
+
+<p> Summary of the data plan activated. </p>
+
+<hr>
+
+<p> Profile Information </p>
+
+{% if is_shop %}
+
+
+
+{% else %}
+
+<form action="/accounts/myprofile" method="post">
+
+<table border="1">
+{{customer_details_form.as_table}}
+</table>
+
+<input type='submit' value='submit'>
+    
+</form>
+
+
+
+{% endif %}
+

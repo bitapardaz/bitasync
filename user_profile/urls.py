@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^invalid/$', views.invalid),
     url(r'^register/$', views.register),
     url(r'^register_success/$', views.register_success),
+    url(r'^myprofile/$', views.myprofile),
 ]
 
 
