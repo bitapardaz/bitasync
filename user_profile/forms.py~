@@ -22,6 +22,8 @@ class MyProfileCustomerForm(forms.Form):
     email = forms.EmailField()
     mobile = forms.CharField()
     email_subscription = forms.BooleanField()
+    
+    
    
     
 class MyProfileShopForm(forms.Form): 

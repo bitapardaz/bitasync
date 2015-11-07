@@ -42,10 +42,10 @@ def myprofile(request):
         else: 
         
             data = {}
-            data{'username'} = request.user.username
-            data{'Email'} = request.user.email
-            data{'mobile'} = user_profile.mobile 
-            data{'email_subscription'} = user_profile.email_subscription
+            data['username'] = request.user.username
+            data['email'] = request.user.email
+            data['mobile'] = user_profile.mobile 
+            data['email_subscription'] = user_profile.email_subscription
             
             args['customer_details_form'] = MyProfileCustomerForm(initial=data)
 
