@@ -37,12 +37,18 @@ def myprofile(request):
         # depending on the type of the user, the template will respond differently. 
         args['is_shop'] = user_profile.is_shop
         
-        if user_profile.is_shop: 
+        if user_profile.is_shop:                    
             args['shop_details_form'] = MyProfileShopForm()
         else: 
-            args['customer_details_form'] = MyProfileCustomerForm()
-
         
+            data = {}
+            data{'username'} = request.user.username
+            data{'Email'} = request.user.email
+            data{'mobile'} = user_profile.mobile 
+            data{'email_subscription'} = user_profile.email_subscription
+            
+            args['customer_details_form'] = MyProfileCustomerForm(initial=data)
+
     
         template = loader.get_template('user_profile/myprofile.html')
         context = RequestContext(request,args)

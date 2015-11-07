@@ -17,6 +17,7 @@ class UserProfileForm(forms.Form):
     
     
 class MyProfileCustomerForm(forms.Form): 
+
     username = forms.CharField()
     email = forms.EmailField()
     mobile = forms.CharField()
