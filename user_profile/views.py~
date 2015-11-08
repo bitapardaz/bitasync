@@ -9,6 +9,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
@@ -19,7 +20,26 @@ from .forms import UserProfileForm
 from .forms import MyProfileCustomerForm
 from .forms import MyProfileShopForm
 
+
    
+@login_required
+def password_reset(request):
+
+	if request.method=='POST':
+		pass
+	
+	
+	else: 
+		#pcf = password change form
+		pcf = PasswordChangeForm()
+		args = {}
+		args['form'] = pcf
+	
+		template = loader.get_template('user_profile/password_reset.html')
+		context = RequestContext(request,args)
+		return HttpResponse(template.render(context))    
+
+
 @login_required    
 def myprofile(request): 
 
@@ -60,7 +80,7 @@ def myprofile(request):
                     user_profile.save()
                     shop_profile.save()
                     
-                    return HttpResponseRedirect()
+                    return HttpResponseRedirect('/accounts/myprofile/')
 
             
             else: 

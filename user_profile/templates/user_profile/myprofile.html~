@@ -30,8 +30,8 @@
     
 </form>
 
-<>
-
+<hr>
+<a href="/accounts/password_reset">Password Reset</a>
 
 {% endif %}
 
