@@ -18,13 +18,28 @@ class UserProfileForm(forms.Form):
     
 class MyProfileCustomerForm(forms.Form): 
 
-    username = forms.CharField()
-    email = forms.EmailField()
-    mobile = forms.CharField()
-    email_subscription = forms.BooleanField()
+    # do not show the username to the user. 
+#    username = forms.CharField()
+    email = forms.EmailField(max_length=100)
+    mobile = forms.CharField(max_length=20, required=False)
+    email_subscription = forms.BooleanField(required=False)
+ 
     
+class MyProfileShopForm(forms.Form):
+ 
+    email = forms.EmailField(max_length=100)
+    mobile = forms.CharField(required=False)
+    address = forms.CharField(max_length=100, required=False)
+    landline = forms.CharField(max_length=20, required=False)  
+    email_subscription = forms.BooleanField(required=False)
     
+    # readonly field
+    reward = forms.IntegerField(required=False) 
+    bank_card_number = forms.CharField(max_length=100, required=False)
+    account_holder = forms.CharField(max_length=100, required=False)
    
-    
-class MyProfileShopForm(forms.Form): 
-    pass
+    def __init__(self,*args,**kwargs): 
+        super(MyProfileShopForm,self).__init__(*args,**kwargs)
+        self.fields['reward'].widget.attrs['readonly'] = True
+        
+        

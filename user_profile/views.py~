@@ -24,29 +24,114 @@ from .forms import MyProfileShopForm
 def myprofile(request): 
 
     if request.method == 'POST' : 
-        pass 
+        
+        user_profile = UserProfile.objects.get(user=request.user)
+         
+        if user_profile.is_shop:                    
+            shop_profile_form = MyProfileShopForm(request.POST)
+            if shop_profile_form.is_valid():
+             
+                if shop_profile_form.has_changed():
+                    
+                    # get the data out of the forms.
+                    email = shop_profile_form.cleaned_data['email']
+                    mobile = shop_profile_form.cleaned_data['mobile']
+                    email_subscription = shop_profile_form.cleaned_data['email_subscription']
+                    address = shop_profile_form.cleaned_data['address']
+                    landline = shop_profile_form.cleaned_data['landline']
+                    bank_card_number = shop_profile_form.cleaned_data['bank_card_number']
+                    account_holder = shop_profile_form.cleaned_data['account_holder']
+                    
+                    # save the data into the database
+                    user_profile = UserProfile.objects.get(user=request.user)   
+                    shop_profile = ShopProfile.objects.get(user_profile=user_profile)
+
+                    request.user.email = email
+                    
+                    user_profile.mobile = mobile
+                    user_profile.email_subscription = email_subscription
+                    
+                    shop_profile.address = address 
+                    shop_profile.landline = landline
+                    shop_profile.bank_card_number = bank_card_number
+                    shop_profile.account_holder = account_holder
+                    
+                    request.user.save()
+                    user_profile.save()
+                    shop_profile.save()
+                    
+                    return HttpResponseRedirect()
+
+            
+            else: 
+                # user_profile form is not valid
+                return HttpResponse("error: submited form is not valid.")
+            
+        else: 
+            # user is not a shop
+             
+            customer_profile_form = MyProfileCustomerForm(request.POST)
+            if customer_profile_form.is_valid():      
+                if customer_profile_form.has_changed():
+                
+                    # get the data out of the form 
+                    email = customer_profile_form.cleaned_data['email']
+                    mobile = customer_profile_form.cleaned_data['mobile']
+                    email_subscription = customer_profile_form.cleaned_data['email_subscription']                   
+                    
+                    # save it to the database. 
+                    user_profile = UserProfile.objects.get(user=request.user)                    
+                    request.user.email = email
+                    user_profile.mobile = mobile
+                    user_profile.email_subscription = email_subscription
+                    user_profile.save()
+                    request.user.save()
+                    
+                    return HttpResponseRedirect('/accounts/myprofile/')
+            
+                
+                else: 
+                    # the form has not changed. Do nothing. 
+                    # redirect to homepage?    
+                    return HttpResponseRedirect('/accounts/myprofile/')          
+            else: 
+                # todo
+                # the form is not valid. 
+                # return the form to the user.
+                pass 
         
     else: 
-    
+        # if the request does not have POST method
         args = {}
         args.update(csrf(request))
     
         #user = User.objects.get(username=request.user.username)
         user_profile = UserProfile.objects.get(user=request.user)
-    
+        
+        data = {}
+            
+        data['email'] = request.user.email
+        data['mobile'] = user_profile.mobile 
+        data['email_subscription'] = user_profile.email_subscription
+        
         # depending on the type of the user, the template will respond differently. 
         args['is_shop'] = user_profile.is_shop
         
         if user_profile.is_shop:                    
-            args['shop_details_form'] = MyProfileShopForm()
-        else: 
         
-            data = {}
-            data['username'] = request.user.username
-            data['email'] = request.user.email
-            data['mobile'] = user_profile.mobile 
-            data['email_subscription'] = user_profile.email_subscription
+            shop_profile = ShopProfile.objects.get(user_profile = user_profile)
+            data['address'] = shop_profile.address
+            data['landline'] = shop_profile.landline
+            data['reward'] = shop_profile.reward
+            data['bank_card_number'] = shop_profile.bank_card_number
+            data['account_holder'] = shop_profile.account_holder
             
+        
+            args['shop_details_form'] = MyProfileShopForm(initial=data)
+            
+        else: 
+            # if the customer is a normal customer.
+            # no additional iterms are added to data. 
             args['customer_details_form'] = MyProfileCustomerForm(initial=data)
 
     
@@ -54,7 +139,7 @@ def myprofile(request):
         context = RequestContext(request,args)
         return HttpResponse(template.render(context))    
 
-    return HttpResponse("Your profile") 
+
     
 def register(request):
 
@@ -70,15 +155,11 @@ def register(request):
             email = user_profile_form.cleaned_data['email']
             
             user = User.objects.create_user(username=username, password=password, email=email)
-
-#           user = user_form.save()             
-#            user.save()
-                        
+                       
             user_profile = UserProfile()        
             user_profile.user = user
             
             user_profile.is_shop = user_profile_form.cleaned_data['is_shop']
-            #user_profile.email_subscription = user_profile_form.cleaned_data['email_subscription']
             user_profile.email_subscription = True
             user_profile.mobile = user_profile_form.cleaned_data['mobile']  
                                    
@@ -98,8 +179,8 @@ def register(request):
                 customer_profile.user_profile = user_profile
                 customer_profile.save()
             
-            return HttpResponse(email)
-            #return HttpResponseRedirect("/accounts/register_success")
+
+            return HttpResponseRedirect("/accounts/register_success")
          
         else: 
             return HttpResponse('There was an error on the registration form submitted.')     
