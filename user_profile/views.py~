@@ -11,6 +11,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views as auth_views
+
 
 from .models import UserProfile
 from .models import ShopProfile
@@ -21,23 +23,11 @@ from .forms import MyProfileCustomerForm
 from .forms import MyProfileShopForm
 
 
-   
 @login_required
-def password_reset(request):
+def password_change(request):
+    template_response = auth_views.password_change(request)
+    return template_response 
 
-	if request.method=='POST':
-		pass
-	
-	
-	else: 
-		#pcf = password change form
-		pcf = PasswordChangeForm()
-		args = {}
-		args['form'] = pcf
-	
-		template = loader.get_template('user_profile/password_reset.html')
-		context = RequestContext(request,args)
-		return HttpResponse(template.render(context))    
 
 
 @login_required    
