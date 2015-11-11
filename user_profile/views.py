@@ -23,13 +23,6 @@ from .forms import MyProfileCustomerForm
 from .forms import MyProfileShopForm
 
 
-@login_required
-def password_change(request):
-    template_response = auth_views.password_change(request)
-    return template_response 
-
-
-
 @login_required    
 def myprofile(request): 
 

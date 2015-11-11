@@ -31,7 +31,7 @@
 </form>
 
 <hr>
-<a href="/accounts/password_reset">Password Reset</a>
+<a href="/accounts/password_change">Password Reset</a>
 
 {% endif %}
 
