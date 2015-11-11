@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^invalid/$', views.invalid),
     url(r'^register/$', views.register),
     url(r'^register_success/$', views.register_success),
-    url(r'^password_change/$', auth_views.password_change,{'template_name':'user_profile/password_change.html'}),
-	url(r'^password_change_done/$', auth_views.password_change_done,{'template_name':'user_profile/password_change_done.html'}),
+    url(r'^password_change/$', auth_views.password_change,{'template_name':'user_profile/password_change.html', 'post_change_redirect':'/accounts/my_password_change_done/'}),
+	url(r'^my_password_change_done/$', views.my_password_change_done),
     url(r'^myprofile/$', views.myprofile),
 ]

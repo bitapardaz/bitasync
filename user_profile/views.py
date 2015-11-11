@@ -22,6 +22,18 @@ from .forms import UserProfileForm
 from .forms import MyProfileCustomerForm
 from .forms import MyProfileShopForm
 
+@login_required
+def my_password_change_done(request): 
+
+    template_name = 'user_profile/password_change_done.html'
+    response = auth_views.password_change_done(request,template_name=template_name)
+    
+    # send email to notify the user that his password has changed. 
+    
+    return response
+    
+    
+
 
 @login_required    
 def myprofile(request): 
