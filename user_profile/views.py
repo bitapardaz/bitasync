@@ -27,7 +27,8 @@ from django.core.mail import send_mail
 def my_password_reset(request): 
     # calls django.contrib.auth.views.password_reset with its customisations 
     # and returns the result
-    response = auth_views.password_reset(request, 
+    response = auth_views.password_reset(request,
+                                         template_name='user_profile/password_reset.html',
                                          post_reset_redirect='/accounts/password_reset_done',
                                          from_email='passwords@bitasync.com',
                                          current_app='user_profile')
@@ -41,6 +42,7 @@ def my_password_reset_confirm(request,uidb64,token):
     response = auth_views.password_reset_confirm(request,
                                                  uidb64=uidb64,
                                                  token=token,
+                                                 template_name='user_profile/password_reset_confirm.html',
                                                  post_reset_redirect='/accounts/password_reset_complete',
                                                  current_app='user_profile')
                                                  
