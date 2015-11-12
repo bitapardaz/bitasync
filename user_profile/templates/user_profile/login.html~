@@ -19,3 +19,7 @@
 <p> <input type='submit' value='login' /> </p>  
 
 </form>
+
+<hr>
+
+<a href='/accounts/password_reset'>Forgot your password?</a>
