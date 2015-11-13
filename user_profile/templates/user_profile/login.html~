@@ -13,7 +13,7 @@
 <link href="{% static "bitasync_site/css/bootstrap.css" %}" rel="stylesheet" type="text/css">
 <link href="{% static "bitasync_site/css/style.css" %}" rel="stylesheet" type="text/css">
 <link href="{% static "bitasync_site/css/font-awesome.css" %}" rel="stylesheet" type="text/css">
-      <link rel="stylesheet" href="{% static "user_profile/assets/css/login.css" %}">
+      <link rel="stylesheet" href="{% static "user_profile/css/login.css" %}">
 
  <link rel="stylesheet" href="http://ifont.ir/apicode/44">
  <link rel="stylesheet" href="http://ifont.ir/apicode/41">
@@ -34,7 +34,7 @@
 <script type="text/javascript" src="{% static "bitasync_site/js/wow.js" %}"></script>
 <script type="text/javascript" src="{% static "bitasync_site/js/classie.js" %}"></script>
 
-<script src="{% static "user_profile/assets/js/login.js" %}"></script>
+<script src="{% static "user_profile/js/login.js" %}"></script>
   
 
 
@@ -107,6 +107,7 @@
 			                        	<input type="password" name="password" placeholder="کلمه عبور ..." class="form-password form-control" id="password">
 			                        </div>
 			                        <button type="submit" class="btn">ورود</button>
+<a href='/accounts/password_reset/'>Forgot your password?</a>
 			                    </form>
 		                    </div>
                         </div>
@@ -241,3 +242,4 @@ $(window).load(function(){
 </script>
 </body>
 </html>
+

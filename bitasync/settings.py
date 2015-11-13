@@ -113,3 +113,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# email configuration. 
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Host for sending e-mail.
+EMAIL_HOST = 'mail.bitasync.com'
+
+# Port for sending e-mail.
+EMAIL_PORT = 2525
+
+# Optional SMTP authentication information for EMAIL_HOST.
+EMAIL_HOST_USER = 'outreach@bitasync.com'
+EMAIL_HOST_PASSWORD = 'alirezaPour1986!'
+EMAIL_USE_TLS = False
