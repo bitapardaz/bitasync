@@ -93,8 +93,22 @@ body {
     background: #F3F3F3 none repeat scroll 0 0 !important;
 }
 
+.team-leader-box {
+   height: auto !important;
+}
 
-
+.icon-howit01 {
+    background: rgba(0, 0, 0, 0) url("../img/icon_howit01.jpg") no-repeat scroll 0 0;
+}
+.icon-howit02 {
+    background: rgba(0, 0, 0, 0) url("../img/icon_howit02.jpg") no-repeat scroll 0 0;
+}
+.icon-howit03 {
+    background: rgba(0, 0, 0, 0) url("../img/icon_howit03.jpg") no-repeat scroll 0 0;
+}
+.icon-howit04 {
+    background: rgba(0, 0, 0, 0) url("../img/icon_howit04.jpg") no-repeat scroll 0 0;
+}
 
 
 

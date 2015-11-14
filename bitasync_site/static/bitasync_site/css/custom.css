@@ -97,6 +97,33 @@ body {
    height: auto !important;
 }
 
+.icon-howit01 {
+    background: rgba(0, 0, 0, 0) url("../img/icon_howit01.jpg") no-repeat scroll 0 0;
+}
+.icon-howit02 {
+    background: rgba(0, 0, 0, 0) url("../img/icon_howit02.jpg") no-repeat scroll 0 0;
+}
+.icon-howit03 {
+    background: rgba(0, 0, 0, 0) url("../img/icon_howit03.jpg") no-repeat scroll 0 0;
+}
+.icon-howit04 {
+    background: rgba(0, 0, 0, 0) url("../img/icon_howit04.jpg") no-repeat scroll 0 0;
+}
+
+
+.intro span {
+    color: #06979e;
+    display: inline-block;
+    font-size: 60px;
+    height: 114px;
+    margin-bottom: 27px;
+    margin-top: 24px;
+    vertical-align: middle;
+    width: 130px;
+}
+
+
+
 
 
 

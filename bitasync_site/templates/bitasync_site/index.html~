@@ -10,7 +10,7 @@
 <link rel="shortcut icon" href="favicon.ico" type="img/x-icon">
 
 
-<link href="{% static "bitasync_site/css/bootstrap.css"%}" rel="stylesheet" type="text/css">
+<link href="{% static "bitasync_site/css/bootstrap.css" %}" rel="stylesheet" type="text/css">
 <link href="{% static "bitasync_site/css/style.css" %}" rel="stylesheet" type="text/css">
 <link href="{% static "bitasync_site/css/font-awesome.css" %}" rel="stylesheet" type="text/css">
 
@@ -87,54 +87,55 @@
 
 <section class="main-section" id="service"><!--main-section-start-->
 	<div class="container">
-    	<h2>استفاده از بیتاسینک</h2>
-    	<h6></h6>
-        <div class="row">
-        	<div class="col-lg-4 col-sm-6 wow fadeInLeft delay-05s">
-            	<div class="service-list">
-                	<div class="service-list-col1">
-                    	<i class="fa-paw"></i>
-                    </div>
-                	<div class="service-list-col2">
-                        <h3>دانلود</h3>
-                        <p>متن دانلود</p>
-                    </div>
-                </div>
-                <div class="service-list">
-                	<div class="service-list-col1">
-                    	<i class="fa-gear"></i>
-                    </div>
-                	<div class="service-list-col2">
-                        <h3>اتصال</h3>
-                        <p>متن اتصال</p>
-                    </div>
-                </div>
-                <div class="service-list">
-                	<div class="service-list-col1">
-                    	<i class="fa-apple"></i>
-                    </div>
-                	<div class="service-list-col2">
-                        <h3>انتخاب</h3>
-                        <p>متن انتخاب</p>
-                    </div>
-                </div>
-                <div class="service-list">
-                	<div class="service-list-col1">
-                    	<i class="fa-medkit"></i>
-                    </div>
-                	<div class="service-list-col2">
-                        <h3>انتقال</h3>
-                        <p>متن انتقال</p>
-                    </div>
-                </div>
-            </div>
-            <figure class="col-lg-8 col-sm-6  text-right wow fadeInUp delay-02s">
-            	<img src="{% static "bitasync_site/img/macbook-pro.png" %}" alt="">
-            </figure>
-        
-        </div>
-	</div>
+    	
+
+		<div class="intro row">
+				<div class="container">
+					<div class="row text-center">
+						<h2>استفاده از بیتاسینک</h2>
+						
+						
+						<div class="col-sm-3 col-xs-6">
+							<span class="icon-howit04"></span>
+							<h3>به همین سادگی</h3>
+							<p>موبایل جدید شما اطلاعات شما را دارد</p>
+						</div>
+
+						<div class="col-sm-3 col-xs-6">
+							<span class="icon-howit03"></span>
+							<h3>انتقال</h3>
+							<p>برای انتقال کمی صبر کنید</p>
+						</div>
+						
+						
+						<div class="col-sm-3 col-xs-6">
+							<span class="icon-howit02"></span>
+							<h3>انتخاب</h3>
+							<p>You can select your Contacts, Photos, Videos, Apps, anything!</p>
+							<p>شما می توانید اطلاعات تماس، عکس ها، ویدیوها، برنامه ها، و ... را انتخاب کنید</p>
+						</div>
+						<div class="col-sm-3 col-xs-6">
+							<span class="icon-howit01"></span>
+							<h3>اتصال</h3>
+							<p>موبایل خود را به بیتاسینک متصل کنید</p>
+						</div>
+						
+
+					</div>
+					<!-- br -->
+				</div> <!-- /container -->
+			</div>
+
+
 </section><!--main-section-end-->
+
+
+
+
+
+
+
+
 
 
 
@@ -199,32 +200,32 @@
 	</div>
     <div class="portfolioContainer wow fadeInUp delay-04s">
             	<div class=" Portfolio-box branding">
-                	<a href="#"><img src="{% static "bitasync_site/img/Portfolio-pic1.jpg" %}" alt=""></a>	
+                	<a href="#"><img src="{% static "bitasync_site/img/l1.jpg" %}" alt=""></a>	
                 	<h3>Foto Album</h3>
                     <p>Print Design</p>
                 </div>
-                <div class="Portfolio-box webdesign">
-                	<a href="#"><img src="{% static "bitasync_site/img/Portfolio-pic2.jpg" %}" alt=""></a>	
+                <div class="Portfolio-box branding">
+                	<a href="#"><img src="{% static "bitasync_site/img/l3.jpg" %}" alt=""></a>	
                 	<h3>Luca Theme</h3>
                     <p>Web Design</p>
                 </div>
                 <div class=" Portfolio-box branding">
-                	<a href="#"><img src="{% static "bitasync_site/img/Portfolio-pic3.jpg" %}" alt=""></a>	
+                	<a href="#"><img src="{% static "bitasync_site/img/l6.jpg" %}" alt=""></a>	
                 	<h3>Uni Sans</h3>
                     <p>Branding</p>
                 </div>
                 <div class=" Portfolio-box webdesign" >
-                	<a href="#"><img src="{% static "bitasync_site/img/Portfolio-pic4.jpg" %}" alt=""></a>	
+                	<a href="#"><img src="{% static "bitasync_site/img/un1.jpg" %}" alt=""></a>	
                 	<h3>Vinyl Record</h3>
                     <p>Photography</p>
                 </div>
-                <div class=" Portfolio-box branding">
-                	<a href="#"><img src="{% static "bitasync_site/img/Portfolio-pic5.jpg" %}" alt=""></a>	
+                <div class=" Portfolio-box webdesign">
+                	<a href="#"><img src="{% static "bitasync_site/img/un3.jpg" %}" alt=""></a>	
                 	<h3>Hipster</h3>
                     <p>Branding</p>
                 </div>
                 <div class=" Portfolio-box webdesign">
-                	<a href="#"><img src="{% static "bitasync_site/img/Portfolio-pic6.jpg" %}" alt=""></a>	
+                	<a href="#"><img src="{% static "bitasync_site/img/un6.jpg" %}" alt=""></a>	
                 	<h3>Windmills</h3>
                     <p>Photography</p>
                 </div>
