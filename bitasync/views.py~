@@ -1,0 +1,17 @@
+from django.core.mail import send_mail
+from .forms import Contact_us
+
+def contact_us(request): 
+    
+    if request.method = "POST":
+    
+    else:
+        form = Contact_us()
+        
+        args= {}
+        args['form']=form
+
+        
+        template = loader.get_template('user_profile/registration.html')
+        context = RequestContext(request,args)
+        return HttpResponse(template.render(context))
