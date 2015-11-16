@@ -290,7 +290,7 @@ def auth_view(request):
 def my_login(request): 
 
     response = auth_views.login(request,
-                                template_name="user_profile/my_login.html", 
+                                template_name="user_profile/login.html", 
                                 )
     
     return response 
