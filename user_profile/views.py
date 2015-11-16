@@ -286,6 +286,16 @@ def auth_view(request):
     else:
         return HttpResponseRedirect('/accounts/invalid')
 
+      
+def my_login(request): 
+
+    response = auth_views.login(request,
+                                template_name="user_profile/my_login.html", 
+                                )
+    
+    return response 
+
+    
 
 def loggedin(request):
     template = loader.get_template('user_profile/loggedin.html')

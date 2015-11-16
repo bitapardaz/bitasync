@@ -86,6 +86,7 @@ def homepage(request):
 
 
 def data_transfer_plans(request):
+
     # return teh list of data_transfer_plans as a list.
     plans = Data_Transfer_Plan.objects.all()
 

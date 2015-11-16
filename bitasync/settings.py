@@ -129,3 +129,7 @@ EMAIL_PORT = 2525
 EMAIL_HOST_USER = 'outreach@bitasync.com'
 EMAIL_HOST_PASSWORD = 'alirezaPour1986!'
 EMAIL_USE_TLS = False
+
+
+
+LOGIN_REDIRECT_URL = "/accounts/loggedin/"
