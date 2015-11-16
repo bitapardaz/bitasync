@@ -87,7 +87,7 @@ def homepage(request):
 
 def data_transfer_plans(request):
 
-    # return teh list of data_transfer_plans as a list.
+    # return thh list of data_transfer_plans as a list.
     plans = Data_Transfer_Plan.objects.all()
 
     if not plans:
@@ -97,4 +97,6 @@ def data_transfer_plans(request):
     context = RequestContext(request, {'plan_list': plans})
     return HttpResponse(template.render(context))
     
+def activate_plan(request,plan_name): 
+    return HttpResponse("Payment Page.")
     
