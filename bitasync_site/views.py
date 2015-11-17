@@ -98,5 +98,13 @@ def data_transfer_plans(request):
     return HttpResponse(template.render(context))
     
 def activate_plan(request,plan_name): 
-    return HttpResponse("Payment Page.")
+
+	valid_plans = ["l1", "l3", "l6", "u1", "u3", "u6" ]
+
+	if plan_name not in valid_plans: 
+		raise Http404("Data transfer selected is not valid.")
+
+	else: 
+		return HttpResponse("selected data transfer: " + plan_name)
+
     
