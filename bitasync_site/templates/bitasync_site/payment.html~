@@ -2,12 +2,19 @@
 
 <hr>
 
-Plan name = {{plan.name}}
+<img src={{image_link}}>
 
 <hr>
 
-Plan Description = {{plan.description}}
+Plan Description = {{plan.description}} 
 
 <hr>
 
-Pay button 
+Price = {{plan.price}}
+
+<hr>
+
+<form action="/bitasync/activate/{{plan.plan_name}}/" method="post">   
+{% csrf_token  %}   
+<input type="submit" value="پرداخت الکترونیکی">    
+</form>

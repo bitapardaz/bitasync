@@ -16,6 +16,7 @@ td {
     <th> Plan Name </th>
     <th> Frequency </th>
     <th> Duration </th>
+    <th> Description </th>
     <th> Purchase Link </th>
   </tr>
 
@@ -26,6 +27,7 @@ td {
             <td> {{plan.plan_name}} </td>
             <td> {{plan.freq}} </td>
             <td> {{plan.duration}} </td>
+            <td> {{plan.description}} </td>
             <td> <a href="/bitasync/activate/{{ plan.plan_name }}/" >  Activate this plan  </a> </td>
 
         </tr>
