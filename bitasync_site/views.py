@@ -13,6 +13,8 @@ from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 
+from payment.utilities import Transaction
+
 def thanks_contact_us(request):
 
     response = """
@@ -110,9 +112,11 @@ def activate_plan(request,plan_name):
         
         if plan_name not in valid_plans :
             raise Http404("Data transfer selected is not valid.")
-            
+         
+        plan = Data_Transfer_Plan.objects.get(plan_name = plan_name) 
+        transaction = Transaction(price=plan.price)    
         # payment_status = process_payment(request,plan_name)            
-        payment_status = True
+        payment_status = transaction.process_transaction()
         
         if payment_status == True:
          
@@ -128,8 +132,10 @@ def activate_plan(request,plan_name):
                      recipient_list=recipient_list, 
                      fail_silently=False)
             
-            # add ther to the purchase table.
+            # add to the purchase table.
             
+            
+            # add to the statistics table.
             
             #return HttpResponseRedirect("/bitasync/activate/successful_payment/")
             return HttpResponse("""Thanks for your order. 

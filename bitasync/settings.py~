@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'user_profile',
     'code_test',
     'hardware',
+    'payment',
 #    'django.contrib.sites',
 )
 
@@ -132,4 +133,4 @@ EMAIL_USE_TLS = False
 
 
 
-LOGIN_REDIRECT_URL = "/accounts/loggedin"
+LOGIN_REDIRECT_URL = "/accounts/loggedin/"
