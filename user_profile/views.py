@@ -209,7 +209,7 @@ def register(request):
             
             username = user_form.cleaned_data['username']
             password = user_form.cleaned_data['password1']         
-            email = user_profile_form.cleaned_data['email']
+            email = user_profile_form.cleaned_data['email']   # we get user email using an instance of UserProfileForm
             
             user = User.objects.create_user(username=username, password=password, email=email)
                        
