@@ -1,6 +1,8 @@
 from django.db import models
 from durationfield.db.models.fields.duration import DurationField
+import datetime
 
+from django.contrib.auth.models import User
 
 class Data_Transfer_Plan(models.Model):
 
@@ -18,6 +20,8 @@ class Contact_Comment(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     message = models.CharField(max_length=1000)
+    call_back_request = models.NullBooleanField(null=True,blank=True)
+    phone_number= models.CharField(null=True,blank=True,max_length=20)
 
 class B2C_Coupon:
     pass
@@ -25,3 +29,17 @@ class B2C_Coupon:
 
 class B2S2C_Coupon:
     pass
+    
+class Purchase(models.Model):
+
+    user = models.ForeignKey(User)
+    data_transfer_plan = models.ForeignKey(Data_Transfer_Plan)
+    
+    # to do. store agents' name in the database, and give her some rewards. 
+    # this can be used in the admin interface that we design for our customer service team.  
+    # assisting_agent = models.ForeignKey(Sales_Agent)
+    
+    gateway = models.CharField(max_length=100, null=True, blank=True, default="unspecified")
+    purchase_date = models.DateField(auto_now_add=True )
+    
+

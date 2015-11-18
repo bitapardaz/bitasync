@@ -8,6 +8,9 @@ from django.core.mail import send_mail
 from .forms import Contact_us
 
 from models import Contact_Comment
+from models import Purchase
+
+
 from django.template.context_processors import csrf
 
 from django.contrib.auth.decorators import login_required
@@ -57,6 +60,8 @@ def contact_us(request):
             comment.name = form.cleaned_data['name']
             comment.message = form.cleaned_data['message']
             comment.email = email 
+            comment.call_back_request = form.call_back
+            comment.phone_number = form.phone_number
             
             comment.save()       
             
@@ -114,7 +119,10 @@ def activate_plan(request,plan_name):
             raise Http404("Data transfer selected is not valid.")
          
         plan = Data_Transfer_Plan.objects.get(plan_name = plan_name) 
+        
+        # todo. when the transaction is being done, add the gateway. 
         transaction = Transaction(price=plan.price)    
+
         # payment_status = process_payment(request,plan_name)            
         payment_status = transaction.process_transaction()
         
@@ -133,20 +141,24 @@ def activate_plan(request,plan_name):
                      fail_silently=False)
             
             # add to the purchase table.
+            new_purchase = Purchase()
+            new_purchase.user = request.user
+            new_purchase.data_transfer_plan = plan 
+            new_purchase.gateway = "unspecified"
+            new_purchase.save()           
             
-            
+            # todo: create a statistics table and store the data for the managers. 
             # add to the statistics table.
             
             #return HttpResponseRedirect("/bitasync/activate/successful_payment/")
+            #todo: put advertisement in this payment_success page. 
             return HttpResponse("""Thanks for your order. 
                                    Your account is now activated.
                                    A confirmation email has been sent to your email.""")
             
-        else: 
-        
-            return HttpResponseRedirect("/bitasync/activate/" + plan_name + "/")
-            
-            
+        else:
+            # if the payment fails. 
+            return HttpResponseRedirect("/bitasync/activate/payment_failed/"+ plan.plan_name +"/")
     else : 
     
         valid_plans = ["L1","L3","L6","U1","U3","U6"]
@@ -178,4 +190,30 @@ def activate_plan(request,plan_name):
             context.update(csrf(request))
             
             return render(request,'bitasync_site/payment.html',context)
+            
+            
+def payment_failed(request,plan_name): 
+
+    valid_plans = ["L1","L3","L6","U1","U3","U6"]
+    if plan_name not in valid_plans :
+        raise Http404("Data transfer selected is not valid.")
+    else: 
+
+        if request.method == "POST": 
+            # we should never arrive here. 
+            # this page contains Contact_us form.
+            # when the form is submited, the request is posted to
+            # /bitasync/thanks_contact_us, and not here!
+            pass
+            
+        else: 
+            context = {}
+
+            form = Contact_us()
+            context['plan_name'] = plan_name
+            context['form'] = form
+            
+            return render(request,"bitasync_site/payment_failed.html",context)
+
+                   
 
