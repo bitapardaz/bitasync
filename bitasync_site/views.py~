@@ -60,8 +60,8 @@ def contact_us(request):
             comment.name = form.cleaned_data['name']
             comment.message = form.cleaned_data['message']
             comment.email = email 
-            comment.call_back_request = form.call_back
-            comment.phone_number = form.phone_number
+            comment.call_back_request = form.cleaned_data['call_back']
+            comment.phone_number = form.cleaned_data['phone_number']
             
             comment.save()       
             
@@ -152,9 +152,7 @@ def activate_plan(request,plan_name):
             
             #return HttpResponseRedirect("/bitasync/activate/successful_payment/")
             #todo: put advertisement in this payment_success page. 
-            return HttpResponse("""Thanks for your order. 
-                                   Your account is now activated.
-                                   A confirmation email has been sent to your email.""")
+            return HttpResponseRedirect("/bitasync/activate/payment_success" + plan.plan_name +"/")
             
         else:
             # if the payment fails. 
@@ -215,5 +213,4 @@ def payment_failed(request,plan_name):
             
             return render(request,"bitasync_site/payment_failed.html",context)
 
-                   
 
