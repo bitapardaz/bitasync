@@ -152,7 +152,7 @@ def activate_plan(request,plan_name):
             
             #return HttpResponseRedirect("/bitasync/activate/successful_payment/")
             #todo: put advertisement in this payment_success page. 
-            return HttpResponseRedirect("/bitasync/activate/payment_success" + plan.plan_name +"/")
+            return HttpResponseRedirect("/bitasync/activate/payment_success/" + plan.plan_name +"/")
             
         else:
             # if the payment fails. 
@@ -169,27 +169,29 @@ def activate_plan(request,plan_name):
             plan = Data_Transfer_Plan.objects.get(plan_name = plan_name)
             context={}
             context['plan'] = plan
-            
-            if plan_name == "L1":
-                image_link = ""
-            elif plan_name == "L3": 
-                image_link = ""
-            elif plan_name == "L6": 
-                image_link = "" 
-            elif plan_name == "U1": 
-                image_link = "" 
-            elif plan_name == "U3": 
-                image_link = ""
-            elif plan_name == "U6": 
-                image_link = ""
                 
-            context['image_link'] = image_link
+            context['image_link'] = get_image_link(plan)
             
             context.update(csrf(request))
             
             return render(request,'bitasync_site/payment.html',context)
             
             
+def get_image_link(plan_name): 
+    if plan_name == "L1":
+        image_link = ""
+    elif plan_name == "L3": 
+        image_link = ""
+    elif plan_name == "L6": 
+        image_link = "" 
+    elif plan_name == "U1": 
+        image_link = "" 
+    elif plan_name == "U3": 
+        image_link = ""
+    elif plan_name == "U6": 
+        image_link = ""         
+            
+@login_required       
 def payment_failed(request,plan_name): 
 
     valid_plans = ["L1","L3","L6","U1","U3","U6"]
@@ -212,5 +214,14 @@ def payment_failed(request,plan_name):
             context['form'] = form
             
             return render(request,"bitasync_site/payment_failed.html",context)
+
+@login_required
+def payment_success(request,plan_name): 
+    
+    context = {}
+    context['plan_name'] = plan_name
+    context['img'] = get_image_link(plan_name)
+    
+    return render(request,'bitasync_site/payment_success.html',context)
 
 

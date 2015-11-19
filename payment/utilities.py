@@ -11,4 +11,4 @@ class Transaction():
         # a boolean indicating if the transaction was successful 
         # given the payment gateway. 
         # connection to web services. 
-        return False
+        return True
