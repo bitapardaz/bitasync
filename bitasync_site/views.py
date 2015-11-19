@@ -168,11 +168,11 @@ def activate_plan(request,plan_name):
         
             plan = Data_Transfer_Plan.objects.get(plan_name = plan_name)
             context={}
-            context['plan'] = plan
-                
+            context.update(csrf(request))
+            context['plan'] = plan                
             context['image_link'] = get_image_link(plan)
             
-            context.update(csrf(request))
+
             
             return render(request,'bitasync_site/payment.html',context)
             
@@ -223,5 +223,6 @@ def payment_success(request,plan_name):
     context['img'] = get_image_link(plan_name)
     
     return render(request,'bitasync_site/payment_success.html',context)
+    #todo: in this page, we can put advertisement related to the mobile phones. 
 
 

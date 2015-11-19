@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^bitasync/', include('bitasync_site.urls')),
     url(r'^accounts/', include('user_profile.urls')),
-    url(r'^code_test/', include('code_test.urls')),   
+    url(r'^code_test/', include('code_test.urls')),  
+    url(r'^guides/',include('guides.urls')) 
 ]
