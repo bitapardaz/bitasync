@@ -100,11 +100,11 @@
 					 <form role="form" action='' method='post' class="login-form"> {% csrf_token  %}
 	{{ form.field_errors }}		                    	
 <div class="form-group">
-			                    		<label class="sr-only" for="form-username">نام کاربری</label>
+			                    		<label class="sr-only" for="{{ form.username.id_for_label }}">نام کاربری</label>
 			                        	<input type="text" name="{{ form.username.html_name }}" placeholder="نام کاربری ..." class="form-username form-control" id="{{ form.username.id_for_label }}">
 			                        </div>
 			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-password">کلمه عبور</label>
+			                        	<label class="sr-only" for="{{ form.password.id_for_label }}">کلمه عبور</label>
 			                        	<input type="password" name="{{ form.password.html_name }}" placeholder="کلمه عبور ..." class="form-password form-control" id="{{ form.password.id_for_label }}">
 			                        </div>
 			                        <button type="submit" class="btn">ورود</button>
