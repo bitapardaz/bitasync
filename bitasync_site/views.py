@@ -18,6 +18,8 @@ from django.core.mail import send_mail
 
 from payment.utilities import Transaction
 
+import hashlib
+
 def thanks_contact_us(request):
 
     response = """
@@ -145,7 +147,12 @@ def activate_plan(request,plan_name):
             new_purchase.user = request.user
             new_purchase.data_transfer_plan = plan 
             new_purchase.gateway = "unspecified"
-            new_purchase.save()           
+            new_purchase.save()
+
+            hasher = hashlib.md5()   # save follow_up number using hash           
+            new_purchase.follow_up_number = hasher.hexdigest(new_purchase.id)
+            new_purchase.save()
+            
             
             # todo: create a statistics table and store the data for the managers. 
             # add to the statistics table.
@@ -176,6 +183,8 @@ def activate_plan(request,plan_name):
             
             return render(request,'bitasync_site/payment.html',context)
             
+     
+     
             
 def get_image_link(plan_name): 
     if plan_name == "L1":

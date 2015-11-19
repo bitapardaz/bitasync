@@ -41,5 +41,6 @@ class Purchase(models.Model):
     
     gateway = models.CharField(max_length=100, null=True, blank=True, default="unspecified")
     purchase_date = models.DateField(auto_now_add=True )
+    follow_up_number = models.CharField(max_length=100)
     
 

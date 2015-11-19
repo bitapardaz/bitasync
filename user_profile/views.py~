@@ -209,7 +209,7 @@ def register(request):
             
             username = user_form.cleaned_data['username']
             password = user_form.cleaned_data['password1']         
-            email = user_profile_form.cleaned_data['email']
+            email = user_profile_form.cleaned_data['email']   # we get user email using an instance of UserProfileForm
             
             user = User.objects.create_user(username=username, password=password, email=email)
                        
@@ -256,15 +256,6 @@ def register(request):
         context = RequestContext(request,args)
         return HttpResponse(template.render(context))
          
-       
-def login(request):
-        c = {}
-        c.update(csrf(request))
-        template = loader.get_template('user_profile/login.html')
-        context = RequestContext(request, c)
-        return HttpResponse(template.render(context))
-
-
 def logout(request):
     auth.logout(request)
     template = loader.get_template('user_profile/loggedout.html')
@@ -272,22 +263,22 @@ def logout(request):
     return HttpResponse(template.render(context))
 
 
-def auth_view(request):
+#def auth_view(request):
     # this view only performs an action based on the authentication form.
     # therefore, it does not need a template
-    username = request.POST.get('username', '')
-    password = request.POST.get('password', '')
+#    username = request.POST.get('username', '')
+#    password = request.POST.get('password', '')
 
-    user = auth.authenticate(username=username, password=password)
+#    user = auth.authenticate(username=username, password=password)
 
-    if user is not None:
-        auth.login(request, user)
-        return HttpResponseRedirect('/accounts/loggedin')
-    else:
-        return HttpResponseRedirect('/accounts/invalid')
+#    if user is not None:
+#        auth.login(request, user)
+#        return HttpResponseRedirect('/accounts/loggedin')
+#    else:
+#        return HttpResponseRedirect('/accounts/invalid')
 
       
-def my_login(request): 
+def login(request): 
 
     response = auth_views.login(request,
                                 template_name="user_profile/login.html", 
