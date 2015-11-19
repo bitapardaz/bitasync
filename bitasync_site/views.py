@@ -149,8 +149,10 @@ def activate_plan(request,plan_name):
             new_purchase.gateway = "unspecified"
             new_purchase.save()
 
-            hasher = hashlib.md5()   # save follow_up number using hash           
-            new_purchase.follow_up_number = hasher.hexdigest(new_purchase.id)
+            hasher = hashlib.md5()   # save follow_up number using hash       
+            hasher.update(str(new_purchase.id))
+            follow_up_number = hasher.hexdigest()
+            new_purchase.follow_up_number = follow_up_number
             new_purchase.save()
             
             
@@ -159,7 +161,7 @@ def activate_plan(request,plan_name):
             
             #return HttpResponseRedirect("/bitasync/activate/successful_payment/")
             #todo: put advertisement in this payment_success page. 
-            return HttpResponseRedirect("/bitasync/activate/payment_success/" + plan.plan_name +"/")
+            return HttpResponseRedirect("/bitasync/activate/payment_success/" + plan.plan_name +"/" + follow_up_number + "/")
             
         else:
             # if the payment fails. 
@@ -225,11 +227,12 @@ def payment_failed(request,plan_name):
             return render(request,"bitasync_site/payment_failed.html",context)
 
 @login_required
-def payment_success(request,plan_name): 
+def payment_success(request,plan_name,follow_up_number): 
     
     context = {}
     context['plan_name'] = plan_name
     context['img'] = get_image_link(plan_name)
+    context['follow_up_number'] = follow_up_number
     
     return render(request,'bitasync_site/payment_success.html',context)
     #todo: in this page, we can put advertisement related to the mobile phones. 
