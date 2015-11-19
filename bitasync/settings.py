@@ -134,4 +134,4 @@ EMAIL_USE_TLS = False
 
 
 
-LOGIN_REDIRECT_URL = "/accounts/loggedin/"
+LOGIN_REDIRECT_URL = "/"

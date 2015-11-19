@@ -258,10 +258,10 @@ def register(request):
          
 def logout(request):
     auth.logout(request)
-    template = loader.get_template('user_profile/loggedout.html')
-    context = RequestContext(request)
-    return HttpResponse(template.render(context))
-
+    #template = loader.get_template('user_profile/loggedout.html')
+    #context = RequestContext(request)
+    #return HttpResponse(template.render(context))
+    return HttpResponseRedirect('/') 
 
 #def auth_view(request):
     # this view only performs an action based on the authentication form.

@@ -12,3 +12,4 @@ class Transaction():
         # given the payment gateway. 
         # connection to web services. 
         return True
+
