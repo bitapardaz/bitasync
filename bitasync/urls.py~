@@ -21,7 +21,7 @@ from bitasync_site import views
 #from user_profile import views
 
 urlpatterns = [
-    url(r'^$', views.homepage),
+    url(r'^$', views.homepage2),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^bitasync/', include('bitasync_site.urls')),
     url(r'^accounts/', include('user_profile.urls')),
