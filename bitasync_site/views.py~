@@ -94,6 +94,10 @@ def contact_us(request):
 
 def homepage(request):
       return render(request, 'bitasync_site/index.html')
+      
+      
+def homepage2(request):
+      return HttpResponse("Test Homepage. You are at www.bitasync.com")
 
 
 def data_transfer_plans(request):
@@ -232,7 +236,7 @@ def payment_success(request,plan_name,follow_up_number):
     context = {}
     context['plan_name'] = plan_name
     context['img'] = get_image_link(plan_name)
-    context['follow_up_number'] = 
+    context['follow_up_number'] = follow_up_number
     
     return render(request,'bitasync_site/payment_success.html',context)
     #todo: in this page, we can put advertisement related to the mobile phones. 
