@@ -62,12 +62,17 @@
           
             <li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li>
  <li><a href="#contact">تماس با ما</a></li>
-<li><a href="/accounts/register">عضویت</a></li>	
-<li><a href="/accounts/login">ورود</a></li>
-         <!--   <li><a href="#client">Clients</a></li>-->
-           <!-- <li><a href="#team">Team</a></li>-->
-		    
+ {% if request.user.is_authenticated %}
+            
+                <li><a href="/accounts/myprofile"> پروفایل {{request.user.username}}</a></li>	
+                 <li><a href="/accounts/logout">  خروج</a></li>
+            {% else %}
+                <li><a href="/accounts/register">عضویت</a></li>	
+                <li><a href="/accounts/login">ورود</a></li>
+            {% endif %}
+            
            
+		    
         </ul>
         <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
     </div>
@@ -157,12 +162,7 @@
                 </div>
             </div>
             
-        </div>
-            </div>
-           
-        
-        </div>
-	</div>
+       
 </section><!--main-section-end-->
 
 
