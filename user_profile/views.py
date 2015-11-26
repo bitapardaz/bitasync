@@ -36,7 +36,15 @@ def my_password_reset(request):
     
     
 def my_password_reset_done(request): 
-    return HttpResponse('Please check your email')
+   
+    template = loader.get_template('user_profile/password_reset_done.html')
+    context = RequestContext(request)
+    return HttpResponse(template.render(context))
+    
+
+
+
+
     
 def my_password_reset_confirm(request,uidb64,token): 
     response = auth_views.password_reset_confirm(request,

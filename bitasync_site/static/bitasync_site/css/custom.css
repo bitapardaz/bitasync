@@ -133,10 +133,22 @@ color :darkslategray !important;
 }
 
 
+#pwdresdone .footer {
+   
+    bottom: 0%;
+    position: absolute;
+    width: 100%;
+}
 
+.main-nav li a {
+   
 
-
-
+    margin: 17px 15px !important;
+}
+.main-nav {
+   
+    text-align: right !important;
+}
 
 
 

@@ -4,6 +4,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, maximum-scale=1">
+<meta name="description" content="  انتقال آسان اطلاعات بین تلفن های همرٍاه از گوشی قدیمیتان به گوشی جدید حتی با سیستم عامل های متفاوت">	
+	
 
 <title>بیتاسینک</title>
 <link rel="icon" href="favicon.png" type="image/png">
@@ -74,25 +76,21 @@
 <nav class="main-nav-outer" id="test"><!--main-nav-start-->
 	<div class="container">
         <ul class="main-nav">
-        	<li><a href="#header">بیتاسینک</a></li>
-          <!--  <li><a href="#service">Services</a></li>-->
+        <!--	<li><a href="#header">بیتاسینک</a></li>
+            <li><a href="#service">Services</a></li>-->
         
-            <li><a href="#download">دانلود</a></li>
- <li><a href="#">راهنمای استفاده</a></li>
-		
-          
-            <li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li>
- <li><a href="#contact">تماس با ما</a></li>
-
-          
-            {% if request.user.is_authenticated %}
-            
-                <li><a href="/accounts/myprofile"> پروفایل {{request.user.username}}</a></li>	
-                 <li><a href="/accounts/logout">  خروج</a></li>
-            {% else %}
-                <li><a href="/accounts/register">عضویت</a></li>	
-                <li><a href="/accounts/login">ورود</a></li>
-            {% endif %}
+            <li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li> 
+			<li><a href="#download">دانلود</a></li>
+ 			<li><a href="#">راهنمای استفاده</a></li>
+		   
+ 			<li><a href="#contact">تماس با ما</a></li>
+            	 {% if request.user.is_authenticated %}
+            <li><a href="/accounts/myprofile"> پروفایل {{request.user.username}}</a></li>	
+            <li><a href="/accounts/logout">  خروج</a></li>
+        	    {% else %}
+            <li><a href="/accounts/register">عضویت</a></li>	
+            <li><a href="/accounts/login">ورود</a></li>
+        	    {% endif %}
             
            
 		    
