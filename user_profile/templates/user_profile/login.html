@@ -48,80 +48,77 @@
 </head>
 <body>
 
+<div>
+
+		<nav class="main-nav-outer" id="test"><!--main-nav-start-->
+			<div class="container">
+				<ul class="main-nav">
+					<li><a href="/">بیتاسینک</a></li>
+				  <!--  <li><a href="#service">Services</a></li>-->
+
+					<li><a href="#download">دانلود</a></li>
+		 <li><a href="#">راهنمای استفاده</a></li>
 
 
-<nav class="main-nav-outer" id="test"><!--main-nav-start-->
-	<div class="container">
-        <ul class="main-nav">
-        	<li><a href="/">بیتاسینک</a></li>
-          <!--  <li><a href="#service">Services</a></li>-->
-        
-            <li><a href="#download">دانلود</a></li>
- <li><a href="#">راهنمای استفاده</a></li>
-		
-          
-            <li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li>
- <li><a href="#contact">تماس با ما</a></li>
-<li><a href="/accounts/register">عضویت</a></li>	
-<li><a href="/accounts/login">ورود</a></li>
-         <!--   <li><a href="#client">Clients</a></li>-->
-           <!-- <li><a href="#team">Team</a></li>-->
-		    
-           
-        </ul>
-        <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
-    </div>
-</nav><!--main-nav-end-->
+					<li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li>
+		 <li><a href="#contact">تماس با ما</a></li>
+		<li><a href="/accounts/register">عضویت</a></li>	
+		<li><a href="/accounts/login">ورود</a></li>
+				 <!--   <li><a href="#client">Clients</a></li>-->
+				   <!-- <li><a href="#team">Team</a></li>-->
 
 
-
-<section class="main-section" id="service"><!--main-section-start-->
-	<div class="container">
-    	<!--<h2></h2>
-    	<h6></h6>-->
-        <div class="row">
-        
-                    <div class="row">
-                    	<!--<div class="col-sm-6 phone">
-                    		<img src="{% static "user_profile/assets/img/iphone.png" %}" alt="">
-                    	</div>-->
-                         <div class="col-sm-6 col-sm-offset-3 form-box">
-                        	<div class="form-top">
-                        		<div class="form-top-left">
-                        			<h3></h3>
-                            		<p>نام کاربری و کلمه عبور خود را وارد کنید:</p>
-                        		</div>
-                        		<div class="form-top-right">
-                        			<i class="fa fa-lock"></i>
-                        		</div>
-                            </div>
-                            <div class="form-bottom">
-			                   
-					 <form role="form" action='' method='post' class="login-form"> {% csrf_token  %}
-	{{ form.field_errors }}		                    	
-<div class="form-group">
-			                    		<label class="sr-only" for="{{ form.username.id_for_label }}">نام کاربری</label>
-			                        	<input type="text" name="{{ form.username.html_name }}" placeholder="نام کاربری ..." class="form-username form-control" id="{{ form.username.id_for_label }}">
-			                        </div>
-			                        <div class="form-group">
-			                        	<label class="sr-only" for="{{ form.password.id_for_label }}">کلمه عبور</label>
-			                        	<input type="password" name="{{ form.password.html_name }}" placeholder="کلمه عبور ..." class="form-password form-control" id="{{ form.password.id_for_label }}">
-			                        </div>
-			                        <button type="submit" class="btn">ورود</button>
-<a href='/accounts/password_reset/'>کلمه عبور خود را فراموش کرده اید؟</a>
-{{ form.non_field_errors }}
-			                    </form>
-		                    </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        
-</section><!--main-section-end-->
+				</ul>
+				<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+			</div>
+		</nav><!--main-nav-end-->
 
 
 
+		<section class="main-section" id="service"><!--main-section-start-->
+			<div class="container">
+				<!--<h2></h2>
+				<h6></h6>-->
+				<div class="row">
+
+							<div class="row">
+								<!--<div class="col-sm-6 phone">
+									<img src="{% static "user_profile/assets/img/iphone.png" %}" alt="">
+								</div>-->
+								 <div class="col-sm-6 col-sm-offset-3 form-box">
+									<div class="form-top">
+										<div class="form-top-left">
+											<h3></h3>
+											<p>نام کاربری و کلمه عبور خود را وارد کنید:</p>
+										</div>
+										<div class="form-top-right">
+											<i class="fa fa-lock"></i>
+										</div>
+									</div>
+									<div class="form-bottom">
+
+							 <form role="form" action='' method='post' class="login-form"> {% csrf_token  %}
+			{{ form.field_errors }}		                    	
+		<div class="form-group">
+												<label class="sr-only" for="{{ form.username.id_for_label }}">نام کاربری</label>
+												<input type="text" name="{{ form.username.html_name }}" placeholder="نام کاربری ..." class="form-username form-control" id="{{ form.username.id_for_label }}">
+											</div>
+											<div class="form-group">
+												<label class="sr-only" for="{{ form.password.id_for_label }}">کلمه عبور</label>
+												<input type="password" name="{{ form.password.html_name }}" placeholder="کلمه عبور ..." class="form-password form-control" id="{{ form.password.id_for_label }}">
+											</div>
+											<button type="submit" class="btn">ورود</button>
+		<a href='/accounts/password_reset/'>کلمه عبور خود را فراموش کرده اید؟</a>
+		{{ form.non_field_errors }}
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+		</section><!--main-section-end-->
 
 
 
@@ -135,13 +132,16 @@
 
 
 
-<footer class="footer">
-    <div class="container">
-        <div class="footer-logo"><a href="#"><img src="{% static "bitasync_site/img/footer-logo.png" %}" alt=""></a></div>
-        <span class="copyright"> تمامی حقوق برای شرکت بیتاپرداز محفوظ است (<span style="color:red">نسخه آزمایشی</span>)     .Bitapardaz Co &copy;</span>
-    </div>
-</footer>
 
+
+
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-logo"><a href="#"><img src="{% static "bitasync_site/img/footer-logo.png" %}" alt=""></a></div>
+				<span class="copyright"> تمامی حقوق برای شرکت بیتاپرداز محفوظ است (<span style="color:red">نسخه آزمایشی</span>)     .Bitapardaz Co &copy;</span>
+			</div>
+		</footer>
+  <div>
 
 </body>
 </html>

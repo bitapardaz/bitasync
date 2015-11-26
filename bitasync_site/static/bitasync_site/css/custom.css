@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5{
 }
 .main-nav li a{
     font-family: B mehr !important;
-	font-size: 120%;
+	font-size: 100%;
 }
 .Portfolio-nav li a {
     font-family: B mehr !important;
@@ -82,12 +82,12 @@ body {
 }
 
 
-.team-leader img {
+/*.team-leader img {
     border-radius: 70% !important;
    
     height: 300px;
     width: 450px;
-}
+}*/
 
 .main-section.alabaster {
     background: #F3F3F3 none repeat scroll 0 0 !important;
@@ -128,7 +128,9 @@ color :darkslategray !important;
 }
 
 
-
+.featured-box-col1 {
+    float: right !important;
+}
 
 
 
