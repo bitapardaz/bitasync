@@ -42,4 +42,4 @@ class MyProfileShopForm(forms.Form):
         super(MyProfileShopForm,self).__init__(*args,**kwargs)
         self.fields['reward'].widget.attrs['readonly'] = True
         
-        
+  
