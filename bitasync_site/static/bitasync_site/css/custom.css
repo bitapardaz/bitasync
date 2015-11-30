@@ -151,9 +151,19 @@ color :darkslategray !important;
 }
 
 
+.Portfolio-box img {
+    margin-bottom: -5px !important;
+}
 
+.btn-order {
+	cursor:pointer;
+}
 
-
-
-
+.label-order {
+	font-family: b mehr; font-size: 18px; margin-top: 15px;
+}
+.Portfolio-box {
+   
+    height: 400px;
+}
 

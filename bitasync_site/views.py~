@@ -76,7 +76,7 @@ def contact_us(request):
             args['form']=form
 
         
-            template = loader.get_template('bitasync_site/contact_us.html')
+            template = loader.get_template('bitasync_site/index.html')
             context = RequestContext(request,args)
             return HttpResponse(template.render(context))
         
@@ -88,12 +88,18 @@ def contact_us(request):
         args['form']=form
 
         
-        template = loader.get_template('bitasync_site/contact_us.html')
+        template = loader.get_template('bitasync_site/index.html')
         context = RequestContext(request,args)
         return HttpResponse(template.render(context))
 
 def homepage(request):
-      return render(request, 'bitasync_site/index.html')
+      
+
+
+	 return contact_us(request);
+
+
+	#return render(request, 'bitasync_site/index.html')
       
       
 def homepage2(request):
