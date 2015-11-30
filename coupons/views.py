@@ -1,17 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 
 from django.template.context_processors import csrf
 
 from django.contrib.auth.decorators import login_required
-
 from django.contrib.auth.models import User
 
 from user_profile.models import UserProfile, CustomerProfile
 
 from .models import B2C_Coupon
-
 from .forms import AddGiftCardForm 
+
+
 
 # Create your views here.
 
@@ -32,7 +32,7 @@ def add_coupon_to_profile(request):
             customer_profile = CustomerProfile.objects.get( user_profile=user_profile )
            
             try: 
-                b2c_coupons = B2C_Coupon.objects.get(hashcode = hashcode)
+                b2c_coupon = B2C_Coupon.objects.get(hashcode = hashcode)
                 b2c_coupon.customer_profile = customer_profile
                 b2c_coupon.save()          
            
@@ -80,6 +80,6 @@ def add_b2c_coupon_success(request,hashcode):
     return HttpResponse("You have successfully added your gift card")  
 
 
-def add_b2c_coupon_failure(request,hashcode): 
+def add_b2c_coupon_failure(request): 
     return HttpResponse("Your gift card code is not valid")  
 

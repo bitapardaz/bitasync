@@ -9,7 +9,7 @@ class B2C_Coupon(models.Model):
 
     Expiery_data = models.DateField()
     Discount_rate = models.FloatField(default=0.0)
-    hashcode = models.CharField(max_length=50, editable=False)
+    hashcode = models.CharField(max_length=50,editable=False)
 
     customer_profile = models.ForeignKey(CustomerProfile, blank=True, null=True)
     

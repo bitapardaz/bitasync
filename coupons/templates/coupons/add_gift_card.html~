@@ -17,8 +17,8 @@ Gift card
         <th>Gift Card</th>
         {% for coupon in existing_coupons %}
             </tr>
-                <td>coupon.expiry_date</td>
-                <td>coupon.discount_rate</td>		
+                <td>{{coupon.expiry_date}}</td>
+                <td>{{coupon.discount_rate}}</td>		
                 <td> {{ forloop.counter }} </td>
             </tr>  
         {% endfor %}
