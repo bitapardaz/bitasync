@@ -8,13 +8,12 @@ from django.contrib.auth.models import User
 
 from user_profile.models import UserProfile, CustomerProfile
 
-from .models import B2C_Coupon
+from .models import Coupon
 from .forms import AddGiftCardForm 
 
-
+from bitasync_site.models import Data_Transfer_Plan
 
 # Create your views here.
-
 @login_required
 def add_coupon_to_profile(request): 
 
@@ -29,17 +28,16 @@ def add_coupon_to_profile(request):
            
             # associate the code to the customer profile 
             user_profile = UserProfile.objects.get( user=request.user )
-            customer_profile = CustomerProfile.objects.get( user_profile=user_profile )
-           
+            
             try: 
-                b2c_coupon = B2C_Coupon.objects.get(hashcode = hashcode)
-                b2c_coupon.customer_profile = customer_profile
-                b2c_coupon.save()          
+                coupon = Coupon.objects.get(hashcode = hashcode)
+                coupon.user_profile = user_profile
+                coupon.save()          
            
-                return HttpResponseRedirect("/coupons/add_b2c_coupon_success/"+hashcode+"/")
+                return HttpResponseRedirect("/coupons/add_coupon_success/"+hashcode+"/"+str(coupon.discount_rate)+"/")
 
-            except B2C_Coupon.DoesNotExist:
-                return HttpResponseRedirect("/coupons/add_b2c_coupon_failure/")
+            except Coupon.DoesNotExist:
+                return HttpResponseRedirect("/coupons/add_coupon_failure/")
                 
            
         else: 
@@ -49,14 +47,13 @@ def add_coupon_to_profile(request):
 
             # get the list of existing coupon for the customer
             user_profile = UserProfile.objects.get( user=request.user )
-            customer_profile = CustomerProfile.objects.get( user_profile=user_profile )
-            b2c_coupons = B2C_Coupon.objects.filter(customer_profile = customer_profile)
-            context['existing_coupons'] = b2c_coupons
+            coupons = Coupon.objects.filter(user_profile = user_profile)
+            context['existing_coupons'] = coupons
                     
             context['form'] = form 
 
             #todo: put a capcha verifier in this form. 
-            return render(request,'coupons/add_gift_card.html',context)
+            return render(request,'coupons/add_coupon.html',context)
         
         
     else: 
@@ -65,19 +62,43 @@ def add_coupon_to_profile(request):
         context.update(csrf(request))
 
         # get the list of existing coupon for the customer
-        user_profile = UserProfile.objects.get( user=request.user )
-        customer_profile = CustomerProfile.objects.get( user_profile=user_profile )
-        b2c_coupons = B2C_Coupon.objects.filter(customer_profile = customer_profile)
-        context['existing_coupons'] = b2c_coupons
+        user_profile = UserProfile.objects.get( user=request.user ) 
+        coupons = Coupon.objects.filter(user_profile = user_profile)
+        context['existing_coupons'] = coupons
                 
         # the form for adding new b2c coupons 
         form = AddGiftCardForm()
         context['form'] = form 
         
-        return render(request,'coupons/add_gift_card.html',context)
+        return render(request,'coupons/add_coupon.html',context)
         
-def add_b2c_coupon_success(request,hashcode): 
-    return HttpResponse("You have successfully added your gift card")  
+def add_coupon_success(request,hashcode,discount_rate): 
+
+    context={}
+    context['discount_percentage'] = int(float(discount_rate) * 100)
+    
+    # get original prices from database
+    original_price_L1 = Data_Transfer_Plan.objects.get(plan_name="L1").price
+    original_price_L3 = Data_Transfer_Plan.objects.get(plan_name="L3").price
+    original_price_L6 = Data_Transfer_Plan.objects.get(plan_name="L6").price
+    
+    # original prices for L1, L3 and L6
+    context['original_price_L1'] = str(original_price_L1)
+    context['original_price_L3'] = str(original_price_L3)
+    context['original_price_L6'] = str(original_price_L6)
+    
+    # calculate discounted prices 
+    discounted_price_L1 = original_price_L1 * (1 - float(discount_rate))
+    discounted_price_L3 = original_price_L3 * (1 - float(discount_rate))
+    discounted_price_L6 = original_price_L6 * (1 - float(discount_rate))
+       
+    # discounted prices for L1, L3 and L6
+    context['discounted_price_L1'] = str(discounted_price_L1)
+    context['discounted_price_L3'] = str(discounted_price_L3)
+    context['discounted_price_L6'] = str(discounted_price_L6)
+
+    return render(request,'coupons/add_gift_card_success.html',context)
+    
 
 
 def add_b2c_coupon_failure(request): 

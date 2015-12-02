@@ -10,11 +10,12 @@ Gift card
 
 {% else %}
 
-    <table style="width:100%">
+    <table border="1">
       <tr>
         <th>Expiry Date</th>
         <th>Discount Rate</th>		
         <th>Gift Card</th>
+      </tr>  
         {% for coupon in existing_coupons %}
             </tr>
                 <td>{{coupon.expiry_date}}</td>

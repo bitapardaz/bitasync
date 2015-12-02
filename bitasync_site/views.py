@@ -180,6 +180,13 @@ def activate_plan(request,plan_name):
         else: 
         
             plan = Data_Transfer_Plan.objects.get(plan_name = plan_name)
+            
+            # check if the user has any discount coupon.
+            
+            user = 
+            
+            
+            
             context={}
             context.update(csrf(request))
             context['plan'] = plan                

@@ -1,7 +1,7 @@
 from django.dispatch import receiver
 from utilities.utility_functions import generate_md5_hash
 
-def b2c_coupon_created(sender, instance, created, **kwargs):
+def coupon_created(sender, instance, created, **kwargs):
 
 
     if created: 
