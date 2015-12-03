@@ -15,7 +15,7 @@ def products_original_prices():
                    ('U6', get_price("U6")) ])
     return prices 
    
-def product_discounted_price(coupons): 
+def product_discounted_prices(coupons): 
     # returns a tuple (current_coupon,discounted_price) where current_coupon 
     # is the coupon which is most favorable for the customer, 
     # and discounted_price is a dictionary where current_coupon is utilised. 
@@ -36,11 +36,10 @@ def product_discounted_price(coupons):
                                       ('U6', get_price("U6") * best_coupon.discount_rate )
                                     ])
                                     
-    return (best_coupon,discounted_price)
-    
-    
+    return (best_coupon,discounted_prices)
+   
 def get_price(plan_name):
-    if plan_name  == "L1": 
+    if plan_name == "L1": 
         return 2000 
     elif plan_name == "L3":
         return 3000
@@ -52,4 +51,16 @@ def get_price(plan_name):
         return 150000
     elif plan_name == "U6": 
         return 250000
-        
+          
+            
+def get_plan_image_link(): 
+
+    plan_image_link = dict([ ('L1',''), 
+                             ('L3',''),  
+                             ('L6',''), 
+                             ('U1',''), 
+                             ('U3',''), 
+                             ('U6',''), 
+                        ])
+                        
+    return  plan_image_link          

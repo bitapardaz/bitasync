@@ -1,0 +1,34 @@
+<h2>
+
+    Product Activation Page with Coupons
+
+</h2>
+
+{% if coupon_available == True %}
+
+    {# comment "The customer has some coupons available" #}
+    coupons are available
+
+{% else %}
+
+
+    {# comment "The customer does not have any coupons registered" #}
+    
+    Plan selected = {{ selected_plan.plan_name  }}
+
+<hr>
+
+<img src={{ selected_plan.image_link }} alt= {{ selected_plan.plan_name }} > 
+
+<hr>
+
+price = {{selected_plan.original_price }}
+<br/>
+<a href="/bitasync/payment">
+پرداخت الکترونیکی
+</a>
+
+<hr>
+   
+
+{% endif %}

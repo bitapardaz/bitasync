@@ -10,6 +10,8 @@ from .forms import Contact_us
 from models import Contact_Comment
 from models import Purchase
 
+from coupons.models import Coupon
+from user_profile.models import UserProfile
 
 from django.template.context_processors import csrf
 
@@ -19,6 +21,8 @@ from django.core.mail import send_mail
 from payment.utilities import Transaction
 
 import hashlib
+
+from utilities import utility_functions 
 
 def thanks_contact_us(request):
 
@@ -170,48 +174,56 @@ def activate_plan(request,plan_name):
         else:
             # if the payment fails. 
             return HttpResponseRedirect("/bitasync/activate/payment_failed/"+ plan.plan_name +"/")
-    else : 
-    
+    else :
+        # request.method is not POST  
         valid_plans = ["L1","L3","L6","U1","U3","U6"]
         
         if plan_name not in valid_plans :
             raise Http404("Data transfer selected is not valid.")
             
         else: 
-        
-            plan = Data_Transfer_Plan.objects.get(plan_name = plan_name)
-            
+
+            # todo: remove the database access. And instead, use a function from utilities.utility_functions to get the data about data_transfer_plans         
+            plan = Data_Transfer_Plan.objects.get( plan_name = plan_name )
+           
             # check if the user has any discount coupon.
+            user_profile = UserProfile.objects.get( user = request.user )
+            user_existing_coupons = Coupon.objects.filter( user_profile = user_profile )
+
+            original_prices = utility_functions.products_original_prices()
+            image_links = utility_functions.get_plan_image_link()
             
-            user = 
+            # load data about the current plan selected.          
+            selected_plan = TempPlan()
+            selected_plan.plan_name = plan.plan_name
+            selected_plan.original_price = original_prices.get(plan.plan_name)
+            selected_plan.image_link = image_links.get(plan.plan_name)
             
             
-            
-            context={}
-            context.update(csrf(request))
-            context['plan'] = plan                
-            context['image_link'] = get_image_link(plan)
+            # find data about the alternative plans.             
             
 
+            # set up the context 
+            context={}
+            context.update(csrf(request))
+            context['selected_plan'] = selected_plan
+
+            # setting the context, depending on whether the customer has any coupons available
+            if not user_existing_coupons: 
+                # if the customer does not have any coupon                           
+                context['coupon_available'] = False
+                
+            else: 
+                # if the customer has some coupons           
+                context['coupon_available'] = True
+
+                (coupon,discounted_prices) = product_discounted_prices(user_existing_coupons)
+                selected_plan.discounted_price = discounted_prices.get(selected_plan.plan_name)
+                
+                context['existing_coupons'] = user_existing_coupons 
             
-            return render(request,'bitasync_site/payment.html',context)
+            return render(request,'bitasync_site/payment_with_coupons.html',context)
             
-     
-     
-            
-def get_image_link(plan_name): 
-    if plan_name == "L1":
-        image_link = ""
-    elif plan_name == "L3": 
-        image_link = ""
-    elif plan_name == "L6": 
-        image_link = "" 
-    elif plan_name == "U1": 
-        image_link = "" 
-    elif plan_name == "U3": 
-        image_link = ""
-    elif plan_name == "U6": 
-        image_link = ""         
             
 @login_required       
 def payment_failed(request,plan_name): 
@@ -246,6 +258,17 @@ def payment_success(request,plan_name,follow_up_number):
     context['follow_up_number'] = follow_up_number
     
     return render(request,'bitasync_site/payment_success.html',context)
-    #todo: in this page, we can put advertisement related to the mobile phones. 
+    #todo: in this page, we can put advertisement related to the mobile phones.
+    
+    
+class TempPlan(): 
+    
+    def __init__(self):                 
+        self.plan_name = ""
+        self.original_price = 0
+        self.discounted_price = 0
+        self.image_link = ""
+            
+     
 
 
