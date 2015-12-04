@@ -190,19 +190,15 @@ def activate_plan(request,plan_name):
             user_profile = UserProfile.objects.get( user = request.user )
             user_existing_coupons = Coupon.objects.filter( user_profile = user_profile )
 
-            original_prices = utility_functions.products_original_prices()
-            image_links = utility_functions.get_plan_image_link()
+#            original_prices = utility_functions.products_original_prices()
+#            image_links = utility_functions.get_plan_image_link()
             
             # load data about the current plan selected.          
-            selected_plan = TempPlan()
-            selected_plan.plan_name = plan.plan_name
-            selected_plan.original_price = original_prices.get(plan.plan_name)
-            selected_plan.image_link = image_links.get(plan.plan_name)
+            selected_plan = utility_functions.create_temp_plan(plan, user_existing_coupons)
             
-            
-            # find data about the alternative plans.             
-            
-
+            # find data about the alternative plans
+            # derive the set of 5 alternative plan                      
+                         .             
             # set up the context 
             context={}
             context.update(csrf(request))
@@ -215,10 +211,9 @@ def activate_plan(request,plan_name):
                 
             else: 
                 # if the customer has some coupons           
-                context['coupon_available'] = True
-
-                (coupon,discounted_prices) = product_discounted_prices(user_existing_coupons)
-                selected_plan.discounted_price = discounted_prices.get(selected_plan.plan_name)
+#                context['coupon_available'] = True
+#                (coupon,discounted_prices) = product_discounted_prices(user_existing_coupons)
+#                selected_plan.discounted_price = discounted_prices.get(selected_plan.plan_name)
                 
                 context['existing_coupons'] = user_existing_coupons 
             
@@ -261,14 +256,7 @@ def payment_success(request,plan_name,follow_up_number):
     #todo: in this page, we can put advertisement related to the mobile phones.
     
     
-class TempPlan(): 
-    
-    def __init__(self):                 
-        self.plan_name = ""
-        self.original_price = 0
-        self.discounted_price = 0
-        self.image_link = ""
-            
+
      
 
 
