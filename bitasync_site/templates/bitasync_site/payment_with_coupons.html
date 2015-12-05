@@ -1,34 +1,249 @@
-<h2>
+<h1>
 
     Product Activation Page with Coupons
 
-</h2>
+</h1>
+<hr>
 
-{% if coupon_available == True %}
 
-    {# comment "The customer has some coupons available" #}
-    coupons are available
+
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <td style="width:350px">
+
+{% if not coupon_available %}
+
+    <p>   Insert your gift cards below: </p>
 
 {% else %}
 
-
-    {# comment "The customer does not have any coupons registered" #}
+    <h3>   
+       کارت های هدیه ی شما
+    </h3>
     
-    Plan selected = {{ selected_plan.plan_name  }}
-
-<hr>
-
-<img src={{ selected_plan.image_link }} alt= {{ selected_plan.plan_name }} > 
-
-<hr>
-
-price = {{selected_plan.original_price }}
-<br/>
-<a href="/bitasync/payment">
-پرداخت الکترونیکی
-</a>
-
-<hr>
-   
-
+    <table border="1">
+      <tr>
+        <th>Expiry Date</th>
+        <th>Discount Rate</th>		
+        <th>Gift Card</th>
+      </tr>  
+        {% for coupon in existing_coupons %}
+            </tr>
+                <td>{{coupon.expiry_date}}</td>
+                <td>{{coupon.discount_rate}}</td>		
+                <td> {{ forloop.counter }} </td>
+            </tr>  
+        {% endfor %}
+      
+    </table>
+    
+    
 {% endif %}
+
+<br/><br/>
+    
+
+<form action='' method='post'>
+    {% csrf_token %}
+        
+<table border = "1">    
+    {{add_coupon_form.as_table}}
+</table>    
+    <input type="submit" value="add">
+     
+</form>
+            
+            
+                   
+    
+    
+    </td>
+    <td style="width:350px">
+    
+        
+        <h2>
+        Selected plan
+        </h2>
+        
+        <hr>
+        Plan = {{ selected_plan.plan_name  }} <br/>
+        <img src={{ selected_plan.image_link }} alt= {{ selected_plan.plan_name }} > <br/>
+        long description = {{selected_plan.long_description}}<br/>
+
+        {% if coupon_available %}
+            price = <del> {{selected_plan.original_price }} </del> <br/>
+            discounted price = {{selected_plan.discounted_price}}
+        {% else %}
+            price = {{selected_plan.original_price }} <br/>
+        {% endif %}
+
+        <br/>
+        <a href="/bitasync/payment"><button type="button">پرداخت الکترونکی</button></a>
+    
+    
+    
+    </td>
+  </tr>
+</table>
+
+<br/><br/>
+
+
+<table>
+  <tr>
+    <td style="width:350px">
+                
+        <h3> 
+        Alternative plan 3
+        </h3>
+
+        <hr>
+
+        Plan = {{ alt_plan_2.plan_name  }} <br/>
+        <img src={{ alt_plan_2.image_link }} alt= {{ alt_plan_2.plan_name }} > <br/>     
+        description = {{ alt_plan_2.description }} <br/>
+
+        {% if coupon_available %}
+            price = <del> {{alt_plan_2.original_price }} </del>  </br>
+            discounted price = {{alt_plan_2.discounted_price}}
+            
+        {% else %}
+            price = {{alt_plan_2.original_price }} </br>
+        {% endif %}
+        <br/>
+        <a href="/bitasync/activate/{{alt_plan_2.plan_name}}/"><button type="button">
+        سفارش بسته 
+        </button></a>   
+    
+    </td>
+    <td style="width:350px">
+
+        <h3> 
+        Alternative plan 2
+        </h3>
+
+        <hr>
+
+        Plan = {{ alt_plan_1.plan_name  }} <br/>
+        <img src={{ alt_plan_1.image_link }} alt= {{ alt_plan_1.plan_name }} > <br/>
+        description = {{ alt_plan_1.description }} <br/>
+
+        {% if coupon_available %}
+            price = <del>{{alt_plan_1.original_price }}</del><br/>
+            discounted price = {{alt_plan_1.discounted_price}}
+            
+        {% else %}
+            price = {{alt_plan_1.original_price }}<br/>
+        {% endif %}
+        <br/>
+        <a href="/bitasync/activate/{{alt_plan_1.plan_name}}/"><button type="button">
+        سفارش بسته 
+        </button></a>
+    
+    </td>
+    
+    <td style="width:350px">
+
+        <h3> 
+        Alternative plan 1
+        </h3>
+
+        <hr>
+
+        Plan = {{ alt_plan_0.plan_name  }} <br/>
+        <img src={{ alt_plan_0.image_link }} alt= {{ alt_plan_0.plan_name }} > <br/>
+
+        description = {{ alt_plan_0.description }}<br/>
+
+        {% if coupon_available %}
+            price = <del>{{alt_plan_0.original_price }} </del> <br/>
+            discounted price = {{alt_plan_0.discounted_price}}
+        {% else %}
+            price = {{alt_plan_0.original_price }} <br/>
+        {% endif %}
+        
+        <br/>
+        <a href="/bitasync/activate/{{alt_plan_0.plan_name}}/"><button type="button">
+        سفارش بسته 
+        </button></a>
+    
+    </td>
+    
+  </tr>
+  
+    <tr>
+    <td style="width:350px">
+    
+    
+         should remain empty   
+    
+    
+    </td>
+    <td style="width:350px">
+                
+        <h3> 
+        Alternative plan 5
+        </h3>
+
+        <hr>
+
+        Plan = {{ alt_plan_4.plan_name  }} <br/>
+        <img src={{ alt_plan_4.image_link }} alt= {{ alt_plan_4.plan_name }} > <br/>
+        description = {{ alt_plan_0.description }}<br/>
+
+        {% if coupon_available %}
+            price = <del> {{alt_plan_4.original_price }}  </del><br/>
+            discounted price = {{alt_plan_4.discounted_price}}
+        {% else %}
+            price = {{alt_plan_4.original_price }} <br/>
+        {% endif %}
+        <br/>
+        <a href="/bitasync/activate/{{alt_plan_4.plan_name}}/"><button type="button">
+        سفارش بسته 
+        </button></a>
+    
+    </td>
+    
+    <td style="width:350px">
+    
+        <h3> 
+        Alternative plan 4
+        </h3>
+
+        <hr>
+
+        Plan = {{ alt_plan_3.plan_name  }} <br/>
+        <img src={{ alt_plan_3.image_link }} alt= {{ alt_plan_3.plan_name }} > <br/>
+
+        description = {{ alt_plan_0.description }}<br/>
+
+        {% if coupon_available %}
+        <br/>
+            price = <del> {{alt_plan_3.original_price }} </del> <br/>
+            discounted price = {{alt_plan_3.discounted_price}}
+        {% else %}
+            price =  {{alt_plan_3.original_price }} <br/>
+        {% endif %}
+        <br/>
+        <a href="/bitasync/activate/{{alt_plan_3.plan_name}}/"><button type="button">
+        سفارش بسته 
+        </button></a>
+    
+    </td>
+    
+  </tr>
+</table>
+  
+

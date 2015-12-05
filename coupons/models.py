@@ -9,7 +9,7 @@ class Coupon(models.Model):
 
     expiry_date = models.DateField()
     discount_rate = models.FloatField(default=0.0)
-    hashcode = models.CharField(max_length=50,editable=False)
+    hashcode = models.CharField(max_length=50, null = True, blank=True)
 
     user_profile = models.ForeignKey(UserProfile, blank=True, null=True)
     

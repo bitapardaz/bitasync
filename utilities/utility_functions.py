@@ -7,14 +7,16 @@ def generate_md5_hash(input_string):
             
             
 def create_temp_plan(plan,coupons):
-    # a TempPlan is simply a plan, but with the additional data 
-    # about the pricing given the customer coupons 
+    # a TempPlan is simply a plan, but with the additional data (discounted_price)
+    # given the customer coupons 
         
     temp_plan = TempPlan()
     temp_plan.plan_name = plan.plan_name
     temp_plan.original_price = plan.price
     temp_plan.image_link = get_plan_image_link(plan.plan_name)
-    temp_plan.long_description = plan.long_description 
+    temp_plan.description = plan.description
+    temp_plan.long_description = plan.long_description
+
 
     if coupons: 
         (best_coupon,discounted_price) = calculate_discounted_price(plan,coupons)
@@ -36,7 +38,7 @@ def calculate_discounted_price(plan,coupons):
             best_coupon = current_coupon    
                
     # apply the coupon to the prices 
-    discounted_price =  plan.price * best_coupon.discount_rate                                    
+    discounted_price =  int(plan.price * ( 1 - best_coupon.discount_rate))
     return (best_coupon,discounted_price)    
     
     
@@ -48,6 +50,7 @@ class TempPlan():
         self.original_price = 0
         self.discounted_price = 0
         self.image_link = ""
+        self.description = ""
         self.long_description = ""
         
         

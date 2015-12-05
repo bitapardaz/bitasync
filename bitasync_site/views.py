@@ -24,6 +24,8 @@ import hashlib
 
 from utilities import utility_functions 
 
+from coupons.forms import AddCouponForm
+
 def thanks_contact_us(request):
 
     response = """
@@ -183,39 +185,37 @@ def activate_plan(request,plan_name):
             
         else: 
 
-            # todo: remove the database access. And instead, use a function from utilities.utility_functions to get the data about data_transfer_plans         
-            plan = Data_Transfer_Plan.objects.get( plan_name = plan_name )
+            all_plans = Data_Transfer_Plan.objects.all()
+            plan = get_plan_by_name(all_plans,plan_name)
            
             # check if the user has any discount coupon.
             user_profile = UserProfile.objects.get( user = request.user )
             user_existing_coupons = Coupon.objects.filter( user_profile = user_profile )
 
-#            original_prices = utility_functions.products_original_prices()
-#            image_links = utility_functions.get_plan_image_link()
-            
-            # load data about the current plan selected.          
             selected_plan = utility_functions.create_temp_plan(plan, user_existing_coupons)
-            
-            # find data about the alternative plans
-            # derive the set of 5 alternative plan                      
-                         .             
+            alternative_plans = get_alternative_plans(all_plans,selected_plan, user_existing_coupons)
+                                      
             # set up the context 
             context={}
             context.update(csrf(request))
             context['selected_plan'] = selected_plan
-
+            context['alt_plan_0'] = alternative_plans[0]
+            context['alt_plan_1'] = alternative_plans[1]
+            context['alt_plan_2'] = alternative_plans[2]
+            context['alt_plan_3'] = alternative_plans[3]
+            context['alt_plan_4'] = alternative_plans[4]
+            
             # setting the context, depending on whether the customer has any coupons available
             if not user_existing_coupons: 
-                # if the customer does not have any coupon                           
                 context['coupon_available'] = False
                 
             else: 
                 # if the customer has some coupons           
-#                context['coupon_available'] = True
-#                (coupon,discounted_prices) = product_discounted_prices(user_existing_coupons)
-#                selected_plan.discounted_price = discounted_prices.get(selected_plan.plan_name)
-                
+                context['coupon_available'] = True
                 context['existing_coupons'] = user_existing_coupons 
+            
+            add_coupon_form = AddCouponForm()
+            context['add_coupon_form'] = add_coupon_form
             
             return render(request,'bitasync_site/payment_with_coupons.html',context)
             
@@ -256,7 +256,23 @@ def payment_success(request,plan_name,follow_up_number):
     #todo: in this page, we can put advertisement related to the mobile phones.
     
     
+def get_alternative_plans(all_plans, selected_plan, coupons): 
+    alt_plans = [] 
+    ordered_names = ["L1","L3","L6","U1","U3","U6"]
+   
+    for name in ordered_names: 
+        if name != selected_plan.plan_name:
+            alternative_plan = get_plan_by_name(all_plans, name)
+            alternative_temp_plan = utility_functions.create_temp_plan(alternative_plan,coupons)
+            alt_plans.append(alternative_temp_plan) 
+    return alt_plans
+        
 
-     
-
-
+def get_plan_by_name(all_plans, fname): 
+    for plan in all_plans:
+        if plan.plan_name == fname :  
+            return plan 
+    
+    
+    
+    
