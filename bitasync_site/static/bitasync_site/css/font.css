@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'B roya';
+    src:url('../fonts/roya/BRoya.eot?#') format('eot'),    
+          url('../fonts/roya/BRoya.woff') format('woff'),
+          url('../fonts/roya/BRoya.ttf') format('truetype'); 
+}
+
+@font-face {
+    font-family: 'B mehr';
+    src:url('../fonts/mehr/BMehrBold.eot?#') format('eot'),    
+          url('../fonts/mehr/BMehrBold.woff') format('woff'),
+          url('../fonts/mehr/BMehrBold.ttf') format('truetype'); 
+}
