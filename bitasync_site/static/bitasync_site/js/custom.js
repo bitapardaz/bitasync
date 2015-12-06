@@ -15,7 +15,11 @@ $(function() {
 	
   
 $(window).resize(function() {
-    $('#hero').height($(window).height());
+    
+	
+	$('#hero').height($(window).height()-$('#menubar').height());
+
+
 }).resize();
 	
 	
