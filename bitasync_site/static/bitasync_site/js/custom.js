@@ -17,7 +17,8 @@ $(function() {
 $(window).resize(function() {
     
 	
-	$('#hero').height($(window).height()-$('#test').height());
+	//$('#hero').height($(window).height()-$('#test').height());
+	$('#hero').height($(window).height());
 
 
 }).resize();
