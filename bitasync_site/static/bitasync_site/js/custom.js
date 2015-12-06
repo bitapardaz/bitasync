@@ -14,7 +14,9 @@ $(function() {
 	
 	
   
-
+$(window).resize(function() {
+    $('#hero').height($(window).height());
+}).resize();
 	
 	
 });
