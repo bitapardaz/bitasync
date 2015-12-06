@@ -54,52 +54,55 @@
           
             {% else %}
     
-          <header class="header" id="header"><!--header-start-->
-	<div class="container">
-    	<figure class="logo animated fadeInDown delay-07s">
-        	<a href="#"><img src="{% static "bitasync_site/img/logo.png" %}" alt=""></a>	
-        </figure>	
-        <h1 class="animated fadeInDown delay-07s">انتقال آسان اطلاعات بین تلفن های همراه</h1>
-        <ul class="we-create animated fadeInUp delay-1s">
-        	<li></li>
-        </ul>
-            <a  class="linkscroll link animated fadeInUp delay-1s" href="#service">بیشتر بدانیم</a>
-    </div>
+          <header class="header" id="header" ><!--header-start-->
+				<div class="container" >
+					<figure class="logo animated fadeInDown delay-07s">
+						<a href="#"><img src="{% static "bitasync_site/img/logo.png" %}" alt=""></a>	
+					</figure>	
+					<h1 class="animated fadeInDown delay-07s">انتقال آسان اطلاعات بین تلفن های همراه</h1>
+					<!--<ul class="we-create animated fadeInUp delay-1s">
+						<li></li>
+					</ul>-->
+						<a  class="linkscroll link animated fadeInUp delay-1s" href="#service">بیشتر بدانیم</a>
+				</div>
 
- </header> <!--header-end-->
+			  
+			  
+			  <nav class="main-nav-outer" id="test"><!--main-nav-start-->
+					<div class="container">
+						<ul class="main-nav">
+						<!--	<li><a href="#header">بیتاسینک</a></li>
+							<li><a href="#service">Services</a></li>-->
+
+							<li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li> 
+							<li><a href="#download">دانلود</a></li>
+							<li><a href="#">راهنمای استفاده</a></li>
+
+							<li><a href="#contact">تماس با ما</a></li>
+								 {% if request.user.is_authenticated %}
+							<li><a href="/accounts/myprofile"> پروفایل من </a></li>	
+							<li><a href="/accounts/logout">  خروج</a></li>
+								{% else %}
+							<li><a href="/accounts/register">عضویت</a></li>	
+							<li><a href="/accounts/login">ورود</a></li>
+								{% endif %}
+
+
+
+
+						</ul>
+						<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+					</div>
+				</nav><!--main-nav-end-->
+ 		</header> <!--header-end-->
               
             {% endif %}
     
 
 
-<nav class="main-nav-outer" id="test"><!--main-nav-start-->
-	<div class="container">
-        <ul class="main-nav">
-        <!--	<li><a href="#header">بیتاسینک</a></li>
-            <li><a href="#service">Services</a></li>-->
-        
-            <li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li> 
-			<li><a href="#download">دانلود</a></li>
- 			<li><a href="#">راهنمای استفاده</a></li>
-		   
- 			<li><a href="#contact">تماس با ما</a></li>
-            	 {% if request.user.is_authenticated %}
-            <li><a href="/accounts/myprofile"> پروفایل من </a></li>	
-            <li><a href="/accounts/logout">  خروج</a></li>
-        	    {% else %}
-            <li><a href="/accounts/register">عضویت</a></li>	
-            <li><a href="/accounts/login">ورود</a></li>
-        	    {% endif %}
-            
-           
-		    
-           
-        </ul>
-        <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
-    </div>
-</nav><!--main-nav-end-->
 
-<section class="main-section" id="service"><!--main-section-start-->
+
+<section class="main-section" id="service"  ><!--main-section-start-->
 	<div class="container">
     	
 
