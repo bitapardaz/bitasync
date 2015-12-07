@@ -1,0 +1,80 @@
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+    $("#add_coupon_button").click(function(){
+    
+        $.ajax({    
+            type: "POST", 
+            url: "/coupons/add_coupon_ajax_response/", 
+            data: {
+                'hashcode' : $('#hashcode').val(),
+               'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()  
+            },
+            success: add_coupon_ajax_success,
+            dataType:'html'
+        });
+        
+    });
+});
+
+
+function add_coupon_ajax_success(data,textStatus,jqXHR)
+{
+     
+     var $result = $(data).filter("#added");
+     
+     var added = $result.text().trim()
+          
+     if (added == "True") {
+     
+         console.log("done")
+         
+         
+         var $table = $(data).find("#coupons");
+         $("#output").html($table)
+         console.log($table.html())
+         
+         
+     } else {
+        $("#hashcode").val("Wrong number")
+     } 
+     
+     
+     
+     
+     
+    // parse the html response
+    
+ //   var str = "Hello, <b>my blog name is</b> jQueryByExample." 
+ //   var sName = '';
+    
+//    var sHTML = $.parseHTML(data);
+    
+//    $('#output').text($(data).find('#added').text());
+    
+//    $('#output').text(sHTML);
+
+}
+</script>
+
+</head>
+<body>
+
+{% csrf_token %}
+<input type="text" name="hashcode" id='hashcode'>
+<button id='add_coupon_button'>Add Coupon</button>
+
+<div id='output'>
+
+</div>
+
+
+</body>
+</html>
+
+
+

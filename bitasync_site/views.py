@@ -10,6 +10,8 @@ from .forms import Contact_us
 from models import Contact_Comment
 from models import Purchase
 
+from coupons.models import Coupon
+from user_profile.models import UserProfile
 
 from django.template.context_processors import csrf
 
@@ -19,6 +21,10 @@ from django.core.mail import send_mail
 from payment.utilities import Transaction
 
 import hashlib
+
+from utilities import utility_functions 
+
+from coupons.forms import AddCouponForm
 
 def thanks_contact_us(request):
 
@@ -117,49 +123,83 @@ def data_transfer_plans(request):
 @login_required
 def activate_plan(request,plan_name): 
 
+    # check that the model chosen is correct. 
+    valid_plans = ["L1","L3","L6","U1","U3","U6"]
+   
+    user_profile = UserProfile.objects.get( user = request.user )
+    
+    context={}
+    context.update(csrf(request))
+    context['coupon_code_entered'] = False
+    
+        
+    if plan_name not in valid_plans :
+      raise Http404("Data transfer selected is not valid.")
+
     if request.method == "POST": 
+        # a new coupon code has been entered. Check if the coupon is valid and enter the code.  
         
-        # check that the model chosen is correct. 
+        context['coupon_code_entered'] = True
         
-        valid_plans = ["L1","L3","L6","U1","U3","U6"]
+        form = AddCouponForm(request.POST)
         
-        if plan_name not in valid_plans :
-            raise Http404("Data transfer selected is not valid.")
+        if form.is_valid():
          
-        plan = Data_Transfer_Plan.objects.get(plan_name = plan_name) 
+            hashcode = form.cleaned_data['hashcode']
+           
+            # associate the code to the customer profile 
+            try: 
+                coupon = Coupon.objects.get( hashcode = hashcode )
+                coupon.user_profile = user_profile
+                coupon.save()
+                context['wrong_coupon_entered'] = False          
+
+            except Coupon.DoesNotExist:
+                # the coupon entered does not exist in the database
+                context['wrong_coupon_entered'] = True
+         
+                
+        else: 
+            # form is not valid
+            context['wrong_coupon_entered'] = True             
+                
+        
+        
+         
+#        plan = Data_Transfer_Plan.objects.get(plan_name = plan_name) 
         
         # todo. when the transaction is being done, add the gateway. 
-        transaction = Transaction(price=plan.price)    
+#        transaction = Transaction(price=plan.price)    
 
         # payment_status = process_payment(request,plan_name)            
-        payment_status = transaction.process_transaction()
+#        payment_status = transaction.process_transaction()
         
-        if payment_status == True:
+#        if payment_status == True:
          
             # send an email to the user. 
-            subject = "Bit@Sync Activation"
-            message = "Your software is activated."
-            from_email = "outreach@bitasync.com" 
-            recipient_list = [request.user.email]
+#            subject = "Bit@Sync Activation"
+#            message = "Your software is activated."
+#            from_email = "outreach@bitasync.com" 
+#            recipient_list = [request.user.email]
             
-            send_mail(subject=subject,
-                     message=message,
-                     from_email = from_email,
-                     recipient_list=recipient_list, 
-                     fail_silently=False)
+#            send_mail(subject=subject,
+#                     message=message,
+#                     from_email = from_email,
+#                     recipient_list=recipient_list, 
+#                     fail_silently=False)
             
             # add to the purchase table.
-            new_purchase = Purchase()
-            new_purchase.user = request.user
-            new_purchase.data_transfer_plan = plan 
-            new_purchase.gateway = "unspecified"
-            new_purchase.save()
+#            new_purchase = Purchase()
+#            new_purchase.user = request.user
+#            new_purchase.data_transfer_plan = plan 
+#            new_purchase.gateway = "unspecified"
+#            new_purchase.save()
 
-            hasher = hashlib.md5()   # save follow_up number using hash       
-            hasher.update(str(new_purchase.id))
-            follow_up_number = hasher.hexdigest()
-            new_purchase.follow_up_number = follow_up_number
-            new_purchase.save()
+#            hasher = hashlib.md5()   # save follow_up number using hash       
+#            hasher.update(str(new_purchase.id))
+#            follow_up_number = hasher.hexdigest()
+#            new_purchase.follow_up_number = follow_up_number
+#            new_purchase.save()
             
             
             # todo: create a statistics table and store the data for the managers. 
@@ -167,46 +207,53 @@ def activate_plan(request,plan_name):
             
             #return HttpResponseRedirect("/bitasync/activate/successful_payment/")
             #todo: put advertisement in this payment_success page. 
-            return HttpResponseRedirect("/bitasync/activate/payment_success/" + plan.plan_name +"/" + follow_up_number + "/")
+ #           return HttpResponseRedirect("/bitasync/activate/payment_success/" + plan.plan_name +"/" + follow_up_number + "/")
             
-        else:
-            # if the payment fails. 
-            return HttpResponseRedirect("/bitasync/activate/payment_failed/"+ plan.plan_name +"/")
-    else : 
-    
-        valid_plans = ["L1","L3","L6","U1","U3","U6"]
-        
-        if plan_name not in valid_plans :
-            raise Http404("Data transfer selected is not valid.")
-            
-        else: 
-        
-            plan = Data_Transfer_Plan.objects.get(plan_name = plan_name)
-            context={}
-            context.update(csrf(request))
-            context['plan'] = plan                
-            context['image_link'] = get_image_link(plan)
-            
+#        else:
+#            # if the payment fails. 
+#            return HttpResponseRedirect("/bitasync/activate/payment_failed/"+ plan.plan_name +"/")
 
+
+
+
+ 
+    
+        # request.method is not POST  
+        # do the pricing given the customer's coupons
+        
+    all_plans = Data_Transfer_Plan.objects.all()
+    plan = get_plan_by_name(all_plans,plan_name)
+           
+        # check if the user has any discount coupon.
+    user_existing_coupons = Coupon.objects.filter( user_profile = user_profile )
+
+    selected_plan = utility_functions.create_temp_plan(plan, user_existing_coupons)
+    alternative_plans = get_alternative_plans(all_plans,selected_plan, user_existing_coupons)
+                                    
+            # set up the context 
+
+    context['selected_plan'] = selected_plan
+    context['alt_plan_0'] = alternative_plans[0]
+    context['alt_plan_1'] = alternative_plans[1]
+    context['alt_plan_2'] = alternative_plans[2]
+    context['alt_plan_3'] = alternative_plans[3]
+    context['alt_plan_4'] = alternative_plans[4]
             
-            return render(request,'bitasync_site/payment.html',context)
+            # setting the context, depending on whether the customer has any coupons available
+    if not user_existing_coupons: 
+        context['coupon_available'] = False
+                
+    else: 
+                # if the customer has some coupons           
+        context['coupon_available'] = True
+        context['existing_coupons'] = user_existing_coupons 
+        
             
-     
-     
+    add_coupon_form = AddCouponForm()
+    context['add_coupon_form'] = add_coupon_form
             
-def get_image_link(plan_name): 
-    if plan_name == "L1":
-        image_link = ""
-    elif plan_name == "L3": 
-        image_link = ""
-    elif plan_name == "L6": 
-        image_link = "" 
-    elif plan_name == "U1": 
-        image_link = "" 
-    elif plan_name == "U3": 
-        image_link = ""
-    elif plan_name == "U6": 
-        image_link = ""         
+    return render(request,'bitasync_site/payment_with_coupons.html',context)
+            
             
 @login_required       
 def payment_failed(request,plan_name): 
@@ -241,6 +288,26 @@ def payment_success(request,plan_name,follow_up_number):
     context['follow_up_number'] = follow_up_number
     
     return render(request,'bitasync_site/payment_success.html',context)
-    #todo: in this page, we can put advertisement related to the mobile phones. 
+    #todo: in this page, we can put advertisement related to the mobile phones.
+    
+    
+def get_alternative_plans(all_plans, selected_plan, coupons): 
+    alt_plans = [] 
+    ordered_names = ["L1","L3","L6","U1","U3","U6"]
+   
+    for name in ordered_names: 
+        if name != selected_plan.plan_name:
+            alternative_plan = get_plan_by_name(all_plans, name)
+            alternative_temp_plan = utility_functions.create_temp_plan(alternative_plan,coupons)
+            alt_plans.append(alternative_temp_plan) 
+    return alt_plans
+        
 
-
+def get_plan_by_name(all_plans, fname): 
+    for plan in all_plans:
+        if plan.plan_name == fname :  
+            return plan 
+    
+    
+    
+    

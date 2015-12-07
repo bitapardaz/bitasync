@@ -109,9 +109,17 @@
 
 			<form action="/bitasync/activate/{{plan.plan_name}}/" method="post">   
 				{% csrf_token  %}   
-				<input type="submit" value="پرداخت الکترونیکی">    
+				<input type='text' name="coupon_code" />
+				<input type="submit" value="کد تخفیف" >  
+				  
 			</form>
+            
 
+			<form action="/bitasync/payment/" method="post">   
+				{% csrf_token  %}   
+				<input type="submit" value="پرداخت الکترونیکی">    
+			</form> 
+             
              
         </div>
      

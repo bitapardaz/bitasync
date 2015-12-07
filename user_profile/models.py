@@ -6,7 +6,12 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User)
     is_shop = models.BooleanField()
     email_subscription = models.BooleanField(default=True)
-    mobile = models.CharField(null=True,blank=True, max_length=20)    
+    mobile = models.CharField(null=True,blank=True, max_length=20) 
+    
+    
+    def __unicode__(self): 
+        return "user_profile:" + self.user.username  
+   
     
 class ShopProfile(models.Model):
 
@@ -20,5 +25,9 @@ class ShopProfile(models.Model):
 class CustomerProfile(models.Model):
     
     user_profile = models.OneToOneField(UserProfile)    
-    latest_mobile = models.CharField(null=True,blank=True,max_length=30)     
+    latest_mobile = models.CharField(null=True,blank=True,max_length=30)   
+    
+    
+    def __unicode__(self): 
+        return "customer_profile:" + self.user_profile.user.username  
 
