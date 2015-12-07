@@ -103,4 +103,55 @@ def add_coupon_success(request,hashcode,discount_rate):
 
 def add_b2c_coupon_failure(request): 
     return HttpResponse("Your gift card code is not valid")  
+    
+    
+    
+# these functions are not used in the code base.
+# I decided to implement coupon addition using an ajax component. 
+# However, this would have required us to develop very large ajax response. 
+# thus, we turned back to usual httpResponse approach, as all the page needed to be 
+# updated.   
+#def add_coupon_ajax_response(request): 
+#
+#    hashcode = request.POST['hashcode'] 
+#    
+#    user_profile = UserProfile.objects.get( user=request.user )
+#            
+#    try: 
+      
+      #todo: insecurity in puting the hashcode in query string
+#      coupon = Coupon.objects.get(hashcode = hashcode)
+#      coupon.user_profile = user_profile
+#      coupon.save()          
+           
+      # get the updated list of gifts, and pricing.
+        # adding a gift coupon might change the prices of all products. 
+        # therefore, it is not efficient to handle coupon addition with a 
+        # ajax feature, as all the pricing output might need to be updated. 
+        
+      
+      #    
+#      return render (request,'/coupons/ajax_response.html',context)
+           
+#      return HttpResponseRedirect("/coupons/add_coupon_success/"+hashcode+"/"+str(coupon.discount_rate)+"/")
+
+#      except Coupon.DoesNotExist:
+            
+#            return HttpResponseRedirect("/coupons/add_coupon_failure/")
+                
+
+    
+#    context = {}
+#    context['added'] = True
+#    context['hashcode'] = hashcode 
+    
+#    return render(request,'coupons/ajax_response.html',context)
+    
+    
+#def add_coupon_ajax(request): 
+    
+#    context = {}    
+#    context.update(csrf(request))
+#    return render(request,'coupons/add_coupon_ajax.html',context)
+    
 

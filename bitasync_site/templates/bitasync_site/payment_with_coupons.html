@@ -25,8 +25,6 @@ th, td {
 
 {% if not coupon_available %}
 
-    <p>   Insert your gift cards below: </p>
-
 {% else %}
 
     <h3>   
@@ -56,13 +54,29 @@ th, td {
     
 
 <form action='' method='post'>
+
     {% csrf_token %}
-        
-<table border = "1">    
-    {{add_coupon_form.as_table}}
-</table>    
+    
     <input type="submit" value="add">
-     
+    
+    {% if coupon_code_entered and wrong_coupon_entered %}
+        <input type="text" value="کد وارد شده اشتباه است. لطفا مجددا امتحان کنید." name="hashcode" id="id_hashcode">
+    {% endif %}  
+       
+        
+    {% if coupon_code_entered and not wrong_coupon_entered %}
+        <input type="text" value="کد وارد شده ثبت شد" name="hashcode" id="id_hashcode">
+    {% endif %}    
+    
+    
+    
+    {% if not coupon_code_entered %}
+        <input type="text" value="کد هدیه ی خود را وارد کنید." name="hashcode" id="id_hashcode">    
+    {% endif %}    
+
+
+   
+  
 </form>
             
             
