@@ -5,6 +5,17 @@ def generate_md5_hash(input_string):
     hasher.update(input_string)
     return hasher.hexdigest()
             
+
+class TempPlan(): 
+    
+    def __init__(self):  
+                   
+        self.plan_name = ""
+        self.original_price = 0
+        self.discounted_price = 0
+        self.image_link = ""
+        self.description = ""
+        self.long_description = ""            
             
 def create_temp_plan(plan,coupons):
     # a TempPlan is simply a plan, but with the additional data (discounted_price)
@@ -42,16 +53,6 @@ def calculate_discounted_price(plan,coupons):
     return (best_coupon,discounted_price)    
     
     
-class TempPlan(): 
-    
-    def __init__(self):  
-                   
-        self.plan_name = ""
-        self.original_price = 0
-        self.discounted_price = 0
-        self.image_link = ""
-        self.description = ""
-        self.long_description = ""
         
         
 def get_plan_image_link(plan_name): 
