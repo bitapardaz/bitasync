@@ -28,13 +28,9 @@ from coupons.forms import AddCouponForm
 
 def thanks_contact_us(request):
 
-    response = """
-        <p> Thanks for contacting us.</p>
-        <p> Click <a href="/"> here </a> to return home. </p> 
-        
-    """
-
-    return HttpResponse(response)
+    
+    return render(request, 'bitasync_site/thanks_contact_us.html')
+    
 
 def contact_us(request): 
     
@@ -82,7 +78,7 @@ def contact_us(request):
             args['form']=form
 
         
-            template = loader.get_template('bitasync_site/contact_us.html')
+            template = loader.get_template('bitasync_site/index.html')
             context = RequestContext(request,args)
             return HttpResponse(template.render(context))
         
@@ -94,12 +90,18 @@ def contact_us(request):
         args['form']=form
 
         
-        template = loader.get_template('bitasync_site/contact_us.html')
+        template = loader.get_template('bitasync_site/index.html')
         context = RequestContext(request,args)
         return HttpResponse(template.render(context))
 
 def homepage(request):
-      return render(request, 'bitasync_site/index.html')
+      
+
+
+	 return contact_us(request);
+
+
+	#return render(request, 'bitasync_site/index.html')
       
       
 def homepage2(request):

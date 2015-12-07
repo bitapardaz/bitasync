@@ -15,8 +15,7 @@
 <link href="{% static "bitasync_site/css/font-awesome.css" %}" rel="stylesheet" type="text/css">
       <link rel="stylesheet" href="{% static "user_profile/css/profile.css" %}">
 
- <link rel="stylesheet" href="http://ifont.ir/apicode/44">
- <link rel="stylesheet" href="http://ifont.ir/apicode/41">
+<link href="{% static "bitasync_site/css/font.css" %}" rel="stylesheet" type="text/css">
  
  
 
@@ -102,52 +101,72 @@
 					</div>
 				</div>
 				<div class="form-bottom">
-					<form role="form" action="" method="post" class="registration-form">
-{% csrf_token  %}
-	{{ form.field_errors }}	
-
+					
+					
+					
+					
+			<form role="form" action="" method="post" class="registration-form">
+						{% csrf_token  %}
+						{{ form.field_errors }}	
+<!---------------------------------------------------------------------------------------->
+			{% if is_shop %}
+				
 			<div class="form-group">
-				<label class="rglabel" for="{{ user_form.username.id_for_label }}"> نام کاربری</label>
-				<input type="text" name="{{ user_form.username.html_name }}" placeholder="نام کاربری ..." class="form-first-name form-control" id="{{ user_form.username.id_for_label }}">
+				<label class="rglabel" for="{{ shop_details_form.username.id_for_label }}"> نام کاربری</label>
+				<input type="text" name="{{ shop_details_form.username.html_name }}" placeholder="نام کاربری ..." class="form-first-name form-control" id="{{ shop_details_form.username.id_for_label }}">
 			</div>
 
 			
 
 			<div class="form-group">			                    
-			<label class="rglabel" for="{{ user_profile_form.email.id_for_label }}">پست الکترونیک</label>
-				<input type="email" name="{{ user_profile_form.email.html_name }}" placeholder="پست الکترونیک ..." class="form-email form-control" id="{{ user_profile_form.email.id_for_label }}">
+			<label class="rglabel" for="{{ shop_details_form.email.id_for_label }}">پست الکترونیک</label>
+				<input value="{{ shop_details_form.email.value }}" type="email" name="{{ shop_details_form.email.html_name }}" placeholder="پست الکترونیک ..." class="form-email form-control" id="{{ shop_details_form.email.id_for_label }}">
 			</div>
 
 			<div class="form-group">			                    
-			<label class="rglabel" for="{{ user_profile_form.mobile.id_for_label }}">موبایل</label>
-				<input type="text" name="{{ user_profile_form.mobile.html_name }}" placeholder="موبایل ..." class="form-control" id="{{ user_profile_form.mobile.id_for_label }}">
+			<label class="rglabel" for="{{ shop_details_form.mobile.id_for_label }}">موبایل</label>
+				<input value="{{ shop_details_form.mobile.value }}" type="text" name="{{ shop_details_form.mobile.html_name }}" placeholder="موبایل ..." class="form-control" id="{{ shop_details_form.mobile.id_for_label }}">
 			</div>
 
 			
 
 			<div class="form-group">			                    
-			<label class="rglabel" for="{{ user_profile_form.address.id_for_label }}">آدرس</label>
-				<input type="text" name="{{ user_profile_form.address.html_name }}" placeholder="آدرس..." class="form-control" id="{{ user_profile_form.address.id_for_label }}">
+			<label class="rglabel" for="{{ shop_details_form.address.id_for_label }}">آدرس</label>
+				<input value="{{ shop_details_form.mobile.value }}" type="text" name="{{ shop_details_form.address.html_name }}" placeholder="آدرس..." class="form-control" id="{{ shop_details_form.address.id_for_label }}">
 			</div>
 
-<div class="form-group">			                    
-			<label class="rglabel" for="{{ user_profile_form.telephone.id_for_label }}">تلفن</label>
-				<input type="text" name="{{ user_profile_form.telephone.html_name }}" placeholder="تلفن..." class="form-control" id="{{ user_profile_form.telephone.id_for_label }}">
+			<div class="form-group">			                    
+			<label class="rglabel" for="{{ shop_details_form.landline.id_for_label }}">تلفن</label>
+				<input value="{{ shop_details_form.landline.value }}" type="text" name="{{shop_details_form.landline.html_name }}" placeholder="تلفن..." class="form-control" id="{{ shop_details_form.telephone.id_for_label }}">
 			</div>
 
-<div class="form-group">			                    
-			<label class="rglabel" style="float:right;" for="{{ user_profile_form.is_shop.id_for_label }}">دریافت ایمیل؟</label>
-				<input style="width: 10%;" type="checkbox" name="{{ user_profile_form.is_shop.html_name }}" placeholder="پست الکترونیک ..." class="form-control" id="{{ user_profile_form.is_shop.id_for_label }}">
+			<div class="form-group">			                    
+			<label class="rglabel" style="float:right;" for="{{ shop_details_form.email_subscription.id_for_label }}">دریافت ایمیل؟</label>
+				<input style="width: 10%;" type="checkbox" name="{{ shop_details_form.email_subscription.html_name }}" class="form-control" id="{{ shop_details_form.email_subscription.id_for_label }}">
 			</div>
+<!---------------------------------------------------------------------------------------->
+			{% else %}
+
+			{{ form.non_field_errors }}
 
 
-{{ form.non_field_errors }}
 
 
-
-    <button type="submit" class="btn">ثبت</button>
-			                    </form>
-		                    </div>
+				{% endif %}
+				
+				
+		
+			<a href="/accounts/password_change">تغییر کلمه عبور</a>		
+    <button type="submit" class="btn">تغییر پروفایل</button>
+			               
+					
+					
+					</form>
+		                  
+				   
+				   
+				   
+				   </div>
                         </div>
                     </div>
                 </div>
@@ -155,14 +174,7 @@
 	
 		<div class="row">
 			
-							<h2> Your Bit@Sync Profile</h2>
-
-				<p> Summary of the data plan activated. </p>
-
-				<hr>
-
-				<p> Profile Information </p>
-
+							
 				{% if is_shop %}
 
 				<form action="/accounts/myprofile/" method="post">
