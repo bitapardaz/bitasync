@@ -60,7 +60,7 @@ th, td {
     <input type="submit" value="add">
     
     {% if coupon_code_entered and wrong_coupon_entered %}
-        <input type="text" value="کد وارد شده اشتباه است. لطفا مجددا امتحان کنید." name="hashcode" id="id_hashcode">
+        <input type="text" value="کد وارد شده اشتباه است. لطفا دوباره امتحان کنید." name="hashcode" id="id_hashcode">
     {% endif %}  
        
         
@@ -104,7 +104,7 @@ th, td {
         {% endif %}
 
         <br/>
-        <a href="/bitasync/payment"><button type="button">پرداخت الکترونکی</button></a>
+        <a href="/payment/{{selected_plan.plan_name}}/"><button type="button">پرداخت الکترونکی</button></a>
     
     
     

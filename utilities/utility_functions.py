@@ -57,8 +57,8 @@ class TempPlan():
 def get_plan_image_link(plan_name): 
 
     plan_image_link = dict([ ('L1',''), 
-                             ('L3',''),  
-                             ('L6',''), 
+                             ('L2',''),  
+                             ('L5',''), 
                              ('U1',''), 
                              ('U3',''), 
                              ('U6',''), 

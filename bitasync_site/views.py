@@ -124,7 +124,7 @@ def data_transfer_plans(request):
 def activate_plan(request,plan_name): 
 
     # check that the model chosen is correct. 
-    valid_plans = ["L1","L3","L6","U1","U3","U6"]
+    valid_plans = ["L1","L2","L5","U1","U3","U6"]
    
     user_profile = UserProfile.objects.get( user = request.user )
     
@@ -139,8 +139,7 @@ def activate_plan(request,plan_name):
     if request.method == "POST": 
         # a new coupon code has been entered. Check if the coupon is valid and enter the code.  
         
-        context['coupon_code_entered'] = True
-        
+        context['coupon_code_entered'] = True     
         form = AddCouponForm(request.POST)
         
         if form.is_valid():
@@ -258,7 +257,7 @@ def activate_plan(request,plan_name):
 @login_required       
 def payment_failed(request,plan_name): 
 
-    valid_plans = ["L1","L3","L6","U1","U3","U6"]
+    valid_plans = ["L1","L2","L5","U1","U3","U6"]
     if plan_name not in valid_plans :
         raise Http404("Data transfer selected is not valid.")
     else: 
@@ -293,7 +292,7 @@ def payment_success(request,plan_name,follow_up_number):
     
 def get_alternative_plans(all_plans, selected_plan, coupons): 
     alt_plans = [] 
-    ordered_names = ["L1","L3","L6","U1","U3","U6"]
+    ordered_names = ["L1","L2","L5","U1","U3","U6"]
    
     for name in ordered_names: 
         if name != selected_plan.plan_name:

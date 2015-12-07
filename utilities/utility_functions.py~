@@ -38,7 +38,7 @@ def calculate_discounted_price(plan,coupons):
             best_coupon = current_coupon    
                
     # apply the coupon to the prices 
-    discounted_price =  plan.price * ( 1 - best_coupon.discount_rate)
+    discounted_price =  int(plan.price * ( 1 - best_coupon.discount_rate))
     return (best_coupon,discounted_price)    
     
     
@@ -57,8 +57,8 @@ class TempPlan():
 def get_plan_image_link(plan_name): 
 
     plan_image_link = dict([ ('L1',''), 
-                             ('L3',''),  
-                             ('L6',''), 
+                             ('L2',''),  
+                             ('L5',''), 
                              ('U1',''), 
                              ('U3',''), 
                              ('U6',''), 

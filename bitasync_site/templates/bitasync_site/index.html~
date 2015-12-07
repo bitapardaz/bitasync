@@ -4,6 +4,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, maximum-scale=1">
+<meta name="description" content="  انتقال آسان اطلاعات بین تلفن های همرٍاه از گوشی قدیمیتان به گوشی جدید حتی با سیستم عامل های متفاوت">	
+	
 
 <title>بیتاسینک</title>
 <link rel="icon" href="favicon.png" type="image/png">
@@ -14,18 +16,15 @@
 <link href="{% static "bitasync_site/css/style.css" %}" rel="stylesheet" type="text/css">
 <link href="{% static "bitasync_site/css/font-awesome.css" %}" rel="stylesheet" type="text/css">
 
- <link rel="stylesheet" href="http://ifont.ir/apicode/44">
- <link rel="stylesheet" href="http://ifont.ir/apicode/41">
+<link href="{% static "bitasync_site/css/font.css" %}" rel="stylesheet" type="text/css">
  
- 
-
 <link href="{% static "bitasync_site/css/responsive.css" %}" rel="stylesheet" type="text/css">
 <link href="{% static "bitasync_site/css/animate.css" %}" rel="stylesheet" type="text/css">
 <link href="{% static "bitasync_site/css/custom.css"%}" rel="stylesheet" type="text/css">
 
 <!--[if IE]><style type="text/css">.pie {behavior:url( PIE.htc );}</style><![endif]-->
 
-<script type="text/javascript" src="{% static "bitasync_site/js/jquery.1.8.3.min.js" %}"></script>
+<script type="text/javascript" src="{% static "bitasync_site/js/jquery.min.js" %}"></script>
 <script type="text/javascript" src="{% static "bitasync_site/js/bootstrap.js" %}" ></script>
 <script type="text/javascript" src="{% static "bitasync_site/js/jquery-scrolltofixed.js" %}"></script>
 <script type="text/javascript" src="{% static "bitasync_site/js/jquery.easing.1.3.js" %}"></script>
@@ -44,46 +43,66 @@
 
 </head>
 <body>
+   
+ 
+  
+    
 <div style="overflow:hidden;">
-<header class="header" id="header"><!--header-start-->
-	<div class="container">
-    	<figure class="logo animated fadeInDown delay-07s">
-        	<a href="#"><img src="{% static "bitasync_site/img/logo.png" %}" alt=""></a>	
-        </figure>	
-        <h1 class="animated fadeInDown delay-07s">انتقال آسان اطلاعات بین تلفن های همراه</h1>
-        <ul class="we-create animated fadeInUp delay-1s">
-        	<li></li>
-        </ul>
-            <a  class="linkscroll link animated fadeInUp delay-1s" href="#service">بیشتر بدانیم</a>
-    </div>
-</div>
-</header><!--header-end-->
 
-
-<nav class="main-nav-outer" id="test"><!--main-nav-start-->
-	<div class="container">
-        <ul class="main-nav">
-        	<li><a href="#header">بیتاسینک</a></li>
-          <!--  <li><a href="#service">Services</a></li>-->
-        
-            <li><a href="#download">دانلود</a></li>
- <li><a href="#">راهنمای استفاده</a></li>
-		
+             {% if request.user.is_authenticated %}
+            
           
-            <li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li>
- <li><a href="#contact">تماس با ما</a></li>
-<li><a href="/accounts/register">عضویت</a></li>	
-<li><a href="/accounts/login">ورود</a></li>
-         <!--   <li><a href="#client">Clients</a></li>-->
-           <!-- <li><a href="#team">Team</a></li>-->
-		    
-           
-        </ul>
-        <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
-    </div>
-</nav><!--main-nav-end-->
+            {% else %}
+    
+          <header class="header" id="header" ><!--header-start-->
+				<div class="container" id="hero" >
+					<figure class="logo animated fadeInDown delay-07s">
+						<a href="#"><img src="{% static "bitasync_site/img/logo.png" %}" alt=""></a>	
+					</figure>	
+					<h1 class="animated fadeInDown delay-07s">انتقال آسان اطلاعات بین تلفن های همراه</h1>
+					<ul class="we-create animated fadeInUp delay-1s">
+						<li></li>
+					</ul>
+						<a  class="linkscroll link animated fadeInUp delay-1s" href="#service">بیشتر بدانیم</a>
+				</div>
 
-<section class="main-section" id="service"><!--main-section-start-->
+			  
+			  
+			  <nav class="main-nav-outer" id="test"><!--main-nav-start-->
+					<div class="container">
+						<ul class="main-nav">
+						<!--	<li><a href="#header">بیتاسینک</a></li>
+							<li><a href="#service">Services</a></li>-->
+
+							<li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li> 
+							<li><a href="#download">دانلود</a></li>
+							<li><a href="#">راهنمای استفاده</a></li>
+
+							<li><a href="#contact">تماس با ما</a></li>
+								 {% if request.user.is_authenticated %}
+							<li><a href="/accounts/myprofile"> پروفایل من </a></li>	
+							<li><a href="/accounts/logout">  خروج</a></li>
+								{% else %}
+							<li><a href="/accounts/register">عضویت</a></li>	
+							<li><a href="/accounts/login">ورود</a></li>
+								{% endif %}
+
+
+
+
+						</ul>
+						<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+					</div>
+				</nav><!--main-nav-end-->
+ 		</header> <!--header-end-->
+              
+            {% endif %}
+    
+
+
+
+
+<section class="main-section" id="service"  ><!--main-section-start-->
 	<div class="container">
     	
 
@@ -93,30 +112,37 @@
 						<h2>استفاده از بیتاسینک</h2>
 						
 						
-						<div class="col-sm-3 col-xs-6">
-							<span class="icon-howit04"></span>
-							<h3>به همین سادگی</h3>
-							<p>موبایل جدید شما اطلاعات شما را دارد</p>
-						</div>
-
-						<div class="col-sm-3 col-xs-6">
-							<span class="icon-howit03"></span>
-							<h3>انتقال</h3>
-							<p>برای انتقال کمی صبر کنید</p>
+						
+						<div class="col-sm-3 col-xs-6 pull-right">
+							<span class="icon-howit01"></span>
+							<h3>اتصال</h3>
+							<p>موبایل خود را به بیتاسینک متصل کنید</p>
 						</div>
 						
-						
-						<div class="col-sm-3 col-xs-6">
+						<div class="col-sm-3 col-xs-6 pull-right">
 							<span class="icon-howit02"></span>
 							<h3>انتخاب</h3>
 							
 							<p>شما می توانید اطلاعات تماس، عکس ها، ویدیوها، برنامه ها، و ... را انتخاب کنید</p>
 						</div>
-						<div class="col-sm-3 col-xs-6">
-							<span class="icon-howit01"></span>
-							<h3>اتصال</h3>
-							<p>موبایل خود را به بیتاسینک متصل کنید</p>
+						
+						<div class="col-sm-3 col-xs-6 pull-right">
+							<span class="icon-howit03"></span>
+							<h3>انتقال</h3>
+							<p>برای انتقال کمی صبر کنید</p>
 						</div>
+						
+						<div class="col-sm-3 col-xs-6 pull-right">
+							<span class="icon-howit04"></span>
+							<h3>به همین سادگی</h3>
+							<p>موبایل جدید شما اطلاعات شما را دارد</p>
+						</div>
+
+						
+						
+						
+						
+						
 						
 
 					</div>
@@ -139,12 +165,13 @@
 
 <section class="main-section alabaster" id="download"><!--main-section alabaster-start-->
 	<div class="container">
-    	<div class="row">
+    	<h2>دریافت نرم افزار بیتاسینک</h2>
+		<div class="row">
 			<figure class="col-lg-5 col-sm-4 wow fadeInLeft">
             	<img  src="{% static "bitasync_site/img/iphone.png" %}" alt="">
             </figure>
         	<div class="col-lg-7 col-sm-8 featured-work">
-            	<h2>دانلود</h2>
+            
             	<P class="padding-b"></P>
             	<div class="featured-box">
                 	<div class="featured-box-col1 wow fadeInRight delay-02s">
@@ -197,36 +224,99 @@
         
 	</div>
     <div class="portfolioContainer wow fadeInUp delay-04s">
-            	<div class=" Portfolio-box branding">
-                	<a href="#"><img src="{% static "bitasync_site/img/l1.jpg" %}" alt=""></a>	
-                	<h3>Foto Album</h3>
-                    <p>Print Design</p>
+            	
+                
+			<div class=" Portfolio-box branding">
+                	<a href="/bitasync/activate/L1/"><img src="{% static "bitasync_site/img/L1.jpg" %}" alt=""></a>	
+                	<h3>با این بسته می توانید 
+						<strong>
+						یکبار
+						</strong>
+						اطلاعات خود را به موبایل جدید منتقل کنید</h3>
+                    <div style="padding-top: 15px;">
+						 <div onclick="window.location.href='/bitasync/activate/L1/'"  class="btn-order label label-success label-order">سفارش بسته</div>
+						<div class="label label-default label-order" style="direction:rtl" > <span>3,000</span>&nbsp <span>   تومان</span></div> 
+					</div>
                 </div>
-                <div class="Portfolio-box branding">
-                	<a href="#"><img src="{% static "bitasync_site/img/l3.jpg" %}" alt=""></a>	
-                	<h3>Luca Theme</h3>
-                    <p>Web Design</p>
+		
+				<div class="Portfolio-box branding">
+                	<a href="/bitasync/activate/L2/"><img src="{% static "bitasync_site/img/L2.jpg" %}" alt=""></a>	
+                	<h3>با این بسته می توانید 
+						<strong>
+						دو بار
+						</strong>
+						اطلاعات خود را به موبایل جدید منتقل کنید</h3>
+                  <div style="padding-top: 15px;">
+						 <div onclick="window.location.href='/bitasync/activate/L2/'"  class="btn-order label label-success label-order">سفارش بسته</div>
+						<div class="label label-default label-order" style="direction:rtl" > <span>5,000</span>&nbsp <span>   تومان</span></div> 
+					</div>
                 </div>
-                <div class=" Portfolio-box branding">
-                	<a href="#"><img src="{% static "bitasync_site/img/l6.jpg" %}" alt=""></a>	
-                	<h3>Uni Sans</h3>
-                    <p>Branding</p>
+                
+                
+			
+		
+		
+		<div class=" Portfolio-box branding">
+                	<a href="/bitasync/activate/L5/"><img src="{% static "bitasync_site/img/L5.jpg" %}" alt=""></a>	
+                	<h3>با این بسته می توانید 
+						<strong>
+						پنج بار
+						</strong>
+						اطلاعات خود را به موبایل جدید منتقل کنید</h3>
+                 <div style="padding-top: 15px;">
+						 <div onclick="window.location.href='/bitasync/activate/L5/'"  class="btn-order label label-success label-order">سفارش بسته</div>
+						<div class="label label-default label-order" style="direction:rtl" > <span>15,000</span>&nbsp <span>   تومان</span></div> 
+					</div>
                 </div>
-                <div class=" Portfolio-box webdesign" >
-                	<a href="#"><img src="{% static "bitasync_site/img/un1.jpg" %}" alt=""></a>	
-                	<h3>Vinyl Record</h3>
-                    <p>Photography</p>
-                </div>
+		
+		
+		
+			
+		<div class=" Portfolio-box webdesign" >
+                	<a href="/bitasync/activate/U1/"><img src="{% static "bitasync_site/img/U1.jpg" %}" alt=""></a>	
+                		<h3>با این بسته می توانید به مدت  
+						<strong>
+						 یک ماه به صورت نامحدود
+						</strong>
+					    از بیتاسینک استفاده کنید  </h3>
+              
+					<div style="padding-top: 15px;">
+						 <div onclick="window.location.href='/bitasync/activate/U1/'"  class="btn-order label label-success label-order">سفارش بسته</div>
+						<div class="label label-default label-order" style="direction:rtl" > <span>80,000</span>&nbsp <span>   تومان</span></div> 
+					</div>
+              
+		   </div>
+	
                 <div class=" Portfolio-box webdesign">
-                	<a href="#"><img src="{% static "bitasync_site/img/un3.jpg" %}" alt=""></a>	
-                	<h3>Hipster</h3>
-                    <p>Branding</p>
+                	<a href="/bitasync/activate/U3/"><img src="{% static "bitasync_site/img/U2.jpg" %}" alt=""></a>	
+                		<h3>با این بسته می توانید به مدت  
+						<strong>
+						  سه ماه به صورت نامحدود
+						</strong>
+					    از بیتاسینک استفاده کنید  </h3>
+                     <div style="padding-top: 15px;">
+						 <div onclick="window.location.href='/bitasync/activate/U3/'"  class="btn-order label label-success label-order">سفارش بسته</div>
+						<div class="label label-default label-order" style="direction:rtl" > <span>200,000</span>&nbsp <span>   تومان</span></div> 
+					</div>
+  
                 </div>
-                <div class=" Portfolio-box webdesign">
-                	<a href="#"><img src="{% static "bitasync_site/img/un6.jpg" %}" alt=""></a>	
-                	<h3>Windmills</h3>
-                    <p>Photography</p>
+		 <div class=" Portfolio-box webdesign">
+                	<a href="/bitasync/activate/U6/"><img src="{% static "bitasync_site/img/U5.jpg" %}" alt=""></a>	
+                		<h3>با این بسته می توانید به مدت  
+						<strong>
+						 شش ماه به صورت نامحدود
+						</strong>
+					    از بیتاسینک استفاده کنید  </h3>
+                      <div style="padding-top: 15px;">
+						 <div onclick="window.location.href='/bitasync/activate/U6/'"  class="btn-order label label-success label-order">سفارش بسته</div>
+						<div class="label label-default label-order" style="direction:rtl" > <span>400,000</span>&nbsp <span>   تومان</span></div> 
+					</div>
+  
                 </div>
+		
+		
+			
+               
     </div>
 </section><!--main-section-end-->
 
@@ -267,7 +357,7 @@
             <div class="team-leader-box">
                 <div class="team-leader wow fadeInDown delay-03s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="{% static "bitasync_site/img/n3.jpg" %}" alt="">
+                    <img src="{% static "bitasync_site/img/n1.jpg" %}" alt="">
                   <!-- <ul>
                         <li><a href="#" class="fa-twitter"></a></li>
                         <li><a href="#" class="fa-facebook"></a></li>
@@ -282,7 +372,7 @@
             <div class="team-leader-box">
                 <div class="team-leader  wow fadeInDown delay-06s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="{% static "bitasync_site/img/n3.jpg" %}" alt="">
+                    <img src="{% static "bitasync_site/img/n2.jpg" %}" alt="">
                    <!-- <ul>
                         <li><a href="#" class="fa-twitter"></a></li>
                         <li><a href="#" class="fa-facebook"></a></li>
@@ -297,7 +387,7 @@
             <div class="team-leader-box">
                 <div class="team-leader wow fadeInDown delay-09s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
-                    <img src="{% static "bitasync_site/img/n6.jpg" %}" alt="">
+                    <img src="{% static "bitasync_site/img/n3.jpg" %}" alt="">
                    <!-- <ul>
                         <li><a href="#" class="fa-twitter"></a></li>
                         <li><a href="#" class="fa-facebook"></a></li>
@@ -337,7 +427,10 @@
                 	<h3><i class="fa-pencil"></i> ایمیل:</h3>
                 	<span>info@bitasync.com</span>
                 </div>
-            	<!--<div class="contact-info-box hours clearfix">
+            	
+				
+				
+				<!--<div class="contact-info-box hours clearfix">
                 	<h3><i class="fa-clock-o"></i>Hours:</h3>
                 	<span><strong>Monday - Thursday:</strong> 10am - 6pm<br><strong>Friday:</strong> People work on Fridays now?<br><strong>Saturday - Sunday:</strong> Best not to ask.</span>
                 </div>
@@ -352,10 +445,22 @@
             </div>
         	<div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
             	<div class="form">
-                	<input class="input-text" type="text" name="" value="نام *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-                    <input class="input-text" type="text" name="" value="ایمیل *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-                	<textarea class="input-text text-area" cols="0" rows="0" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">پیام *</textarea>
-                    <input class="input-btn" type="submit" value="ارسال پیام">
+                	<form action="" method="post">
+						{% csrf_token %}
+						{{ form.field_errors }}	
+						
+					<input id= "{{ form.name.id_for_label }}" class="input-text" type="text" name="{{ form.name.html_name }}" value="نام *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+                    <input id="{{ form.email.id_for_label }}" class="input-text" type="text" name="{{ form.email.html_name }}" value="ایمیل *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+                   	<textarea id="{{ form.message.id_for_label }}"  name="{{ form.message.html_name }}" class="input-text text-area" cols="0" rows="0" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">پیام *</textarea>
+                    
+					<label for="{{ form.call_back.id_for_label }}">تماس تلفنی</label> <input id="{{ form.call_back.id_for_label }}" name="{{ form.call_back.html_name }}" class="" type="checkbox" 	/>
+                    <input id="{{ form.phone_number.id_for_label }}" class="input-text" type="text" name="{{ form.phone_number.html_name }}" value="شماره تماس *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+                
+					
+					<input class="input-btn" type="submit" value="ارسال پیام">
+						{{ form.non_field_errors }}
+				</form>
+
                 </div>	
             </div>
         </div>
@@ -389,11 +494,11 @@
       }
     );
     wow.init();
-    document.getElementById('').onclick = function() {
+    /*document.getElementById('').onclick = function() {
       var section = document.createElement('section');
       section.className = 'wow fadeInDown';
       this.parentNode.insertBefore(section, this);
-    };
+    };*/
   </script>
 
 
@@ -427,9 +532,14 @@ $(window).load(function(){
       colW = 375,
       columns = null;
 
-  
+ // modify Isotope's absolute position method
+$.Isotope.prototype._positionAbs = function( x, y ) {
+  return { right: x, top: y };
+};
+ 
   $container.isotope({
     // disable window resizing
+	 transformsEnabled: false,
     resizable: true,
     masonry: {
       columnWidth: colW
@@ -448,7 +558,9 @@ $(window).load(function(){
     }
     
   }).smartresize(); // trigger resize to set container width
-  $('.portfolioFilter a').click(function(){
+  
+	
+	$('.portfolioFilter a').click(function(){
         $('.portfolioFilter .current').removeClass('current');
         $(this).addClass('current');
  

@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^code_test/', include('code_test.urls')),  
     url(r'^guides/',include('guides.urls')), 
     url(r'^coupons/',include('coupons.urls')), 
+    url(r'^payment/',include('payment.urls')), 
 ]
