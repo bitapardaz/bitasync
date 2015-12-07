@@ -210,3 +210,12 @@ img { max-width: 100%; }
     text-transform: uppercase;
     transition: all 0.3s ease-in-out 0s;
 }
+
+.form-control {
+font-size:20px !important;	
+}
+
+.btn {
+	font-size:20px !important;
+	font-family:b mehr;
+}

@@ -234,3 +234,12 @@ only screen and (                min-resolution: 2dppx) {
     }
 	
 }
+
+.form-control {
+font-size:20px !important;	
+}
+
+.btn {
+	font-size:20px !important;	
+	font-family:b mehr;
+}

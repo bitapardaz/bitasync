@@ -79,8 +79,30 @@
 				<!--<h2></h2>
 				<h6></h6>-->
 				<div class="row">
+				
+					
+					
+					<div class="col-sm-6 col-sm-offset-3 form-box">
+									<div class="form-top">
+										<div class="form-top-left" style="margin-top: 20px;">
+											<h3> اگر هنوز عضو بیتاسینک نیستید
+												<a href='/accounts/register/' style="color:red"> 	ثبت نام </a>
+												کنید</h3>
+											<!--<p><a href='/accounts/register/' style="color:red"> اگر هنوز عضو بیتاسینک نیستید ثبت نام کنید</a></p>
+										-->
+										</div>
+										<div class="form-top-right">
+											<i class="fa fa-users"></i>
+										</div>
+									</div>
+									<!--<div class="form-bottom"></div>-->
+					</div>
+				
+				</div>	
+				<br>
+		
 
-							<div class="row">
+				<div class="row">
 								<!--<div class="col-sm-6 phone">
 									<img src="{% static "user_profile/assets/img/iphone.png" %}" alt="">
 								</div>-->
@@ -88,7 +110,7 @@
 									<div class="form-top">
 										<div class="form-top-left">
 											<h3></h3>
-											<p>نام کاربری و کلمه عبور خود را وارد کنید:</p>
+											<p style="font-family:b mehr">نام کاربری و کلمه عبور خود را وارد کنید</p>
 										</div>
 										<div class="form-top-right">
 											<i class="fa fa-lock"></i>
@@ -107,14 +129,17 @@
 												<input type="password" name="{{ form.password.html_name }}" placeholder="کلمه عبور ..." class="form-password form-control" id="{{ form.password.id_for_label }}">
 											</div>
 											<button type="submit" class="btn">ورود</button>
-		<a href='/accounts/password_reset/'>کلمه عبور خود را فراموش کرده اید؟</a>
-		{{ form.non_field_errors }}
+		<a href='/accounts/password_reset/'>کلمه عبور خود را فراموش کرده اید؟</a><br>
+	
+		
+								 
+								 {{ form.non_field_errors }}
 										</form>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+				
 
 
 		</section><!--main-section-end-->
