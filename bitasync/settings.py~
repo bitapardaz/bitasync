@@ -41,9 +41,9 @@ INSTALLED_APPS = (
     'user_profile',
     'code_test',
     'hardware',
-#    'payment',
+    'payment',
     'guides',
-    'coupons',
+#    'coupons',
 #    'django.contrib.sites',
 )
 
