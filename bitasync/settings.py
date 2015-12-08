@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'hardware',
     'payment',
     'guides',
-#    'coupons',
+    'coupons',
 #    'django.contrib.sites',
 )
 
