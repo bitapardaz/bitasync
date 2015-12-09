@@ -36,7 +36,7 @@ def my_password_reset(request):
     
     
 def my_password_reset_done(request): 
-    
+   
     template = loader.get_template('user_profile/password_reset_done.html')
     context = RequestContext(request)
     return HttpResponse(template.render(context))
@@ -212,7 +212,7 @@ def register(request):
         user_form = UserCreationForm(request.POST, prefix='user')
         user_profile_form = UserProfileForm(request.POST, prefix = 'userprofile')             
              
-        if user_form.is_valid() & user_profile_form.is_valid():
+        if user_form.is_valid() : #& user_profile_form.is_valid():
             
             
             username = user_form.cleaned_data['username']

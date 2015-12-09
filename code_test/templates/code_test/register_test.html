@@ -1,0 +1,45 @@
+
+
+
+<form action='' method="post">
+    {% csrf_token %}
+    
+    {{ form.non_field_errors }}
+
+    <label for="{{ form.username.id_for_label }}">Username:</label>
+    {{ form.username }}
+
+    {% if form.username.errors %}
+        <ol>
+        {% for error in form.username.errors %}
+            <li> <strong> {{ error|escape }} </strong> </li>
+        {% endfor %}
+        </ol>
+    {% endif %}
+
+
+    
+    <br/><br/>
+
+
+    <label for="{{ form.password1.id_for_label }}">Password</label>
+    {{ form.password1 }}
+    {% if form.password1.errors %}
+    
+    
+    
+    {% endif %}
+
+
+    <br/><br/>
+
+    <label for="{{ form.password2.id_for_label }}">Password Confirmation</label>
+    {{ form.password2 }}
+    {{ form.password2.errors }}
+
+    <br/><br/>
+
+    <input type="submit" value"OK">
+
+</form>
+
