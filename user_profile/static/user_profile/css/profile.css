@@ -80,11 +80,31 @@
     width: 100%;
 }
 .form-control {
-	width: 70% !important;
+	width: 60% !important;
 	display:inline !important;
+	font-family:tahoma;
 }
 
 .rglabel
 {
-	width:20%
+	width:30%
+}
+.btn {
+	font-size:20px !important;
+	font-family:b mehr;
+}
+body {
+    font-family: 'B Mehr';
+    font-size: 16px;
+    font-weight: 300;
+   
+    line-height: 30px;
+    text-align: center;
+    direction:rtl;
+}
+h3 {
+    color: #555;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 30px;
 }

@@ -11,7 +11,7 @@
 	{% endblock extracss %}
 
 	{% block extrajs %}
-		<script src="{% static "user_profile/js/register.js" %}"></script>
+		<script src="{% static "user_profile/js/profile.js" %}"></script>
 	{% endblock extrajs %}
   
 
@@ -25,7 +25,7 @@
                <div class="col-sm-6 form-box col-sm-offset-3">
 				<div class="form-top">
 					<div class="form-top-left">
-					اطلاعات شما
+					<h3>اطلاعات شما</h3>
 					</div>
 					<div class="form-top-right">
 						<i class="fa fa-pencil"></i>
@@ -42,10 +42,10 @@
 <!---------------------------------------------------------------------------------------->
 			{% if is_shop %}
 				
-			<div class="form-group">
+			<!--<div class="form-group">
 				<label class="rglabel" for="{{ shop_details_form.username.id_for_label }}"> نام کاربری</label>
 				<input type="text" name="{{ shop_details_form.username.html_name }}" placeholder="نام کاربری ..." class="form-first-name form-control" id="{{ shop_details_form.username.id_for_label }}">
-			</div>
+			</div>-->
 
 			
 
@@ -75,24 +75,56 @@
 			<label class="rglabel" style="float:right;" for="{{ shop_details_form.email_subscription.id_for_label }}">دریافت ایمیل؟</label>
 				<input style="width: 10%;" type="checkbox" name="{{ shop_details_form.email_subscription.html_name }}" class="form-control" id="{{ shop_details_form.email_subscription.id_for_label }}">
 			</div>
-<!---------------------------------------------------------------------------------------->
+
+			
+				
+			<div class="form-group">			                    
+				<label class="rglabel" for="{{ shop_details_form.reward.id_for_label }}">جایزه</label>
+				<input readonly="" value="{{ shop_details_form.reward.value }}" type="email" name="{{ shop_details_form.reward.html_name }}" placeholder="جایزه" class="form-email form-control" id="{{ shop_details_form.reward.id_for_label }}">
+			</div>
+			
+			<div class="form-group">			                    
+				<label class="rglabel" for="{{ shop_details_form.bank_card_number.id_for_label }}">شماره کارت بانکی</label>
+				<input value="{{ shop_details_form.bank_card_number.value }}" type="email" name="{{ shop_details_form.bank_card_number.html_name }}" placeholder="شماره کارت بانکی" class="form-email form-control" id="{{ shop_details_form.bank_card_number.id_for_label }}">
+			</div>	
+				
+			<div class="form-group">			                    
+			<label class="rglabel" for="{{ shop_details_form.account_holder.id_for_label }}">دارنده حساب</label>
+				<input value="{{ shop_details_form.account_holder.value }}" type="email" name="{{ shop_details_form.account_holder.html_name }}" placeholder="دارنده حساب" class="form-email form-control" id="{{ shop_details_form.account_holder.id_for_label }}">
+			</div>	
+				
+				
+				<!---------------------------------------------------------------------------------------->
 			{% else %}
 
+			<div class="form-group">			                    
+			<label class="rglabel" for="{{ customer_details_form.email.id_for_label }}">پست الکترونیک</label>
+				<input value="{{ customer_details_form.email.value }}" type="email" name="{{ customer_details_form.email.html_name }}" placeholder="پست الکترونیک ..." class="form-email form-control" id="{{ customer_details_form.email.id_for_label }}">
+			</div>
+
+			<div class="form-group">			                    
+			<label class="rglabel" for="{{ customer_details_form.mobile.id_for_label }}">موبایل</label>
+				<input value="{{ customer_details_form.mobile.value }}" type="text" name="{{ shop_details_form.mobile.html_name }}" placeholder="موبایل ..." class="form-control" id="{{ customer_details_form.mobile.id_for_label }}">
+			</div>
+
+			<div class="form-group">			                    
+			<label class="rglabel" style="float:right;" for="{{ customer_details_form.email_subscription.id_for_label }}">دریافت ایمیل؟</label>
+				<input style="width: 10%;" type="checkbox" name="{{ customer_details_form.email_subscription.html_name }}" class="form-control" id="{{ customer_details_form.email_subscription.id_for_label }}">
+			</div>
+
+
+
+
+			{% endif %}
+				
+				
 			{{ form.non_field_errors }}
-
-
-
-
-				{% endif %}
-				
-				
-		
-			<a href="/accounts/password_change">تغییر کلمه عبور</a>		
-    <button type="submit" class="btn">تغییر پروفایل</button>
+				<a href="/accounts/password_change">تغییر کلمه عبور</a>		
+ 		  		 <button type="submit" class="btn">تغییر پروفایل</button>
 			               
 					
 					
-					</form>
+		</form>
 		                  
 				   
 				   
@@ -100,7 +132,8 @@
 				   </div>
                         </div>
                     </div>
-        	  <div class="row">
+        	  
+		<!--	  <div class="row">
 			
 							
 				{% if is_shop %}
@@ -131,11 +164,11 @@
 				<a href="/accounts/password_change">Password Reset</a>
 
 				{% endif %}
-
+		
+		</div>-->
+		
 			
-			
-		</div>
-		  </div>
+			</div>
             
        
 		</section>
