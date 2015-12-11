@@ -1,2 +1,36 @@
-<h2> You login details are invalid </h2>
-<p> Click <a href="/accounts/login/"> here </a> to login again.  </p>
+{% extends 'bitasync_site/base.html' %}
+{% load staticfiles  %}
+
+{% block title %} بیتاسینک -> {% endblock title %}
+
+
+	
+
+	{% block extracss %} 
+		 
+	{% endblock extracss %}
+
+	{% block extrajs %}
+		
+	{% endblock extrajs %}
+  
+
+	{% block section %} 
+		<section class="main-section" id="service"><!--main-section-start-->
+			<div class="container">
+
+				<div class="row">
+					<h2> You login details are invalid </h2>
+					<h3 style="text-align:center"> Click <a href="/accounts/login/"> here </a> to login again.  </h3>
+
+				</div>
+			 </div>
+            
+       
+		</section>
+	{% endblock section %}	
+
+
+
+
+

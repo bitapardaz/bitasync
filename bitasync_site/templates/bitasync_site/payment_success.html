@@ -1,28 +1,58 @@
+{% extends 'bitasync_site/base.html' %}
+{% load staticfiles  %}
 
-<script>
-    function redirect(){
-       window.location.href = "/guides/using_bitasync/";
-    }
-
-    setTimeout(redirect, 10000); //2000 is equivalent to 2 seconds
-</script>
+{% block title %} بیتاسینک -> {% endblock title %}
 
 
-<h2>
-Payment Successful.
-</h2>
+	
 
-<hr>
+	{% block extracss %} 
+		 
+	{% endblock extracss %}
 
-<p>follow_up_number = {{follow_up_number}}</p>
+	{% block extrajs %}
+		
+	{% endblock extrajs %}
+  
 
-<p>Pleae keep this number in a safe place and use it in future correspondence with Bit@Sync. 
-</p>
-<hr>
-<img src={{image_link}}>
-You have now activated your Bit@Sync software. A confirmation email is sent to you. 
-<hr>
-We are directing you to our guides page where you can watch a short video and easily learn how to use Bit@Sync.  
-<hr>
+	{% block section %} 
+		<section class="main-section" id="service"><!--main-section-start-->
+			<div class="container">
+
+				<div class="row">
+					<script>
+							function redirect(){
+							   window.location.href = "/guides/using_bitasync/";
+							}
+
+							setTimeout(redirect, 10000); //2000 is equivalent to 2 seconds
+						</script>
+
+
+						<h2>
+						Payment Successful.
+						</h2>
+
+						<hr>
+
+						<p>follow_up_number = {{follow_up_number}}</p>
+
+						<p>Pleae keep this number in a safe place and use it in future correspondence with Bit@Sync. 
+						</p>
+						<hr>
+						<img src={{image_link}}>
+						You have now activated your Bit@Sync software. A confirmation email is sent to you. 
+						<hr>
+						We are directing you to our guides page where you can watch a short video and easily learn how to use Bit@Sync.  
+						<hr>
+				</div>
+			 </div>
+            
+       
+		</section>
+	{% endblock section %}	
+
+
+
 
 

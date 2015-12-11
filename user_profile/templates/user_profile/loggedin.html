@@ -1,2 +1,33 @@
-<h2> Hi {{fullname}}, you are logged in! </h2>
-Click <a href="/accounts/logout/"> Here </a> to log out.
+{% extends 'bitasync_site/base.html' %}
+{% load staticfiles  %}
+
+{% block title %} بیتاسینک -> {% endblock title %}
+
+
+	
+
+	{% block extracss %} 
+		 
+	{% endblock extracss %}
+
+	{% block extrajs %}
+		
+	{% endblock extrajs %}
+  
+
+	{% block section %} 
+		<section class="main-section" id="service"><!--main-section-start-->
+			<div class="container">
+
+				<div class="row">
+					<h2> Hi {{fullname}}, you are logged in! </h2>
+					Click <a href="/accounts/logout/"> Here </a> to log out.
+
+				</div>
+			 </div>
+            
+       
+		</section>
+	{% endblock section %}	
+
+

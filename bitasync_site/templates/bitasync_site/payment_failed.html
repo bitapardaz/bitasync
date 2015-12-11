@@ -1,21 +1,45 @@
-<h2>
-Payment Failed. 
-</h2>
 
-<hr>
 
-Return to <a href="/bitasync/activate/{{plan_name}}/"> here </a> to return to the payment page. 
+{% extends 'bitasync_site/base.html' %}
+{% load staticfiles  %}
 
-<hr>
+{% block title %} بیتاسینک -> {% endblock title %}
 
-If the payment failed again, please call us on 021-88867646. Alternatively, request a call back or send us an email using the form below. Please do not forget to include your number if you want a call-back. Our customer service is more than happy to help you. 
 
-<hr>
+	
 
-<form action="/bitasync/contact_us/" method="post">
-{% csrf_token %}
-<table border = "1">
-{{form.as_table}}
-</table>
-<input type='submit' value='Submit'>
-</form>
+	{% block extracss %} 
+		 
+	{% endblock extracss %}
+
+	{% block extrajs %}
+		
+	{% endblock extrajs %}
+  
+
+	{% block section %} 
+		<section class="main-section" id="service"><!--main-section-start-->
+			<div class="container">
+
+				<div class="row">
+							<h2>Payment Failed. </h2>
+							<hr>
+								Return to <a href="/bitasync/activate/{{plan_name}}/"> here </a> to return to the payment page. 
+							<hr>
+								If the payment failed again, please call us on 021-88867646. Alternatively, request a call back or send us an email using the form below. Please do not forget to include your number if you want a call-back. Our customer service is more than happy to help you. 
+							<hr>
+
+							<form action="/bitasync/contact_us/" method="post">
+							{% csrf_token %}
+							<table border = "1">
+							{{form.as_table}}
+							</table>
+							<input type='submit' value='Submit'>
+							</form>
+				</div>
+			 </div>
+            
+       
+		</section>
+	{% endblock section %}	
+
