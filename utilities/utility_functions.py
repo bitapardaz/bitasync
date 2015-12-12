@@ -57,12 +57,12 @@ def calculate_discounted_price(plan,coupons):
         
 def get_plan_image_link(plan_name): 
 
-    plan_image_link = dict([ ('L1',''), 
-                             ('L2',''),  
-                             ('L5',''), 
-                             ('U1',''), 
-                             ('U3',''), 
-                             ('U6',''), 
+    plan_image_link = dict([ ('L1','/static/bitasync_site/img/L1.jpg'), 
+                             ('L2','/static/bitasync_site/img/L2.jpg'),  
+                             ('L5','/static/bitasync_site/img/L5.jpg'), 
+                             ('U1','/static/bitasync_site/img/U1.jpg'), 
+                             ('U3','/static/bitasync_site/img/U2.jpg'), 
+                             ('U6','/static/bitasync_site/img/U5.jpg'), 
                         ])
                         
     return  plan_image_link[plan_name]
