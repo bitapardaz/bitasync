@@ -1,18 +1,19 @@
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-from .forms.forms import KidForm
-from .forms.forms import ContactForm
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 from django.template.context_processors import csrf
 
+from .forms import MyUserCreationForm
+
+
 def register_test(request):
 
     if request.method == 'POST': 
 
-        form = UserCreationForm(request.POST)       
+        form = MyUserCreationForm(request.POST)       
         if form.is_valid():
         
             username = form.cleaned_data['username']
@@ -21,7 +22,7 @@ def register_test(request):
             return HttpResponse("Thanks for you registration.")
                     
     else: 
-        form = UserCreationForm()
+        form = MyUserCreationForm()
 
     context = {}
     context.update(csrf(request))
