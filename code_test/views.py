@@ -11,23 +11,24 @@ from .forms import MyUserCreationForm
 
 def register_test(request):
 
-    if request.method == 'POST': 
+    pass
+#    if request.method == 'POST': #
 
-        form = MyUserCreationForm(request.POST)       
-        if form.is_valid():
-        
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']         
-            user = User.objects.create_user(username=username, password=password)   
-            return HttpResponse("Thanks for you registration.")
+#        form = MyUserCreationForm(request.POST)       
+#        if form.is_valid():
+##        
+#            username = form.cleaned_data['username']
+#            password = form.cleaned_data['password1']         
+#            user = User.objects.create_user(username=username, password=password)   
+#            return HttpResponse("Thanks for you registration.")
                     
-    else: 
-        form = MyUserCreationForm()
+#    else: 
+#        form = MyUserCreationForm()
 
-    context = {}
-    context.update(csrf(request))
-    context['form'] = form
-    return render(request,'code_test/register_test.html',context)     
+#    context = {}
+#    context.update(csrf(request))
+#    context['form'] = form
+#    return render(request,'code_test/register_test.html',context)     
     
 
 def contact_me_view(request):
