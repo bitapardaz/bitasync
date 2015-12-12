@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 from django.template.context_processors import csrf
 
-from .forms import MyUserCreationForm
+#from .forms import MyUserCreationForm
 
 
 def register_test(request):
