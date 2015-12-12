@@ -249,22 +249,19 @@ def register(request):
 
             return HttpResponseRedirect("/accounts/register_success")
          
-        else: 
-            return HttpResponse('There was an error on the registration form submitted.')     
-       
+
     else: 
     
         user_form = UserCreationForm(prefix='user')
         user_profile_form = UserProfileForm(prefix='userprofile')
         
-        args= {}
-        args.update(csrf(request))
-        args['user_form'] = user_form
-        args['user_profile_form'] = user_profile_form
-        
-        template = loader.get_template('user_profile/registration.html')
-        context = RequestContext(request,args)
-        return HttpResponse(template.render(context))
+    args= {}
+    args.update(csrf(request))
+    args['user_form'] = user_form
+    args['user_profile_form'] = user_profile_form
+     
+    return render(request,'user_profile/registration.html',args)    
+    
          
 def logout(request):
     auth.logout(request)

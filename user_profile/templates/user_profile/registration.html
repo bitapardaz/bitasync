@@ -43,30 +43,51 @@
 			<div class="form-group">
 				<label class="sr-only" for="{{ user_form.username.id_for_label }}"> نام کاربری</label>
 				<input type="text" name="{{ user_form.username.html_name }}" placeholder="نام کاربری " class="form-first-name form-control" id="{{ user_form.username.id_for_label }}">
+				
+				{% if user_form.username.errors %}
+                    <span  > <strong style="color:red" > این حساب کاربری قبلا ثبت شده است. دوباره امتحان کنید </strong> </span>
+                {% endif %}
+				
+
 			</div>
 
 			<div class="form-group">
 				<label class="sr-only" for="{{ user_form.password1.id_for_label }}">کلمه عبور </label>
 				<input type="password" name="{{ user_form.password1.html_name }}" placeholder="کلمه عبور " class="form-last-name form-control" id="{{ user_form.password1.id_for_label }}">
+				
+				{% if user_form.password1.errors %}
+                    <span style="color:red"> <strong> کلمات عبور وارد شده یکسان باید باشند </strong> </span>
+                {% endif %}
+				
 			</div>
 
 			<div class="form-group">
 				<label class="sr-only" for="{{ user_form.password2.id_for_label }}">تایید کلمه عبور</label>
 				<input type="password" name="{{ user_form.password2.html_name }}" placeholder="تایید کلمه عبور" class="form-control" id="{{ user_form.password2.id_for_label }}">
+				
+				{% if user_form.password2.errors %}
+                    <span style="color:red"> <strong> کلمات عبور وارد شده یکسان باید باشند </strong> </span>
+                {% endif %}
+				
 			</div>
 
 			<div class="form-group">			                    
 			<label class="sr-only" for="{{ user_profile_form.email.id_for_label }}">پست الکترونیک</label>
 				<input type="email" name="{{ user_profile_form.email.html_name }}" placeholder="پست الکترونیک " class="form-email form-control" id="{{ user_profile_form.email.id_for_label }}">
+				
+				{% if user_profile_form.email.errors %}
+                    <span style="color:red"> <strong> این ایمیل قبلا ثبت شده است.یک ایمیل جدید وارد نمایید </strong> </span>
+                {% endif %}
+				
 			</div>
 
 			<div class="form-group">			                    
-			<label class="sr-only" for="{{ user_profile_form.mobile.id_for_label }}">موبایل</label>
-				<input type="text" name="{{ user_profile_form.mobile.html_name }}" placeholder="موبایل (اختیاری)" class="form-control" id="{{ user_profile_form.mobile.id_for_label }}">
+			<label class="sr-only" for="{{ user_profile_form.mobile.id_for_label }}"> شماره موبایل</label>
+				<input type="text" name="{{ user_profile_form.mobile.html_name }}" placeholder="شماره موبایل ( اختیاری )" class="form-control" id="{{ user_profile_form.mobile.id_for_label }}">
 			</div>
 
 			<div class="form-group">			                    
-			<label style="float:right;" for="{{ user_profile_form.is_shop.id_for_label }}">آیا مغازه دار هستید؟</label>
+			<label style="float:right;" for="{{ user_profile_form.is_shop.id_for_label }}">آیا مغازه ای دارید که سرویس های تلفن همراه ارایه می دهد؟</label>
 				<input style="width: 10%;" type="checkbox" name="{{ user_profile_form.is_shop.html_name }}"  class="form-control" id="{{ user_profile_form.is_shop.id_for_label }}">
 			</div>
 
@@ -77,7 +98,7 @@
 
 <div class="form-group">			                    
 			<label class="sr-only" for="{{ user_profile_form.telephone.id_for_label }}">تلفن (اختیاری)</label>
-				<input style="display: none;" type="text" name="{{ user_profile_form.telephone.html_name }}" placeholder="تلفن (اختیاری)" class="form-control" id="{{ user_profile_form.telephone.id_for_label }}">
+				<input style="display: none;" type="text" name="{{ user_profile_form.telephone.html_name }}" placeholder="تلفن - به همراه کد شهر (اختیاری)" class="form-control" id="{{ user_profile_form.telephone.id_for_label }}">
 			</div>
 
 <div class="form-group">			                    
