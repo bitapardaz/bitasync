@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'bitasync_db',
         'USER': 'bitasync_db_user',
         'PASSWORD': 'bitasync_db_user_password',
-        'HOST': 'localhost',
+        'HOST': '192.168.1.51',
         'PORT': '',
     }
 }
