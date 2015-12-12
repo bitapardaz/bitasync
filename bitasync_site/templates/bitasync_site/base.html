@@ -70,14 +70,16 @@
 								<li><a href="/accounts/register">عضویت</a></li>	
 								<li><a href="/accounts/login">ورود</a></li>
 									{% endif %}
-								<li><a href="/#contact">تماس با ما</a></li>
-								<li><a href="/">درباره ما</a></li>
-									 {% if request.user.is_authenticated %}
+								 {% if request.user.is_authenticated %}
 								<li><a href="/accounts/myprofile"> ناحیه کاربری </a></li>	
 								<li><a href="/accounts/logout">  خروج</a></li>
 								
 									{% endif %}
 
+								
+								<li><a href="/#contact">تماس با ما</a></li>
+								<li><a href="/">درباره ما</a></li>
+									
 							</ul>
 							<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
 						</div>
