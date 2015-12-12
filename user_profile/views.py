@@ -135,14 +135,16 @@ def myprofile(request):
         else: 
             # user is not a shop
              
-            customer_profile_form = MyProfileCustomerForm(request.POST)
+           
+	    customer_profile_form = MyProfileCustomerForm(request.POST)
             if customer_profile_form.is_valid():      
                 if customer_profile_form.has_changed():
                 
                     # get the data out of the form 
                     email = customer_profile_form.cleaned_data['email']
                     mobile = customer_profile_form.cleaned_data['mobile']
-                    email_subscription = customer_profile_form.cleaned_data['email_subscription']                   
+                    email_subscription = customer_profile_form.cleaned_data['email_subscription']   
+		          
                     
                     # save it to the database. 
                     user_profile = UserProfile.objects.get(user=request.user)                    

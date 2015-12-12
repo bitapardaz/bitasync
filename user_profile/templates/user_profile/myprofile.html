@@ -76,21 +76,21 @@
 				<input style="width: 10%;" type="checkbox" name="{{ shop_details_form.email_subscription.html_name }}" class="form-control" id="{{ shop_details_form.email_subscription.id_for_label }}">
 			</div>
 
-			
+			{% if shop_details_form.email_subscription.value %} <script> $('#id_email_subscription').prop('checked',true) </script> {% endif %}
 				
 			<div class="form-group">			                    
 				<label class="rglabel" for="{{ shop_details_form.reward.id_for_label }}">جایزه</label>
-				<input readonly="" value="{{ shop_details_form.reward.value }}" type="email" name="{{ shop_details_form.reward.html_name }}" placeholder="جایزه" class="form-email form-control" id="{{ shop_details_form.reward.id_for_label }}">
+				<input readonly="" value="{{ shop_details_form.reward.value }}" type="text" name="{{ shop_details_form.reward.html_name }}" placeholder="جایزه" class="form-email form-control" id="{{ shop_details_form.reward.id_for_label }}">
 			</div>
 			
 			<div class="form-group">			                    
 				<label class="rglabel" for="{{ shop_details_form.bank_card_number.id_for_label }}">شماره کارت بانکی</label>
-				<input value="{{ shop_details_form.bank_card_number.value }}" type="email" name="{{ shop_details_form.bank_card_number.html_name }}" placeholder="شماره کارت بانکی" class="form-email form-control" id="{{ shop_details_form.bank_card_number.id_for_label }}">
+				<input value="{{ shop_details_form.bank_card_number.value }}" type="text" name="{{ shop_details_form.bank_card_number.html_name }}" placeholder="شماره کارت بانکی" class="form-email form-control" id="{{ shop_details_form.bank_card_number.id_for_label }}">
 			</div>	
 				
 			<div class="form-group">			                    
 			<label class="rglabel" for="{{ shop_details_form.account_holder.id_for_label }}">دارنده حساب</label>
-				<input value="{{ shop_details_form.account_holder.value }}" type="email" name="{{ shop_details_form.account_holder.html_name }}" placeholder="دارنده حساب" class="form-email form-control" id="{{ shop_details_form.account_holder.id_for_label }}">
+				<input value="{{ shop_details_form.account_holder.value }}" type="text" name="{{ shop_details_form.account_holder.html_name }}" placeholder="دارنده حساب" class="form-email form-control" id="{{ shop_details_form.account_holder.id_for_label }}">
 			</div>	
 				
 				
@@ -104,14 +104,15 @@
 
 			<div class="form-group">			                    
 			<label class="rglabel" for="{{ customer_details_form.mobile.id_for_label }}">موبایل</label>
-				<input value="{{ customer_details_form.mobile.value }}" type="text" name="{{ shop_details_form.mobile.html_name }}" placeholder="موبایل ..." class="form-control" id="{{ customer_details_form.mobile.id_for_label }}">
+				<input value="{{ customer_details_form.mobile.value }}" type="text" name="{{ customer_details_form.mobile.html_name }}" placeholder="موبایل ..." class="form-control" id="{{ customer_details_form.mobile.id_for_label }}">
 			</div>
 
 			<div class="form-group">			                    
 			<label class="rglabel" style="float:right;" for="{{ customer_details_form.email_subscription.id_for_label }}">دریافت ایمیل؟</label>
-				<input style="width: 10%;" type="checkbox" name="{{ customer_details_form.email_subscription.html_name }}" class="form-control" id="{{ customer_details_form.email_subscription.id_for_label }}">
+				<input  style="width: 10%;" type="checkbox" name="{{ customer_details_form.email_subscription.html_name }}" class="form-control" id="{{ customer_details_form.email_subscription.id_for_label }}">
 			</div>
 
+			{% if customer_details_form.email_subscription.value %} <script> $('#id_email_subscription').prop('checked',true) </script> {% endif %}
 
 
 
