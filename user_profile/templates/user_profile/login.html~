@@ -74,11 +74,14 @@
 												<label class="sr-only" for="{{ form.password.id_for_label }}">کلمه عبور</label>
 												<input type="password" name="{{ form.password.html_name }}" placeholder="کلمه عبور ..." class="form-password form-control" id="{{ form.password.id_for_label }}">
 												
+											{% if form.non_field_errors  %}											
+                                                <span > <strong style="color:red">
+                                                    اطلاعات وارد شده صحیح نیست. لطفا دوباره امتحان کنید. 
+                                                <strong> </span>                                                                                       
+                                            {% endif %}
 											</div>
 											
-                                            {% if form.non_field_errors  %}											
-                                                <span> اطلاعات وارد شده صحیح نمی باشد</span>                                                                                       
-                                            {% endif %}
+                                            
 											
 											<button type="submit" class="btn">ورود</button>
 		<a href='/accounts/password_reset/'>کلمه عبور خود را فراموش کرده اید؟</a><br>
