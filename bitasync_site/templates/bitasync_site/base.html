@@ -63,17 +63,19 @@
 								<li><a href="#service">Services</a></li>-->
 
 								<li class="small-logo"><a href="/"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li> 
-								<li><a href="/#download">دانلود</a></li>
+								<li><a href="/#download"> دانلود نرم افزار</a></li>
 								<li><a href="#">راهنمای استفاده</a></li>
 
+								 {% if not request.user.is_authenticated %}
+								<li><a href="/accounts/register">عضویت</a></li>	
+								<!--<li><a href="/accounts/login">ورود</a></li>-->
+									{% endif %}
 								<li><a href="/#contact">تماس با ما</a></li>
 								<li><a href="/">درباره ما</a></li>
 									 {% if request.user.is_authenticated %}
-								<li><a href="/accounts/myprofile"> پروفایل من </a></li>	
+								<li><a href="/accounts/myprofile"> ناحیه کاربری </a></li>	
 								<li><a href="/accounts/logout">  خروج</a></li>
-									{% else %}
-								<li><a href="/accounts/register">عضویت</a></li>	
-								<li><a href="/accounts/login">ورود</a></li>
+								
 									{% endif %}
 
 							</ul>
