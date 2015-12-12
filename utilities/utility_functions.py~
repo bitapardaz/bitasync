@@ -62,7 +62,7 @@ def get_plan_image_link(plan_name):
                              ('L5','/static/bitasync_site/img/L5.jpg'), 
                              ('U1','/static/bitasync_site/img/U1.jpg'), 
                              ('U3','/static/bitasync_site/img/U2.jpg'), 
-                             ('U6','/static/bitasync_site/img/U6.jpg'), 
+                             ('U6','/static/bitasync_site/img/U5.jpg'), 
                         ])
                         
     return  plan_image_link[plan_name]
