@@ -21,7 +21,7 @@
 
 				
 				 <div class="row">
-					 <div class="col-md-6 pull-right">
+					 <div class="col-md-6 .col-xs-6 pull-right">
 					 
 					 <h3>طرح انتخاب شده</h3>
 					<hr>
@@ -37,17 +37,12 @@
 							{% else %}
 								قیمت = {{selected_plan.original_price }} 
 							{% endif %}
-
 							<br>
+							
 							<a href="/payment/{{selected_plan.plan_name}}/"><button type="button">پرداخت الکترونیکی</button></a>
-
-
-					 
-					 
-					 
-					 
+						<br><br>
 					 </div>
-					 <div class="col-md-6 pull-right">
+					 <div class="col-md-6 .col-xs-6 pull-right">
 					 
 					 	{% if not coupon_available %}
 						{% else %}
@@ -55,15 +50,17 @@
 						 <hr>
 						<table class="table">
 							 <tr>
-								<th>تاریخ انقضا</th>
-								<th>درصد تخفیف</th>		
 								<th>کارت هدیه</th>
+								<th>درصد تخفیف</th>	
+								 <th>تاریخ انقضا</th>
+							
 							 </tr>  
 							{% for coupon in existing_coupons %}
 								<tr>
-									<td>{{coupon.expiry_date}}</td>
-									<td>{{coupon.discount_rate}}</td>		
 									<td> {{ forloop.counter }} </td>
+									<td>{{coupon.discount_rate}}</td>
+									<td>{{coupon.expiry_date}}</td>
+									
 								</tr>  
 							{% endfor %}
 					    </table>
@@ -113,7 +110,7 @@
 							
 
 						<span>عنوان: </span> <span> {{ alt_plan_0.plan_name  }} </span> <br/>
-							<img src="{{ alt_plan_0.image_link }}"  > <br/>
+							<img src="{{ alt_plan_0.image_link }}" alt= "{{ alt_plan_0.plan_name }}" > <br/>
 
 						<span>توضیحات: </span> <span> {{ alt_plan_0.description }} </span><br/>
 
