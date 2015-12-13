@@ -30,6 +30,7 @@
 				<div class="form-top">
 					<div class="form-top-left" style="margin-top: 20px;">
 						<h3>لطفا اطلاعات زیر را وارد کنید</h3>
+						<h5 style="font-family: b roya ! important; font-size: 17px;">فقط از حروف انگلیسی استفاده فرمایید </h5>
 					</div>
 					<div class="form-top-right">
 						<i class="fa fa-pencil"></i>
@@ -73,7 +74,7 @@
 
 			<div class="form-group">			                    
 			<label class="sr-only" for="{{ user_profile_form.email.id_for_label }}">پست الکترونیک</label>
-				<input type="email" name="{{ user_profile_form.email.html_name }}" placeholder="پست الکترونیک " class="form-email form-control" id="{{ user_profile_form.email.id_for_label }}">
+				<input type="email" name="{{ user_profile_form.email.html_name }}" placeholder="ایمیل " class="form-email form-control" id="{{ user_profile_form.email.id_for_label }}">
 				
 				{% if user_profile_form.email.errors %}
                     <span style="color:red"> <strong> این ایمیل قبلا ثبت شده است.یک ایمیل جدید وارد نمایید </strong> </span>
@@ -88,7 +89,7 @@
 
 			<div class="form-group">			                    
 			<label style="float:right;" for="{{ user_profile_form.is_shop.id_for_label }}">آیا مغازه ای دارید که سرویس های تلفن همراه ارایه می دهد؟</label>
-				<input style="width: 10%;" type="checkbox" name="{{ user_profile_form.is_shop.html_name }}"  class="form-control" id="{{ user_profile_form.is_shop.id_for_label }}">
+				<input style="width: 10%; float: right;" type="checkbox" name="{{ user_profile_form.is_shop.html_name }}"   id="{{ user_profile_form.is_shop.id_for_label }}">
 			</div>
 
 			<div class="form-group">			                    
@@ -98,12 +99,12 @@
 
 <div class="form-group">			                    
 			<label class="sr-only" for="{{ user_profile_form.telephone.id_for_label }}">تلفن (اختیاری)</label>
-				<input style="display: none;" type="text" name="{{ user_profile_form.telephone.html_name }}" placeholder="تلفن (اختیاری)" class="form-control" id="{{ user_profile_form.telephone.id_for_label }}">
+				<input style="display: none;" type="text" name="{{ user_profile_form.telephone.html_name }}" placeholder="تلفن - به همراه کد شهر (اختیاری)" class="form-control" id="{{ user_profile_form.telephone.id_for_label }}">
 			</div>
 
 <div class="form-group">			                    
 			<label style="float:right;" for="{{ user_profile_form.read_agreement.id_for_label }}">قوانین و مقررات بیتاسینک را خوانده ام</label>
-				<input style="width: 10%;" type="checkbox" name="{{ user_profile_form.read_agreement.html_name }}"  class="form-control" id="{{ user_profile_form.read_agreement.id_for_label }}">
+				<input style="width: 10%;float: right;" type="checkbox" name="{{ user_profile_form.read_agreement.html_name }}"  id="{{ user_profile_form.read_agreement.id_for_label }}">
 			</div>
 
 

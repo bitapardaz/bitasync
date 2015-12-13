@@ -37,14 +37,8 @@ def my_password_reset(request):
     
 def my_password_reset_done(request): 
    
-    template = loader.get_template('user_profile/password_reset_done.html')
-    context = RequestContext(request)
-    return HttpResponse(template.render(context))
+    return render(request,'user_profile/password_reset_done.html')   
     
-
-
-
-
     
 def my_password_reset_confirm(request,uidb64,token): 
     response = auth_views.password_reset_confirm(request,
@@ -59,14 +53,8 @@ def my_password_reset_confirm(request,uidb64,token):
    
 def my_password_reset_complete(request): 
 
-    response = """
-                Password Change Complete. 
-                <hr>
-                Click <a href="/accounts/login"> here </a> to login.
-                """
-    return HttpResponse(response)
-
-
+    return render(request,'user_profile/password_reset_complete.html')
+    
 @login_required
 def my_password_change_done(request): 
 
@@ -125,18 +113,11 @@ def myprofile(request):
                     user_profile.save()
                     shop_profile.save()
                     
-                    return HttpResponseRedirect('/accounts/myprofile/')
-
-            
-            else: 
-                # user_profile form is not valid
-                return HttpResponse("error: submited form is not valid.")
+                    return HttpResponseRedirect('/accounts/myprofile/')                
             
         else: 
-            # user is not a shop
-             
-           
-	    customer_profile_form = MyProfileCustomerForm(request.POST)
+            # user is not a shop                       
+	        customer_profile_form = MyProfileCustomerForm(request.POST)
             if customer_profile_form.is_valid():      
                 if customer_profile_form.has_changed():
                 
@@ -160,12 +141,7 @@ def myprofile(request):
                 else: 
                     # the form has not changed. Do nothing. 
                     # redirect to homepage?    
-                    return HttpResponseRedirect('/accounts/myprofile/')          
-            else: 
-                # todo
-                # the form is not valid. 
-                # return the form to the user.
-                pass 
+                    return HttpResponseRedirect('/accounts/myprofile/')           
         
     else: 
         # if the request does not have POST method
@@ -211,10 +187,11 @@ def myprofile(request):
 def register(request):
 
     if request.method == 'POST':
+    
         user_form = UserCreationForm(request.POST, prefix='user')
         user_profile_form = UserProfileForm(request.POST, prefix = 'userprofile')             
              
-        if user_form.is_valid() & user_profile_form.is_valid():
+        if user_profile_form.is_valid() & user_form.is_valid() :
             
             
             username = user_form.cleaned_data['username']
@@ -247,7 +224,7 @@ def register(request):
                 customer_profile.save()
             
 
-            return HttpResponseRedirect("/accounts/register_success")
+            return HttpResponseRedirect("/accounts/register_success/")
          
 
     else: 
@@ -287,7 +264,7 @@ def logout(request):
       
 def login(request): 
 
-    response = auth_views.login(request,
+    response = auth_views.login(request, 
                                 template_name="user_profile/login.html", 
                                 )
     
@@ -302,16 +279,10 @@ def loggedin(request):
     return HttpResponse(template.render(context))
 
 
-def invalid(request):
-    template = loader.get_template('user_profile/invalid.html')
-    context = RequestContext(request)
-    return HttpResponse(template.render(context))
-    
+def invalid(request):  
+    return render(request,'user_profile/invalid.html')
  
      
 def register_success(request): 
-
-        template = loader.get_template('user_profile/registration_success.html')
-        context = RequestContext(request)
-        return HttpResponse(template.render(context))
+    return render(request,'user_profile/registration_success.html')
  
