@@ -50,8 +50,9 @@
 			
 
 			<div class="form-group">			                    
-			<label class="rglabel" for="{{ shop_details_form.email.id_for_label }}">پست الکترونیک</label>
+			<label class="rglabel" for="{{ shop_details_form.email.id_for_label }}">ایمیل</label>
 				<input value="{{ shop_details_form.email.value }}" type="email" name="{{ shop_details_form.email.html_name }}" placeholder="پست الکترونیک ..." class="form-email form-control" id="{{ shop_details_form.email.id_for_label }}">
+			<p>	shop_details_form.email.errors </p>
 			</div>
 
 			<div class="form-group">			                    
@@ -63,17 +64,17 @@
 
 			<div class="form-group">			                    
 			<label class="rglabel" for="{{ shop_details_form.address.id_for_label }}">آدرس</label>
-				<input value="{{ shop_details_form.mobile.value }}" type="text" name="{{ shop_details_form.address.html_name }}" placeholder="آدرس..." class="form-control" id="{{ shop_details_form.address.id_for_label }}">
+				<input value="{{ shop_details_form.address.value }}" type="text" name="{{ shop_details_form.address.html_name }}" placeholder="آدرس..." class="form-control" id="{{ shop_details_form.address.id_for_label }}">
 			</div>
 
 			<div class="form-group">			                    
-			<label class="rglabel" for="{{ shop_details_form.landline.id_for_label }}">تلفن</label>
+			<label class="rglabel" for="{{ shop_details_form.landline.id_for_label }}">تلفن ثابت</label>
 				<input value="{{ shop_details_form.landline.value }}" type="text" name="{{shop_details_form.landline.html_name }}" placeholder="تلفن..." class="form-control" id="{{ shop_details_form.telephone.id_for_label }}">
 			</div>
 
 			<div class="form-group">			                    
 			<label class="rglabel" style="float:right;" for="{{ shop_details_form.email_subscription.id_for_label }}">
-			دریافت خبرنامه بیتاسینک؟
+			خبرنامه بیتاسینک؟
 			</label>
 				<input style="width: 10%;" type="checkbox" name="{{ shop_details_form.email_subscription.html_name }}" class="form-control" id="{{ shop_details_form.email_subscription.id_for_label }}">
 			</div>
@@ -81,7 +82,9 @@
 			{% if shop_details_form.email_subscription.value %} <script> $('#id_email_subscription').prop('checked',true) </script> {% endif %}
 				
 			<div class="form-group">			                    
-				<label class="rglabel" for="{{ shop_details_form.reward.id_for_label }}">جایزه</label>
+				<label class="rglabel" for="{{ shop_details_form.reward.id_for_label }}">
+				   بستانکاری از بیتاسینک
+				</label>
 				<input readonly="" value="{{ shop_details_form.reward.value }}" type="text" name="{{ shop_details_form.reward.html_name }}" placeholder="جایزه" class="form-email form-control" id="{{ shop_details_form.reward.id_for_label }}">
 			</div>
 			

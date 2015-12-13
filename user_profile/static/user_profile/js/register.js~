@@ -1,22 +1,7 @@
 
 jQuery(document).ready(function() {
 	
-    /*
-        Fullscreen background
-    */    
-    $.backstretch([
-                           "/static/user_profile/assets/img/backgrounds/1.jpg"
-                         , "/static/user_profile/assets/img/backgrounds/2.jpg"
-                         , "/static/user_profile/assets/img/backgrounds/3.jpg"
-                         ], {duration: 3000, fade: 750});
-    
-    $('#top-navbar-1').on('shown.bs.collapse', function(){
-    	$.backstretch("resize");
-    });
-    $('#top-navbar-1').on('hidden.bs.collapse', function(){
-    	$.backstretch("resize");
-    });
-    
+
     /*
         Form validation
     */
@@ -26,7 +11,72 @@ jQuery(document).ready(function() {
     
     $('.registration-form').on('submit', function(e) {
     	
-    	$(this).find('input[type="text"], textarea').each(function(){
+    			
+		
+		
+	//	if($('.input1').length > 0 && $('input1').val() != '')
+		if( $('#id_user-username').val() == "" ) 
+			{
+					
+				
+					e.preventDefault();
+					$('#id_user-username').addClass('input-error');
+			}
+    	else
+			{
+					
+				$(this).removeClass('input-error');
+			}
+		
+		if( $('#id_user-password1').val() == "" ) 
+			{
+					e.preventDefault();
+					$('#id_user-password1').addClass('input-error');
+			}
+    	else
+			{
+					$(this).removeClass('input-error');
+			}
+		
+		if( $('#id_user-password2').val() == "" ) 
+			{
+					e.preventDefault();
+					$('#id_user-password2').addClass('input-error');
+			}
+    	else
+			{
+					$(this).removeClass('input-error');
+			}
+		
+		if( $('#id_userprofile-email').val() == "" ) 
+			{
+					e.preventDefault();
+					$('#id_userprofile-email').addClass('input-error');
+			}
+    	else
+			{
+					$('#id_userprofile-email').removeClass('input-error');
+			}
+		
+		if( $('#id_userprofile-read_agreement').is(':checked') ) 
+			{
+					
+				
+					
+			}
+    	else
+			{
+				
+				alert("لطفا شرایط موافقت نامه را بخوانید");	
+				e.preventDefault();
+				
+			}
+		
+		
+		
+		
+		/*$(this).find('input[type="text"], textarea').each(function()
+		{
     		if( $(this).val() == "" ) {
     			e.preventDefault();
     			$(this).addClass('input-error');
@@ -34,9 +84,34 @@ jQuery(document).ready(function() {
     		else {
     			$(this).removeClass('input-error');
     		}
-    	});
+    	});*/
     	
+    
+	
+	
+	
+	});
+    
+  
+	 $("#id_userprofile-is_shop").click(function(){
+      	if( $('#id_userprofile-is_shop').is(':checked') ) 
+			{
+				   $("#id_userprofile-address").fadeIn("slow");
+				   $("#id_userprofile-landline").fadeIn("slow");
+			}
+		else
+		{
+			   $("#id_userprofile-address").fadeOut("slow");
+				   $("#id_userprofile-landline").fadeOut("slow");
+		}
+		 
+		
     });
-    
-    
+	
+	if( $('#id_userprofile-is_shop').is(':checked') ) 
+			{
+				   $("#id_userprofile-address").fadeIn("slow");
+				   $("#id_userprofile-landline").fadeIn("slow");
+			}
+	
 });

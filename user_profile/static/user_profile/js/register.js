@@ -97,12 +97,12 @@ jQuery(document).ready(function() {
       	if( $('#id_userprofile-is_shop').is(':checked') ) 
 			{
 				   $("#id_userprofile-address").fadeIn("slow");
-				   $("#id_userprofile-telephone").fadeIn("slow");
+				   $("#id_userprofile-landline").fadeIn("slow");
 			}
 		else
 		{
 			   $("#id_userprofile-address").fadeOut("slow");
-				   $("#id_userprofile-telephone").fadeOut("slow");
+				   $("#id_userprofile-landline").fadeOut("slow");
 		}
 		 
 		
@@ -111,7 +111,7 @@ jQuery(document).ready(function() {
 	if( $('#id_userprofile-is_shop').is(':checked') ) 
 			{
 				   $("#id_userprofile-address").fadeIn("slow");
-				   $("#id_userprofile-telephone").fadeIn("slow");
+				   $("#id_userprofile-landline").fadeIn("slow");
 			}
 	
 });

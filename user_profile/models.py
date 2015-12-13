@@ -22,6 +22,10 @@ class ShopProfile(models.Model):
     account_holder = models.CharField(null=True,blank=True, max_length=30)
     reward = models.BigIntegerField(default=0)    
     
+    def __unicode__(self): 
+        return "shop_profile:" + self.user_profile.user.username  
+    
+    
 class CustomerProfile(models.Model):
     
     user_profile = models.OneToOneField(UserProfile)    
