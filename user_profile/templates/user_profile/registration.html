@@ -43,7 +43,7 @@
 
 			<div class="form-group">
 				<label class="sr-only" for="{{ user_form.username.id_for_label }}"> نام کاربری</label>
-				<input type="text" name="{{ user_form.username.html_name }}" placeholder="نام کاربری " class="form-first-name form-control" id="{{ user_form.username.id_for_label }}">
+				<input style="text-align: right; direction: ltr;"  type="text" name="{{ user_form.username.html_name }}" placeholder="نام کاربری " class="form-first-name form-control" id="{{ user_form.username.id_for_label }}">
 				
 				{% if user_form.username.errors %}
                     <span  > <strong style="color:red" > این حساب کاربری قبلا ثبت شده است. دوباره امتحان کنید </strong> </span>
@@ -74,7 +74,7 @@
 
 			<div class="form-group">			                    
 			<label class="sr-only" for="{{ user_profile_form.email.id_for_label }}">پست الکترونیک</label>
-				<input type="email" name="{{ user_profile_form.email.html_name }}" placeholder="ایمیل " class="form-email form-control" id="{{ user_profile_form.email.id_for_label }}">
+				<input style="text-align: right; direction: ltr;" type="email" name="{{ user_profile_form.email.html_name }}" placeholder="ایمیل " class="form-email form-control" id="{{ user_profile_form.email.id_for_label }}">
 				
 				{% if user_profile_form.email.errors %}
                     <span style="color:red"> <strong> این ایمیل قبلا ثبت شده است.یک ایمیل جدید وارد نمایید </strong> </span>
