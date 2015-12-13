@@ -59,26 +59,30 @@
 					   <nav class="main-nav-outer" id="test"><!--main-nav-start-->
 						<div class="container">
 							<ul class="main-nav">
-							<!--	<li><a href="#header">بیتاسینک</a></li>
-								<li><a href="#service">Services</a></li>-->
+							
+								<li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li> 
+								<li><a href="#download">دریافت نرم افزار</a></li>
+								<li><a href="#">راهنمای نرم افزار</a></li>
 
-								<li class="small-logo"><a href="/"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li> 
-								<li><a href="/#download"> دانلود نرم افزار</a></li>
-								<li><a href="#">راهنمای استفاده</a></li>
+								{% if not request.user.is_authenticated %}
+								<li><a href="/accounts/register">ایجاد حساب کاربری</a></li>	
+								{% endif %}
 
-								 {% if not request.user.is_authenticated %}
-								<li><a href="/accounts/register">عضویت</a></li>	
-								<li><a href="/accounts/login">ورود</a></li>
-									{% endif %}
-								 {% if request.user.is_authenticated %}
-								<li><a href="/accounts/myprofile"> ناحیه کاربری </a></li>	
-								<li><a href="/accounts/logout">  خروج</a></li>
+								{% if request.user.is_authenticated %}
+								<li><a href="/accounts/myprofile">ناحیه کاربری </a></li>	
 								
-									{% endif %}
+								{% endif %}
 
-								
-								<li><a href="/#contact">تماس با ما</a></li>
+								<li><a href="#contact">تماس با ما</a></li>
 								<li><a href="/">درباره ما</a></li>
+
+								{% if not request.user.is_authenticated %}
+								<li class="fa fa-sign-in"><a href="/accounts/login">ورود</a></li>
+								{% endif %}
+
+								{% if request.user.is_authenticated %}
+								<li class="fa fa-sign-out"> <a href="/accounts/logout">خروج</a></li>
+								{% endif %}
 									
 							</ul>
 							<a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
