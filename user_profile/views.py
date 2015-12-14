@@ -56,6 +56,16 @@ def my_password_reset_complete(request):
     return render(request,'user_profile/password_reset_complete.html')
     
 @login_required
+def my_password_change(request): 
+    
+    template_name='user_profile/password_change.html'
+    post_change_redirect='/accounts/my_password_change_done/'
+    
+    return auth_views.password_change(request,
+                                      template_name = template_name,
+                                      post_change_redirect = post_change_redirect )
+    
+@login_required
 def my_password_change_done(request): 
 
     template_name = 'user_profile/password_change_done.html'

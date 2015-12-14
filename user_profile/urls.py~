@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^invalid/$', views.invalid),
     url(r'^register/$', views.register),
     url(r'^register_success/$', views.register_success),
-    url(r'^password_change/$', auth_views.password_change,{'template_name':'user_profile/password_change.html', 'post_change_redirect':'/accounts/my_password_change_done/'}),
+    url(r'^password_change/$', views.my_password_change),
 	url(r'^my_password_change_done/$', views.my_password_change_done),
 	url(r'^password_reset/$',views.my_password_reset,name='password_reset'),
     url(r'^password_reset_done/$', views.my_password_reset_done),

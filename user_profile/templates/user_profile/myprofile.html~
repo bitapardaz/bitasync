@@ -104,7 +104,7 @@
 			</div>	
 				
 			<div class="form-group">			                    
-			<label class="rglabel" for="{{ shop_details_form.account_holder.id_for_label }}">دارنده حساب</label>
+			<label class="rglabel" for="{{ shop_details_form.account_holder.id_for_label }}">نام دارنده حساب</label>
 				<input value="{{ shop_details_form.account_holder.value }}" type="text" name="{{ shop_details_form.account_holder.html_name }}" placeholder="دارنده حساب" class="form-email form-control" id="{{ shop_details_form.account_holder.id_for_label }}">
 			</div>	
 				
@@ -119,7 +119,7 @@
 				<input style="text-align: right; direction: ltr;" value="{{ customer_details_form.email.value }}" type="email" name="{{ customer_details_form.email.html_name }}" placeholder="ایمیل" class="form-email form-control" id="{{ customer_details_form.email.id_for_label }}">
 			
 			
-			{% if shop_details_form.email.errors %}
+			{% if customer_details_form.email.errors %}
                     <span> <strong style="color:red">این ایمیل قابل قبول نیست. یک ایمیل جدید وارد نمایید.</strong> </span>
             {% endif %}	
 				
@@ -145,7 +145,7 @@
 				
 				
 			{{ form.non_field_errors }}
-				<a href="/accounts/password_change">تغییر کلمه عبور</a>		
+				<a href="/accounts/password_change">تغییر رمز عبور</a>		
  		  		 <button type="submit" class="btn">تغییر پروفایل</button>
 			               
 					
