@@ -4,8 +4,7 @@ from django.contrib.auth.models import User
 
 
 class UserProfileForm(forms.Form): 
-    # additional general information regarding a customer.
-    # We use this form the the registration stage. 
+    # information that any customer provides during registration
 
     email = forms.EmailField(max_length=100)
     mobile = forms.CharField(max_length=20, required=False)

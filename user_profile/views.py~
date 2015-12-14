@@ -61,7 +61,8 @@ def my_password_change(request):
     template_name='user_profile/password_change.html'
     post_change_redirect='/accounts/my_password_change_done/'
     
-    return auth_views.password_change(template_name = template_name,
+    return auth_views.password_change(request,
+                                      template_name = template_name,
                                       post_change_redirect = post_change_redirect )
     
 @login_required
@@ -119,6 +120,8 @@ def myprofile(request):
                 landline = shop_details_form.cleaned_data['landline']
                 bank_card_number = shop_details_form.cleaned_data['bank_card_number']
                 account_holder = shop_details_form.cleaned_data['account_holder']
+                
+                
                 
                 # if the email has changed, make sure that the new email is still unique 
 #                if "email" in shop_details_form.changed_data: 
@@ -183,6 +186,8 @@ def myprofile(request):
             data['bank_card_number'] = shop_profile.bank_card_number
             data['account_holder'] = shop_profile.account_holder
             
+            
+            
             shop_details_form = MyProfileShopForm(initial=data)        
             
         else: 
@@ -232,6 +237,8 @@ def register(request):
                 shop_profile.user_profile = user_profile
                 shop_profile.address = user_profile_form.cleaned_data['address']
                 shop_profile.landline = user_profile_form.cleaned_data['landline']
+                shop_profile.bank_card_number = ''
+                shop_profile.account_holder = ''
                 shop_profile.save()
                 
 

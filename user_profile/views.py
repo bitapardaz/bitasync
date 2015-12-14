@@ -121,6 +121,8 @@ def myprofile(request):
                 bank_card_number = shop_details_form.cleaned_data['bank_card_number']
                 account_holder = shop_details_form.cleaned_data['account_holder']
                 
+                
+                
                 # if the email has changed, make sure that the new email is still unique 
 #                if "email" in shop_details_form.changed_data: 
 #                    return HttpResponse("changed email")
@@ -184,6 +186,8 @@ def myprofile(request):
             data['bank_card_number'] = shop_profile.bank_card_number
             data['account_holder'] = shop_profile.account_holder
             
+            
+            
             shop_details_form = MyProfileShopForm(initial=data)        
             
         else: 
@@ -233,6 +237,8 @@ def register(request):
                 shop_profile.user_profile = user_profile
                 shop_profile.address = user_profile_form.cleaned_data['address']
                 shop_profile.landline = user_profile_form.cleaned_data['landline']
+                shop_profile.bank_card_number = ''
+                shop_profile.account_holder = ''
                 shop_profile.save()
                 
 
@@ -256,7 +262,7 @@ def register(request):
     args['user_form'] = user_form
     args['user_profile_form'] = user_profile_form
      
-    return render(request,'user_profile/registration.html',args)    
+    return render(request,'user_profile/registration.html', args)    
     
          
 def logout(request):
