@@ -22,16 +22,12 @@
                     	<!--<div class="col-sm-6 phone">
                     		<img src="{% static "user_profile/assets/img/iphone.png" %}" alt="">
                     	</div>-->
-               <div class="col-sm-6 form-box col-sm-offset-3">
+               <div class="col-sm-8 form-box col-sm-offset-2">
 				<div class="form-top">
 					<div class="form-top-left">
-					<h3>
-					حساب کاربری شما در بیتاسینک
-					</h3>
-					<br>
-					<p style="font-size:20px">
-                    در صورت نیاز می توانید مشخصات کاربری خود را تغییر دهید
-						</p>
+					<h3>حساب کاربری شما در بیتاسینک	</h3>
+					
+					<h5 style="font-family: b roya ! important; font-size: 17px;">  در صورت نیاز می توانید مشخصات کاربری خود را تغییر دهید			</h5>
 					</div>
 					<div class="form-top-right">
 						<i class="fa fa-pencil"></i>
@@ -83,17 +79,19 @@
 			</div>
 
 			<div class="form-group">			                    
-			<label class="rglabel" style="float:right;" for="{{ shop_details_form.email_subscription.id_for_label }}">
+			<label class="rglabel" style="" for="{{ shop_details_form.email_subscription.id_for_label }}">
 			خبرنامه بیتاسینک؟
 			</label>
-				<input style="width: 10%;" type="checkbox" name="{{ shop_details_form.email_subscription.html_name }}" class="form-control" id="{{ shop_details_form.email_subscription.id_for_label }}">
+			<div style="width: 60%; display: inline-block;">
+				<input style="float: right; width: 10px ! important; height: 10px;" type="checkbox" name="{{ shop_details_form.email_subscription.html_name }}" class="form-control" id="{{ shop_details_form.email_subscription.id_for_label }}">
 			</div>
+				</div>
 
 			{% if shop_details_form.email_subscription.value %} <script> $('#id_email_subscription').prop('checked',true) </script> {% endif %}
 				
 			<div class="form-group" style="clear: both;">			                    
 				<label class="rglabel" for="{{ shop_details_form.reward.id_for_label }}">
-				   بستانکاری از بیتاسینک
+			  بستانکاری 
 				</label>
 				<input readonly="" value="{{ shop_details_form.reward.value }}" type="text" name="{{ shop_details_form.reward.html_name }}" placeholder="جایزه" class="form-email form-control" id="{{ shop_details_form.reward.id_for_label }}">
 			</div>
@@ -135,7 +133,7 @@
 			<label class="rglabel" style="float:right;" for="{{ customer_details_form.email_subscription.id_for_label }}">
 			دریافت خبرنامه بیتاسینک؟
 			</label>
-				<input  style="width: 10%;" type="checkbox" name="{{ customer_details_form.email_subscription.html_name }}" class="form-control" id="{{ customer_details_form.email_subscription.id_for_label }}">
+				<input  style="width: 5px ! important; position: relative; float: right; bottom: 7px; right: 30px;"type="checkbox" name="{{ customer_details_form.email_subscription.html_name }}" class="form-control" id="{{ customer_details_form.email_subscription.id_for_label }}">
 			</div>
 
 			{% if customer_details_form.email_subscription.value %} <script> $('#id_email_subscription').prop('checked',true) </script> {% endif %}

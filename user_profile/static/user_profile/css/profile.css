@@ -62,7 +62,7 @@
 }
 
 .form-bottom {
-	padding: 25px 25px 60px 25px;
+	padding: 0px 25px 60px 25px;
 	background: #eee;
 	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
 	text-align: center;
@@ -77,7 +77,7 @@
 }
 
 .form-bottom form button.btn {
-    width: 100%;
+    width: 90%;
 }
 .form-control {
 	width: 60% !important;
@@ -87,7 +87,8 @@
 
 .rglabel
 {
-	width:30%
+	width:30%;
+	text-align:right;
 }
 .btn {
 	font-size:20px !important;
