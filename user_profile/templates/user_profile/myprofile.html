@@ -31,7 +31,7 @@
 					<br>
 					<p style="font-size:20px">
                     در صورت نیاز می توانید مشخصات کاربری خود را تغییر دهید
-					</p
+						</p>
 					</div>
 					<div class="form-top-right">
 						<i class="fa fa-pencil"></i>
@@ -91,14 +91,14 @@
 
 			{% if shop_details_form.email_subscription.value %} <script> $('#id_email_subscription').prop('checked',true) </script> {% endif %}
 				
-			<div class="form-group">			                    
+			<div class="form-group" style="clear: both;">			                    
 				<label class="rglabel" for="{{ shop_details_form.reward.id_for_label }}">
 				   بستانکاری از بیتاسینک
 				</label>
 				<input readonly="" value="{{ shop_details_form.reward.value }}" type="text" name="{{ shop_details_form.reward.html_name }}" placeholder="جایزه" class="form-email form-control" id="{{ shop_details_form.reward.id_for_label }}">
 			</div>
 			
-			<div class="form-group">			                    
+			<div class="form-group" >			                    
 				<label class="rglabel" for="{{ shop_details_form.bank_card_number.id_for_label }}">شماره کارت بانکی</label>
 				
 				<input style="text-align: right; direction: ltr;" value="{{ shop_details_form.bank_card_number.value }}" type="text" name="{{ shop_details_form.bank_card_number.html_name }}" placeholder="شماره کارت بانکی" class="form-control" id="{{ shop_details_form.bank_card_number.id_for_label }}">
@@ -146,11 +146,11 @@
 				
 				
 			{{ form.non_field_errors }}
-				<a href="/accounts/password_change">تغییر رمز عبور</a>		
+				
  		  		 <button type="submit" class="btn">تغییر پروفایل</button>
 			               
-					
-					
+					<a style="float: left; text-decoration: none; padding: 5px; background-color: #99ccff; border-radius: 5px; margin-top: 10px; color: black;" href="/accounts/password_change">تغییر رمز عبور</a>	
+					<br>
 		</form>
 		                  
 				   
