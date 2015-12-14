@@ -55,11 +55,11 @@
 							<li><a href="/">درباره ما</a></li>
 
 							{% if not request.user.is_authenticated %}
-							<li style="float: left; background-color: gold; border-radius: 15px; height: 50px; margin-top: 20px;"> <a href="/accounts/login"><span style="position: relative; top: -19px;">  ورود </span><span style="position: relative; top: -9px;" class="fa fa-sign-in fa-2x"></span></a> </li>
+							<li style="float: left; background-color: gold; border-radius: 15px; height: 50px; margin-top: 20px;"> <a href="/accounts/login"><span style="position: relative; top: -19px;">  ورود </span>&nbsp<span style="position: relative; top: -9px;" class="fa fa-sign-in fa-2x"></span></a> </li>
 							{% endif %}
 
 							{% if request.user.is_authenticated %}
-							<li style="float: left; background-color: gold; border-radius: 15px; height: 50px; margin-top: 20px;"> <a href="/accounts/logout"><span style="position: relative; top: -19px;">  خروج </span><span style="position: relative; top: -9px;" class="fa fa-sign-out fa-2x"></span></a> </li>
+							<li style="float: left; background-color: gold; border-radius: 15px; height: 50px; margin-top: 20px;"> <a href="/accounts/logout"><span style="position: relative; top: -19px;">  خروج </span>&nbsp<span style="position: relative; top: -9px;" class="fa fa-sign-out fa-2x"></span></a> </li>
 
 							
 							{% endif %}
