@@ -36,6 +36,26 @@ class MyProfileCustomerForm(forms.Form):
     mobile = forms.CharField(max_length=20, required=False)
     email_subscription = forms.BooleanField(required=False)
     
+    def clean_email(self):
+
+        email = self.cleaned_data['email']
+        
+        if "email" in self.changed_data: 
+        
+            # we should make sure that there is only one user with this new email.     
+            
+            email = self.cleaned_data["email"]
+            users_with_existing_email = User.objects.filter(email=email)
+        
+            if users_with_existing_email: 
+                raise forms.ValidationError('duplicate_email', code='duplicate_email')                
+                
+            else: 
+                return email            
+        
+        else: 
+            return email    
+    
     
 class MyProfileShopForm(forms.Form):
  
@@ -55,21 +75,22 @@ class MyProfileShopForm(forms.Form):
         self.fields['reward'].widget.attrs['readonly'] = True
         
 
-#    def clean_email(self):
-        # we should make sure that there is only one user with this email.
-        
-#        email = self.cleaned_data['email']
-        
-#        if "email" in self.changed_data: 
-        
-#            users_with_existing_email = User.objects.filter(email=email)
-            
-#            if users_with_existing_email: 
-#                raise forms.ValidationError('duplicate_email', code='duplicate_email') 
-#            else: 
-#                return email               
-        
-#        else: 
-#            return email
-               
+    def clean_email(self):
 
+        email = self.cleaned_data['email']
+        
+        if "email" in self.changed_data: 
+        
+            # we should make sure that there is only one user with this new email.     
+            
+            email = self.cleaned_data["email"]
+            users_with_existing_email = User.objects.filter(email=email)
+        
+            if users_with_existing_email: 
+                raise forms.ValidationError('duplicate_email', code='duplicate_email')                
+                
+            else: 
+                return email            
+        
+        else: 
+            return email

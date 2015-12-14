@@ -25,7 +25,13 @@
                <div class="col-sm-6 form-box col-sm-offset-3">
 				<div class="form-top">
 					<div class="form-top-left">
-					<h3>اطلاعات شما</h3>
+					<h3>
+					حساب کاربری شما در بیتاسینک
+					</h3>
+					<br>
+					<p style="font-size:20px">
+                    در صورت نیاز می توانید مشخصات کاربری خود را تغییر دهید
+					</p
 					</div>
 					<div class="form-top-right">
 						<i class="fa fa-pencil"></i>
@@ -51,25 +57,29 @@
 
 			<div class="form-group">			                    
 			<label class="rglabel" for="{{ shop_details_form.email.id_for_label }}">ایمیل</label>
-				<input value="{{ shop_details_form.email.value }}" type="email" name="{{ shop_details_form.email.html_name }}" placeholder="پست الکترونیک ..." class="form-email form-control" id="{{ shop_details_form.email.id_for_label }}">
-			<p>	shop_details_form.email.errors </p>
+				<input style="text-align: right; direction: ltr;" value="{{ shop_details_form.email.value }}" type="email" name="{{ shop_details_form.email.html_name }}" placeholder="ایمیل" class="form-email form-control" id="{{ shop_details_form.email.id_for_label }}">
+			{% if shop_details_form.email.errors %}
+                    <span> <strong style="color:red">این ایمیل قابل قبول نیست. یک ایمیل جدید وارد نمایید.</strong> </span>
+            {% endif %}
+				
+
 			</div>
 
 			<div class="form-group">			                    
 			<label class="rglabel" for="{{ shop_details_form.mobile.id_for_label }}">موبایل</label>
-				<input value="{{ shop_details_form.mobile.value }}" type="text" name="{{ shop_details_form.mobile.html_name }}" placeholder="موبایل ..." class="form-control" id="{{ shop_details_form.mobile.id_for_label }}">
+				<input value="{{ shop_details_form.mobile.value }}" type="text" name="{{ shop_details_form.mobile.html_name }}" placeholder="موبایل " class="form-control" id="{{ shop_details_form.mobile.id_for_label }}">
 			</div>
 
 			
 
 			<div class="form-group">			                    
 			<label class="rglabel" for="{{ shop_details_form.address.id_for_label }}">آدرس</label>
-				<input value="{{ shop_details_form.address.value }}" type="text" name="{{ shop_details_form.address.html_name }}" placeholder="آدرس..." class="form-control" id="{{ shop_details_form.address.id_for_label }}">
+				<input value="{{ shop_details_form.address.value }}" type="text" name="{{ shop_details_form.address.html_name }}" placeholder="آدرس" class="form-control" id="{{ shop_details_form.address.id_for_label }}">
 			</div>
 
 			<div class="form-group">			                    
 			<label class="rglabel" for="{{ shop_details_form.landline.id_for_label }}">تلفن ثابت</label>
-				<input value="{{ shop_details_form.landline.value }}" type="text" name="{{shop_details_form.landline.html_name }}" placeholder="تلفن..." class="form-control" id="{{ shop_details_form.telephone.id_for_label }}">
+				<input style="text-align: right; direction: ltr;" value="{{ shop_details_form.landline.value }}" type="text" name="{{shop_details_form.landline.html_name }}" placeholder="تلفن ثابت - به همراه کد شهر ( اختیاری )" class="form-control" id="{{ shop_details_form.telephone.id_for_label }}">
 			</div>
 
 			<div class="form-group">			                    
@@ -90,7 +100,7 @@
 			
 			<div class="form-group">			                    
 				<label class="rglabel" for="{{ shop_details_form.bank_card_number.id_for_label }}">شماره کارت بانکی</label>
-				<input value="{{ shop_details_form.bank_card_number.value }}" type="text" name="{{ shop_details_form.bank_card_number.html_name }}" placeholder="شماره کارت بانکی" class="form-email form-control" id="{{ shop_details_form.bank_card_number.id_for_label }}">
+				<input style="text-align: right; direction: ltr;" value="{{ shop_details_form.bank_card_number.value }}" type="text" name="{{ shop_details_form.bank_card_number.html_name }}" placeholder="شماره کارت بانکی" class="form-email form-control" id="{{ shop_details_form.bank_card_number.id_for_label }}">
 			</div>	
 				
 			<div class="form-group">			                    
@@ -103,13 +113,21 @@
 			{% else %}
 
 			<div class="form-group">			                    
-			<label class="rglabel" for="{{ customer_details_form.email.id_for_label }}">پست الکترونیک</label>
-				<input value="{{ customer_details_form.email.value }}" type="email" name="{{ customer_details_form.email.html_name }}" placeholder="پست الکترونیک ..." class="form-email form-control" id="{{ customer_details_form.email.id_for_label }}">
+			<label class="rglabel" for="{{ customer_details_form.email.id_for_label }}">
+			ایمیل
+			</label>
+				<input style="text-align: right; direction: ltr;" value="{{ customer_details_form.email.value }}" type="email" name="{{ customer_details_form.email.html_name }}" placeholder="ایمیل" class="form-email form-control" id="{{ customer_details_form.email.id_for_label }}">
+			
+			
+			{% if shop_details_form.email.errors %}
+                    <span> <strong style="color:red">این ایمیل قابل قبول نیست. یک ایمیل جدید وارد نمایید.</strong> </span>
+            {% endif %}	
+				
 			</div>
 
 			<div class="form-group">			                    
 			<label class="rglabel" for="{{ customer_details_form.mobile.id_for_label }}">موبایل</label>
-				<input value="{{ customer_details_form.mobile.value }}" type="text" name="{{ customer_details_form.mobile.html_name }}" placeholder="موبایل ..." class="form-control" id="{{ customer_details_form.mobile.id_for_label }}">
+				<input value="{{ customer_details_form.mobile.value }}" type="text" name="{{ customer_details_form.mobile.html_name }}" placeholder="موبایل" class="form-control" id="{{ customer_details_form.mobile.id_for_label }}">
 			</div>
 
 			<div class="form-group">			                    

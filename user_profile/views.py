@@ -80,35 +80,44 @@ def myprofile(request):
     
     if request.method == 'POST' : 
          
+        # get the initial data for the MyProfileShopForm.                
+        data = {}   
+        data['email'] = request.user.email
+        data['mobile'] = user_profile.mobile 
+        data['email_subscription'] = user_profile.email_subscription    
+        
         if user_profile.is_shop:   
-                         
-            shop_profile_form = MyProfileShopForm(request.POST)
+
+            shop_profile = ShopProfile.objects.get(user_profile = user_profile)
+
+            # additional data about the shop
+            data['address'] = shop_profile.address
+            data['landline'] = shop_profile.landline
+            data['reward'] = shop_profile.reward
+            data['bank_card_number'] = shop_profile.bank_card_number
+            data['account_holder'] = shop_profile.account_holder           
             
-            if shop_profile_form.is_valid() & shop_profile_form.has_changed():
+            # reconstruct the form             
+            shop_details_form = MyProfileShopForm(request.POST,initial=data)
+            
+            if shop_details_form.is_valid() & shop_details_form.has_changed():
                     
                 # get the data out of the forms.
-                email = shop_profile_form.cleaned_data['email']
-                mobile = shop_profile_form.cleaned_data['mobile']
-                email_subscription = shop_profile_form.cleaned_data['email_subscription']
-                address = shop_profile_form.cleaned_data['address']
-                landline = shop_profile_form.cleaned_data['landline']
-                bank_card_number = shop_profile_form.cleaned_data['bank_card_number']
-                account_holder = shop_profile_form.cleaned_data['account_holder']
+                email = shop_details_form.cleaned_data['email']
+                mobile = shop_details_form.cleaned_data['mobile']
+                email_subscription = shop_details_form.cleaned_data['email_subscription']
+                address = shop_details_form.cleaned_data['address']
+                landline = shop_details_form.cleaned_data['landline']
+                bank_card_number = shop_details_form.cleaned_data['bank_card_number']
+                account_holder = shop_details_form.cleaned_data['account_holder']
                 
                 # if the email has changed, make sure that the new email is still unique 
-                if shop_profile_form.changed_data: 
-                    return HttpResponse(",".join(shop_profile_form.changed_data))
-                else: 
-                    return HttpResponse("nothing changed")    
-                  
-            
-            
-                           
+#                if "email" in shop_details_form.changed_data: 
+#                    return HttpResponse("changed email")
+#                else: 
+#                    return HttpResponse("nothing changed")    
                     
                 # save the data into the database
-                user_profile = UserProfile.objects.get(user=request.user)   
-                shop_profile = ShopProfile.objects.get(user_profile=user_profile)
-
                 request.user.email = email
                     
                 user_profile.mobile = mobile
@@ -121,37 +130,32 @@ def myprofile(request):
                     
                 request.user.save()
                 user_profile.save()
-                shop_profile.save()
-                    
-                return HttpResponseRedirect('/accounts/myprofile/')                
+                shop_profile.save()    
             
         else: 
-            # user is not a shop                       
-            customer_profile_form = MyProfileCustomerForm(request.POST)
+            # user is not a shop 
             
-            if customer_profile_form.is_valid() & customer_profile_form.has_changed() :      
+            # reconstruct the form                                   
+            customer_details_form = MyProfileCustomerForm(request.POST,initial=data)
+            
+            if customer_details_form.is_valid() & customer_details_form.has_changed() :      
                 
                 # get the data out of the form 
-                email = customer_profile_form.cleaned_data['email']
-                mobile = customer_profile_form.cleaned_data['mobile']
-                email_subscription = customer_profile_form.cleaned_data['email_subscription']   
-		          
-                    
+                email = customer_details_form.cleaned_data['email']
+                mobile = customer_details_form.cleaned_data['mobile']
+                email_subscription = customer_details_form.cleaned_data['email_subscription']   
+		              
                 # save it to the database. 
                 user_profile = UserProfile.objects.get(user=request.user)                    
                 request.user.email = email
                 user_profile.mobile = mobile
                 user_profile.email_subscription = email_subscription
+                
                 user_profile.save()
                 request.user.save()
-                    
-                return HttpResponseRedirect('/accounts/myprofile/')
                        
     else:
         # if the request does not have POST method
-        
-        args = {}
-        args.update(csrf(request))
         
         data = {}
         data['email'] = request.user.email
@@ -159,7 +163,7 @@ def myprofile(request):
         data['email_subscription'] = user_profile.email_subscription
         
         # depending on the type of the user, the template will respond differently. 
-        args['is_shop'] = user_profile.is_shop
+        #args['is_shop'] = user_profile.is_shop
         
         if user_profile.is_shop:                    
         
@@ -169,11 +173,21 @@ def myprofile(request):
             data['reward'] = shop_profile.reward
             data['bank_card_number'] = shop_profile.bank_card_number
             data['account_holder'] = shop_profile.account_holder
-        
-            args['shop_details_form'] = MyProfileShopForm(initial=data)
+            
+            shop_details_form = MyProfileShopForm(initial=data)        
             
         else: 
-            args['customer_details_form'] = MyProfileCustomerForm(initial=data)
+            customer_details_form = MyProfileCustomerForm(initial=data)
+                
+            
+    args = {}
+    args.update(csrf(request))        
+    args['is_shop'] = user_profile.is_shop
+    
+    if user_profile.is_shop: 
+        args['shop_details_form'] = shop_details_form
+    else: 
+        args['customer_details_form'] = customer_details_form
 
     return render(request,'user_profile/myprofile.html',args)
     
