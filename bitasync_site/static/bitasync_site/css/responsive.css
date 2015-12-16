@@ -103,3 +103,11 @@
 	.portfolioContainer{ width:280px !important; margin:0 auto !important } 
 	
 }
+
+@media only screen and (max-width: 767px) {
+	#loglink {
+		float: right !important;
+		 margin-top: 0 !important;
+		margin-bottom: 10px !important;
+	}
+}
