@@ -43,7 +43,7 @@
 
 			<div class="form-group">
 				<label class="sr-only" for="{{ user_form.username.id_for_label }}"> نام کاربری</label>
-				<input type="text" name="{{ user_form.username.html_name }}" placeholder="نام کاربری " class="form-first-name form-control" id="{{ user_form.username.id_for_label }}">
+				<input style="text-align: right; direction: ltr;"  type="text" name="{{ user_form.username.html_name }}" placeholder="نام کاربری " class="form-first-name form-control" id="{{ user_form.username.id_for_label }}">
 				
 				{% if user_form.username.errors %}
                     <span  > <strong style="color:red" > این حساب کاربری قبلا ثبت شده است. دوباره امتحان کنید </strong> </span>
@@ -74,7 +74,7 @@
 
 			<div class="form-group">			                    
 			<label class="sr-only" for="{{ user_profile_form.email.id_for_label }}">پست الکترونیک</label>
-				<input type="email" name="{{ user_profile_form.email.html_name }}" placeholder="ایمیل " class="form-email form-control" id="{{ user_profile_form.email.id_for_label }}">
+				<input style="text-align: right; direction: ltr;" type="email" name="{{ user_profile_form.email.html_name }}" placeholder="ایمیل " class="form-email form-control" id="{{ user_profile_form.email.id_for_label }}">
 				
 				{% if user_profile_form.email.errors %}
                     <span style="color:red"> <strong> این ایمیل قبلا ثبت شده است.یک ایمیل جدید وارد نمایید </strong> </span>
@@ -84,7 +84,7 @@
 
 			<div class="form-group">			                    
 			<label class="sr-only" for="{{ user_profile_form.mobile.id_for_label }}"> شماره موبایل</label>
-				<input type="text" name="{{ user_profile_form.mobile.html_name }}" placeholder="شماره موبایل ( اختیاری )" class="form-control" id="{{ user_profile_form.mobile.id_for_label }}">
+				<input style="text-align: right; direction: ltr;" type="text" name="{{ user_profile_form.mobile.html_name }}" placeholder="(شماره موبایل (اختیاری" class="form-control" id="{{ user_profile_form.mobile.id_for_label }}">
 			</div>
 
 			<div class="form-group">			                    
@@ -94,18 +94,22 @@
 
 			<div class="form-group">			                    
 			<label class="sr-only" for="{{ user_profile_form.address.id_for_label }}">آدرس (اختیاری)</label>
-				<input style="display: none;" type="text" name="{{ user_profile_form.address.html_name }}" placeholder="آدرس ( اختیاری - از حروف فارسی استفاده نمایید )" class="form-control" id="{{ user_profile_form.address.id_for_label }}">
+				<input style="display: none;" type="text" name="{{ user_profile_form.address.html_name }}" placeholder="آدرس (اختیاری - از حروف فارسی استفاده نمایید)" class="form-control" id="{{ user_profile_form.address.id_for_label }}">
 			</div>
 
 <div class="form-group">			                    
 			<label class="sr-only" for="{{ user_profile_form.landline.id_for_label }}">تلفن (اختیاری)</label>
-				<input style="display: none;" type="text" name="{{ user_profile_form.landline.html_name }}" placeholder="
-				تلفن ثابت - به همراه کد شهر ( اختیاری )
-				" class="form-control" id="{{ user_profile_form.landline.id_for_label }}">
+				<input style="display: none;text-align: right; direction: ltr" type="text" name="{{ user_profile_form.landline.html_name }}" placeholder="(تلفن ثابت - به همراه کد شهر (اختیاری" class="form-control" id="{{ user_profile_form.landline.id_for_label }}">
 			</div>
 
 <div class="form-group">			                    
-			<label style="float:right;" for="{{ user_profile_form.read_agreement.id_for_label }}">قوانین و مقررات بیتاسینک را خوانده ام</label>
+			<label style="float:right;" for="{{ user_profile_form.read_agreement.id_for_label }}">
+                <a href="/bitasync/terms_conditions/">			
+                    قوانین و مقررات "گوشی ب گوشی"
+                </a>
+  را خوانده ام
+			
+			</label>
 				<input style="width: 10%;float: right;" type="checkbox" name="{{ user_profile_form.read_agreement.html_name }}"  id="{{ user_profile_form.read_agreement.id_for_label }}">
 			</div>
 

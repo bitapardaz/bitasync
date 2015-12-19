@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^thanks_contact_us/$',views.thanks_contact_us),
     url(r'^activate/(?P<plan_name>\w\d)/$',views.activate_plan),
     url(r'^activate/payment_failed/(?P<plan_name>\w\d)/$',views.payment_failed),
-    url(r'^activate/payment_success/(?P<plan_name>\w\d)/(?P<follow_up_number>(\d|\w)+)/$',views.payment_success)
+    url(r'^activate/payment_success/(?P<plan_name>\w\d)/(?P<follow_up_number>(\d|\w)+)/$',views.payment_success),
+    url(r'^terms_conditions/$',views.terms_conditions),
 ]

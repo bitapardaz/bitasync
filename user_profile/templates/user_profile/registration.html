@@ -103,7 +103,13 @@
 			</div>
 
 <div class="form-group">			                    
-			<label style="float:right;" for="{{ user_profile_form.read_agreement.id_for_label }}">قوانین و مقررات بیتاسینک را خوانده ام</label>
+			<label style="float:right;" for="{{ user_profile_form.read_agreement.id_for_label }}">
+                <a href="/bitasync/terms_conditions/">			
+                    قوانین و مقررات "گوشی ب گوشی"
+                </a>
+  را خوانده ام
+			
+			</label>
 				<input style="width: 10%;float: right;" type="checkbox" name="{{ user_profile_form.read_agreement.html_name }}"  id="{{ user_profile_form.read_agreement.id_for_label }}">
 			</div>
 
