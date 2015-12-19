@@ -33,10 +33,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', end
 .logo {
    
     width: 100%  !important;
+	 padding-top: 60px;
 }
 .header h1 {
     color: peru !important;
 	font-family: 'B mehr',tahoma !important;
+	font-size: 32px !important;
+    line-height: 2  !important;
 }
 
 h1, h2, h3, h4, h5{
