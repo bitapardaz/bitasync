@@ -29,6 +29,8 @@ def my_password_reset(request):
     # and returns the result
     response = auth_views.password_reset(request,
                                          template_name='user_profile/password_reset.html',
+                                         html_email_template_name='user_profile/password_reset_email.html',
+                                         subject_template_name = 'user_profile/password_reset_subject.txt',
                                          post_reset_redirect='/accounts/password_reset_done',
                                          from_email='passwords@bitasync.com',
                                          current_app='user_profile')
