@@ -309,6 +309,8 @@ def get_plan_by_name(all_plans, fname):
     
     
 def terms_conditions(request): 
-    
     return render(request,'bitasync_site/terms_conditions.html')
+    
+def about_us(request): 
+    return render(request,'bitasync_site/about_us.html')    
     

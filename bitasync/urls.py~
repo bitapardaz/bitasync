@@ -22,11 +22,12 @@ from bitasync_site import views
 
 urlpatterns = [
     url(r'^$', views.homepage),
+    url(r'^about_us/',views.about_us),  
     url(r'^admin/', include(admin.site.urls)),
     url(r'^bitasync/', include('bitasync_site.urls')),
     url(r'^accounts/', include('user_profile.urls')),
     url(r'^code_test/', include('code_test.urls')),  
     url(r'^coupons/',include('coupons.urls')), 
     url(r'^guides/',include('guides.urls')), 
-    url(r'^payment/',include('payment.urls')), 
+    url(r'^payment/',include('payment.urls')),
 ]
