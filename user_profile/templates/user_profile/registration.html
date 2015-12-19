@@ -88,11 +88,11 @@
 			</div>
 
 			<div class="form-group">			                    
-			<label style="float:right;" for="{{ user_profile_form.is_shop.id_for_label }}">آیا مغازه ای دارید که سرویس های تلفن همراه ارایه می دهد؟</label>
+			<label style="float:right;" for="{{ user_profile_form.is_shop.id_for_label }}">مغازه فروش تلفن همراه دارید؟</label>
 				<input style="width: 10%; float: right;" type="checkbox" name="{{ user_profile_form.is_shop.html_name }}"   id="{{ user_profile_form.is_shop.id_for_label }}">
 			</div>
 
-			<div class="form-group">			                    
+			<div class="form-group" style="clear: both;">			                    
 			<label class="sr-only" for="{{ user_profile_form.address.id_for_label }}">آدرس (اختیاری)</label>
 				<input style="display: none;" type="text" name="{{ user_profile_form.address.html_name }}" placeholder="آدرس (اختیاری - از حروف فارسی استفاده نمایید)" class="form-control" id="{{ user_profile_form.address.id_for_label }}">
 			</div>
@@ -118,7 +118,7 @@
 
 
 
-    <button type="submit" class="btn"> ثبت نام</button>
+    <button style="margin-top: 20px;" type="submit" class="btn"> ثبت نام</button>
 			                    </form>
 		                    </div>
                         </div>
