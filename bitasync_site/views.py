@@ -312,5 +312,8 @@ def terms_conditions(request):
     return render(request,'bitasync_site/terms_conditions.html')
     
 def about_us(request): 
-    return render(request,'bitasync_site/about_us.html')    
+    return render(request,'bitasync_site/about_us.html')  
+    
+def test_function(request): 
+    return HttpResponse("test")  
     
