@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.template.context_processors import csrf
-from django.template import RequestContext, loader
+from django.template import RequestContext, loader,Context
 
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -22,6 +22,7 @@ from .forms import MyProfileCustomerForm
 from .forms import MyProfileShopForm
 
 from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
 
 
 def my_password_reset(request): 
@@ -32,7 +33,7 @@ def my_password_reset(request):
                                          html_email_template_name='user_profile/password_reset_email.html',
                                          subject_template_name = 'user_profile/password_reset_subject.txt',
                                          post_reset_redirect='/accounts/password_reset_done',
-                                         from_email='passwords@bitasync.com',
+                                         from_email='passwords@gooshibegooshi.com',
                                          current_app='user_profile')
     return response
     
@@ -68,22 +69,29 @@ def my_password_change(request):
                                       post_change_redirect = post_change_redirect )
     
 @login_required
-def my_password_change_done(request): 
+def my_password_change_done(request):
+ 
+	template_name = 'user_profile/password_change_done.html'
+	response = auth_views.password_change_done(request,template_name=template_name)
 
-    template_name = 'user_profile/password_change_done.html'
-    
-    response = auth_views.password_change_done(request,template_name=template_name)
-    
-    # send email to notify the user that his password has changed. 
-    subject = 'Password Change'
-    message = 'Your password was succcessfully changed.'
-    from_email = 'passwords@bitasync.com'
-    recipient_list = [request.user.email]
-    send_mail(subject=subject,message=message,from_email=from_email,recipient_list=recipient_list,fail_silently=False)  
-    
-    return response
+	# send email to notify the user that his password has changed.
+	plaintext = loader.get_template('user_profile/password_change_email_done.txt')
+	htmly = loader.get_template('user_profile/password_change_email_done.html')
+	subject = loader.get_template('user_profile/password_change_email_done_subject.html')
 
-    
+	context = Context({"empty":"empty"})
+	subject_content = subject.render(context).replace('\n',' ')
+	text_content = plaintext.render(context)
+	html_content = htmly.render(context)
+
+	from_email = 'passwords@gooshibegooshi.com'
+	recipient_list = [request.user.email]
+
+	msg = EmailMultiAlternatives(subject_content, text_content, from_email, recipient_list)
+	msg.attach_alternative(html_content, "text/html")
+	msg.send()
+
+	return response  
 
 @login_required    
 def myprofile(request): 

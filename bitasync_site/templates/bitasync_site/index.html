@@ -42,7 +42,7 @@
 						
 							<li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li> 
 							<li><a href="#download">دریافت نرم افزار</a></li>
-							<li><a href="#">راهنمای نرم افزار</a></li>
+							<li><a href="/guides/using_gbg/">راهنمای نرم افزار</a></li>
 
 							{% if not request.user.is_authenticated %}
 							<li><a href="/accounts/register">ایجاد حساب کاربری</a></li>	
@@ -160,8 +160,8 @@
                     	<i class="fa-magic"></i>
                     </div>	
                 	<div class="featured-box-col2 wow fadeInRight delay-02s">
-                        <h3>برای دانلود بر روی لینک زیر کلیک کنید</h3>
-                        <p>لینک </p>
+                        <h3>برای دانلود روی لینک زیر کلیک کنید</h3>
+                        <p><a href="http://svn.bitasync.com/_Client/Client_Setup/BitaSyncInst.exe "> لینک مستقیم دانلود </a></p>
                     </div>    
                 </div>
                 <div class="featured-box">
@@ -169,8 +169,12 @@
                     	<i class="fa-gift"></i>
                     </div>	
                 	<div class="featured-box-col2 wow fadeInRight delay-04s">
-                        <h3>پس از دانلود</h3>
-                        <p>برنامه را نصب کنید و برای استفاده از آن <a style="color: black; font-weight: bold;text-decoration: none;"  class="linkscroll" href="#Portfolio">طرحی</a> را خریداری کنید</p>
+                        <h3>فعال سازی نرم افزار</h3>
+                        <p>
+نرم افزار دریافت شده را نصب کنید. برای استفاده از نرم افزار یکی از بسته های زیر 
+   <a style="color: black; font-weight: bold;text-decoration: none;"  class="linkscroll" href="#Portfolio">
+</a> 
+را فعال کنید.</p>
                     </div>    
                 </div>
              <!--   <div class="featured-box">
@@ -189,7 +193,9 @@
 </section><!--main-section alabaster-end-->
 		<section class="main-section paddind" id="Portfolio"><!--main-section-start-->
 	<div class="container">
-    	<h2> نرم افزار "گوشی ب گوشی" خود را فعال کنید </h2>
+    	<h2>
+ فعال سازی نرم افزار "گوشی ب گوشی"
+</h2>
     	<h6></h6>
       <div class="portfolioFilter">  
         <ul class="Portfolio-nav wow fadeIn delay-02s">
@@ -389,7 +395,7 @@
                 </div>
                 <div class="contact-info-box email clearfix">
                 	<h3><i class="fa-pencil"></i> ایمیل:</h3>
-                	<span>info@bitasync.com</span>
+                	<span>hello@gooshibegooshi.com</span>
                 </div>
             	
 				
@@ -417,7 +423,9 @@
                     <input id="{{ form.email.id_for_label }}" class="input-text" type="text" name="{{ form.email.html_name }}" value="ایمیل *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
                    	<textarea id="{{ form.message.id_for_label }}"  name="{{ form.message.html_name }}" class="input-text text-area" cols="0" rows="0" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">پیام *</textarea>
                     
-					<label for="{{ form.call_back.id_for_label }}">تماس تلفنی</label> <input id="{{ form.call_back.id_for_label }}" name="{{ form.call_back.html_name }}" class="" type="checkbox" 	/>
+					<label for="{{ form.call_back.id_for_label }}">
+با انتخاب این گزینه ما با شما تماس خواهیم گرفت.
+</label> <input id="{{ form.call_back.id_for_label }}" name="{{ form.call_back.html_name }}" class="" type="checkbox" 	/>
                     <input id="{{ form.phone_number.id_for_label }}" class="input-text" type="text" name="{{ form.phone_number.html_name }}" value="شماره تماس *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
                 
 					
