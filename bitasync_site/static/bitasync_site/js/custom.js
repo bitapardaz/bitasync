@@ -18,7 +18,10 @@ $(window).resize(function() {
     
 	
 	//$('#hero').height($(window).height()-$('#test').height());
-	$('#hero').height($(window).height());
+	//alert($('#hero').height());
+	if($('#hero').height()<$(window).height())
+		$('#hero').height($(window).height());
+	//alert($(window).height());
 
 
 }).resize();
