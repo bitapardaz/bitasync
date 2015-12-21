@@ -127,28 +127,7 @@
 							</button></a>
 					
 					</div>
-					<div class="col-md-4 pull-right">
-				
-
-						
-
-							<span>عنوان: </span> <span>{{ alt_plan_2.plan_name  }}</span> <br/>
-							<img src="{{ alt_plan_2.image_link }}" alt= "{{ alt_plan_2.plan_name }}" > <br/>     
-							<span>توضیحات: </span> <span>  {{ alt_plan_2.description }}  </span><br/>
-
-							{% if coupon_available %}
-								<span>قیمت: </span>  <span><del> {{alt_plan_2.original_price }} </del> </span>  <br>
-								<span>قیمت با محاسبه تخفیف: </span> <span>{{alt_plan_2.discounted_price}}</span>  
-
-							{% else %}
-								<span>قیمت: </span>  <span> {{alt_plan_2.original_price }} </span><br>
-							{% endif %}
-							<br/>
-							<a href="/bitasync/activate/{{alt_plan_2.plan_name}}/"><button type="button">
-							سفارش بسته 
-							</button></a>   
-					
-					</div>
+                    
 					<div class="col-md-4 pull-right">
 					
 
@@ -170,6 +149,30 @@
 							</button></a>
 					
 					</div>
+                    
+                    <div class="col-md-4 pull-right">
+				
+
+						
+
+							<span>عنوان: </span> <span>{{ alt_plan_2.plan_name  }}</span> <br/>
+							<img src="{{ alt_plan_2.image_link }}" alt= "{{ alt_plan_2.plan_name }}" > <br/>     
+							<span>توضیحات: </span> <span>  {{ alt_plan_2.description }}  </span><br/>
+
+							{% if coupon_available %}
+								<span>قیمت: </span>  <span><del> {{alt_plan_2.original_price }} </del> </span>  <br>
+								<span>قیمت با محاسبه تخفیف: </span> <span>{{alt_plan_2.discounted_price}}</span>  
+
+							{% else %}
+								<span>قیمت: </span>  <span> {{alt_plan_2.original_price }} </span><br>
+							{% endif %}
+							<br/>
+							<a href="/bitasync/activate/{{alt_plan_2.plan_name}}/"><button type="button">
+							سفارش بسته 
+							</button></a>   
+					
+					</div>
+                    
 				  </div>
 				<br><br>
 				<div class="row">
