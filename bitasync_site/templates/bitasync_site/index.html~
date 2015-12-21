@@ -60,11 +60,11 @@
 							<li><a href="/about_us/">درباره ما</a></li>
 
 							{% if not request.user.is_authenticated %}
-							<li id="loglink" style="float: left; background-color: gold; border-radius: 15px; height: 50px; margin-top: 20px;"> <a href="/accounts/login"><span style="position: relative; top: -19px;">  ورود </span>&nbsp<span style="position: relative; top: -9px;" class="fa fa-sign-in fa-2x"></span></a> </li>
+							<li id="loglink" style="float: left; background-color: gold; border-radius: 15px; height: 50px; margin-top: 20px;"> <a href="/accounts/login"><span class="icont" style="position: relative; top: -19px;">  ورود </span>&nbsp<span  style="position: relative; top: -9px;" class="fa fa-sign-in fa-2x iconf"></span></a> </li>
 							{% endif %}
 
 							{% if request.user.is_authenticated %}
-							<li style="float: left; background-color: gold; border-radius: 15px; height: 50px; margin-top: 20px;"> <a href="/accounts/logout"><span style="position: relative; top: -19px;">  خروج </span>&nbsp<span style="position: relative; top: -9px;" class="fa fa-sign-out fa-2x"></span></a> </li>
+							<li style="float: left; background-color: gold; border-radius: 15px; height: 50px; margin-top: 20px;"> <a href="/accounts/logout"><span class="icont" style="position: relative; top: -19px;">  خروج </span>&nbsp<span  style="position: relative; top: -9px;" class="fa fa-sign-out fa-2x iconf"></span></a> </li>
 
 							
 							{% endif %}
@@ -113,7 +113,7 @@
 								<h3> انتخاب محتوا برای انتقال</h3>
 
 								<p>
-		شما می توانید شماره تلفن ها، اطلاعات تماس، عکس ها، ویدیوها، برنامه ها و ... را برای انتقال انتخاب کنید.
+		شما می توانید شماره تلفن ها،پیامک ها، اطلاعات تماس، عکس ها، ویدیوها، برنامه ها، آهنگ ها، عکس های پس زمینه و ... را برای انتقال انتخاب کنید.
 								</p>
 							</div>
 
@@ -224,7 +224,7 @@
 						</h3>
                     <div style="padding-top: 15px;">
 						 <div onclick="window.location.href='/bitasync/activate/L1/'"  class="btn-order label label-success label-order">سفارش بسته</div>
-						<div class="label label-default label-order" style="direction:rtl" > <span>2,000</span>&nbsp <span>   تومان</span></div> 
+						<div class="label label-default label-order" style="direction:rtl" > <span class="pricelist">2,000</span>&nbsp <span>   تومان</span></div> 
 					</div>
                 </div>
 		
@@ -238,7 +238,7 @@
 						</h3>
                   <div style="padding-top: 15px;">
 						 <div onclick="window.location.href='/bitasync/activate/L2/'"  class="btn-order label label-success label-order">سفارش بسته</div>
-						<div class="label label-default label-order" style="direction:rtl" > <span>3,000</span>&nbsp <span>   تومان</span></div> 
+						<div class="label label-default label-order" style="direction:rtl" > <span class="pricelist">3,000</span>&nbsp <span>   تومان</span></div> 
 					</div>
                 </div>
                 
@@ -256,7 +256,7 @@
 						</h3>
                  <div style="padding-top: 15px;">
 						 <div onclick="window.location.href='/bitasync/activate/L5/'"  class="btn-order label label-success label-order">سفارش بسته</div>
-						<div class="label label-default label-order" style="direction:rtl" > <span>5,000</span>&nbsp <span>   تومان</span></div> 
+						<div class="label label-default label-order" style="direction:rtl" > <span class="pricelist">5,000</span>&nbsp <span>   تومان</span></div> 
 					</div>
                 </div>
 		
@@ -274,7 +274,7 @@
               
 					<div style="padding-top: 15px;">
 						 <div onclick="window.location.href='/bitasync/activate/U1/'"  class="btn-order label label-success label-order">سفارش بسته</div>
-						<div class="label label-default label-order" style="direction:rtl" > <span>80,000</span>&nbsp <span>   تومان</span></div> 
+						<div class="label label-default label-order" style="direction:rtl" > <span class="pricelist">80,000</span>&nbsp <span>   تومان</span></div> 
 					</div>
               
 		   </div>
@@ -289,7 +289,7 @@
 					      </h3>
                      <div style="padding-top: 15px;">
 						 <div onclick="window.location.href='/bitasync/activate/U3/'"  class="btn-order label label-success label-order">سفارش بسته</div>
-						<div class="label label-default label-order" style="direction:rtl" > <span>200,000</span>&nbsp <span>   تومان</span></div> 
+						<div class="label label-default label-order" style="direction:rtl" > <span class="pricelist">200,000</span>&nbsp <span>   تومان</span></div> 
 					</div>
   
                 </div>
@@ -303,7 +303,7 @@
 					      </h3>
                       <div style="padding-top: 15px;">
 						 <div onclick="window.location.href='/bitasync/activate/U6/'"  class="btn-order label label-success label-order">سفارش بسته</div>
-						<div class="label label-default label-order" style="direction:rtl" > <span>400,000</span>&nbsp <span>   تومان</span></div> 
+						<div class="label label-default label-order" style="direction:rtl" > <span class="pricelist">400,000</span>&nbsp <span>   تومان</span></div> 
 					</div>
   
                 </div>
