@@ -9,7 +9,7 @@
 	.service-list{ margin-bottom:30px;}
 	.c-logo-part ul li{ margin:0 15px;}
 	.form{ margin:0 0 0 20px}
-	.main-nav{ display:block !important; }
+/*	.main-nav{ display:block !important; }*/
 	/*.portfolioContainer{ width:800px; margin:0px auto !important; } */ 
 	
 }	
@@ -34,7 +34,7 @@
 	.contact-info-box{ margin:0 ;}
 	.social-link{ margin:0;}
 	
-	.main-nav{ display:block !important; }
+	/*.main-nav{ display:block !important; }*/
 	.main-nav li a{ padding:8px 15px;}
 	/*.portfolioContainer{ width:750px; margin:0px auto !important; }
 	.Portfolio-box{ height:250px;}*/
@@ -43,7 +43,7 @@
 	
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1000px) {
 	/****Mobile Landscape 480 Container 100% ****/
 	body{ font-size:12px;}
 	h2{ font-size:26px;}
@@ -104,10 +104,27 @@
 	
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width: 1001px) {
+	.main-nav{ display:block !important; }
+}
+
+
+
+
+@media only screen and (max-width: 1000px) {
 	#loglink {
 		float: right !important;
 		 margin-top: 0 !important;
 		margin-bottom: 10px !important;
 	}
+	
+	.icont {
+		 top: -25px !important;
+	}
+	
+	.iconf{
+	 top: -16px !important;
+	}
+	
+	
 }
