@@ -32,10 +32,10 @@
 						 <span> توضیحات:</span> <span> {{selected_plan.long_description}} </span><br>
 
 							{% if coupon_available %}
-								قیمت = <del> {{selected_plan.original_price }} </del> <br>
-								قیمت با احتساب تخفیف: {{selected_plan.discounted_price}}
+								قیمت = <del> {{selected_plan.original_price }} </del> <span> تومان</span> <br>
+								قیمت با احتساب تخفیف: {{selected_plan.discounted_price}} <span> تومان</span>
 							{% else %}
-								قیمت = {{selected_plan.original_price }} 
+								قیمت = {{selected_plan.original_price }} <span> تومان</span>
 							{% endif %}
 							<br>
 							
@@ -141,7 +141,7 @@
 								<span>قیمت با محاسبه تخفیف: </span>  <span> {{alt_plan_1.discounted_price}}</span>
 
 							{% else %}
-									<span>قیمت: </span>  <span> {{alt_plan_1.original_price }}</span><br/>
+                        <span>قیمت: </span>  <span> {{alt_plan_1.original_price }}</span> <br/>
 							{% endif %}
 							<br/>
 							<a href="/bitasync/activate/{{alt_plan_1.plan_name}}/"><button type="button">
