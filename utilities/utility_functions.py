@@ -42,18 +42,30 @@ def calculate_discounted_price(plan,coupons):
     # and discounted_price is the price after applying the most favorable coupon. 
     
     # get the best coupon: the coupon with largest discount rate 
-    current_coupon = coupons[0]
-    best_coupon = current_coupon
-    for current_coupon in coupons: 
-        if current_coupon.discount_rate >= best_coupon.discount_rate : 
-            best_coupon = current_coupon    
+    best_coupon = get_best_coupon(coupons)
                
     # apply the coupon to the prices 
     discounted_price =  int(plan.price * ( 1 - best_coupon.discount_rate))
-    return (best_coupon,discounted_price)    
+    return (best_coupon,discounted_price)  
     
     
-        
+def get_best_coupon(coupons): 
+
+    current_coupon = coupons[0]
+    best_coupon = current_coupon
+    
+    for current_coupon in coupons: 
+        if current_coupon.discount_rate >= best_coupon.discount_rate : 
+            best_coupon = current_coupon   
+     
+    return best_coupon             
+
+    
+def get_plan_by_name(all_plans, fname): 
+    for plan in all_plans:
+        if plan.plan_name == fname :  
+            return plan     
+
         
 def get_plan_image_link(plan_name): 
 

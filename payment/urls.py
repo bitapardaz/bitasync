@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
 
-import views 
+from . import views 
 
 urlpatterns = [
-    url(r'^test_payment/$', views.test_payment),
+    url(r'^(?P<plan_name>\w\d)/$', views.pay_for_a_plan),
 ]

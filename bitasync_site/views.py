@@ -18,11 +18,9 @@ from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 
-from payment.utilities import Transaction
-
 import hashlib
 
-from utilities import utility_functions 
+from utilities import utility_functions
 
 from coupons.forms import AddCouponForm
 
@@ -221,7 +219,7 @@ def activate_plan(request,plan_name):
         # do the pricing given the customer's coupons
         
     all_plans = Data_Transfer_Plan.objects.all()
-    plan = get_plan_by_name(all_plans,plan_name)
+    plan = utility_functions.get_plan_by_name(all_plans,plan_name)
            
         # check if the user has any discount coupon.
     user_existing_coupons = Coupon.objects.filter( user_profile = user_profile )
@@ -296,16 +294,11 @@ def get_alternative_plans(all_plans, selected_plan, coupons):
    
     for name in ordered_names: 
         if name != selected_plan.plan_name:
-            alternative_plan = get_plan_by_name(all_plans, name)
+            alternative_plan = utility_functions.get_plan_by_name(all_plans, name)
             alternative_temp_plan = utility_functions.create_temp_plan(alternative_plan,coupons)
             alt_plans.append(alternative_temp_plan) 
     return alt_plans
-        
-
-def get_plan_by_name(all_plans, fname): 
-    for plan in all_plans:
-        if plan.plan_name == fname :  
-            return plan 
+       
     
     
 def terms_conditions(request): 
