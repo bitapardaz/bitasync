@@ -6,8 +6,8 @@
 	{% endblock metadescription %}
 	
 
-{#	{% block title %}گوشی ب گوشی{% endblock title %} #}
-	{% block title %}OUUZQQW{% endblock title %}
+	{% block title %}گوشی ب گوشی{% endblock title %} 
+{#	{% block title %}OUUZQQW{% endblock title %}  #}
 
 	{% block extrajs %}
 	
@@ -42,8 +42,11 @@
 						
 							<li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li> 
 							<li><a href="#download">دریافت نرم افزار</a></li>
-							<li><a href="/guides/using_gbg/">راهنمای نرم افزار</a></li>
-
+							
+{#							<li><a href="/guides/using_gbg/">راهنمای نرم افزار</a></li>  #}
+                            <li><a href="/bitasync/terms_conditions/">شرایط و مقررات</a></li>
+            
+            
 							{% if not request.user.is_authenticated %}
 							<li><a href="/accounts/register">ایجاد حساب کاربری</a></li>	
 							{% endif %}
