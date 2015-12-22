@@ -8,6 +8,9 @@ from django.template.context_processors import csrf
 
 #from .forms import MyUserCreationForm
 
+def test_progress_bar(request): 
+    return render(request,'code_test/test_progress_bar.html')
+
 
 def register_test(request):
 
