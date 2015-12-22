@@ -32,7 +32,7 @@
 					<!--<ul class="we-create animated fadeInUp delay-1s">
 						<li></li>
 					</ul>-->
-						<a  style="z-index:auto;" class="linkscroll link animated fadeInUp delay-1s" href="#service">دریافت نرم افزار</a>
+						<a  style="z-index:auto;" class="linkscroll link animated fadeInUp delay-1s" href="#Portfolio">دریافت نرم افزار</a>
 				</div>
 			 {% endif %}
 			  
@@ -41,7 +41,7 @@
 						<ul class="main-nav">
 						
 							<li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li> 
-							<li><a href="#download">دریافت نرم افزار</a></li>
+							<li><a id="goport" href="#Portfolio">دریافت نرم افزار</a></li>
 							
 {#							<li><a href="/guides/using_gbg/">راهنمای نرم افزار</a></li>  #}
                             <li><a href="/bitasync/terms_conditions/">شرایط و مقررات</a></li>
@@ -146,54 +146,7 @@
 			</div>
 		</section>
 		
-		<section class="main-section alabaster" id="download"><!--main-section alabaster-start-->
-	<div class="container">
-    	<h2>
-    	    دریافت نرم افزار "گوشی ب گوشی"
-    	</h2>
-		<div class="row">
-			<figure class="col-lg-5 col-sm-4 wow fadeInLeft">
-            	<img  src="{% static "bitasync_site/img/iphone.png" %}" alt="">
-            </figure>
-        	<div class="col-lg-7 col-sm-8 featured-work">
-            
-            	<P class="padding-b"></P>
-            	<div class="featured-box">
-                	<div class="featured-box-col1 wow fadeInRight delay-02s">
-                    	<i class="fa-magic"></i>
-                    </div>	
-                	<div class="featured-box-col2 wow fadeInRight delay-02s">
-                        <h3>برای دانلود روی لینک زیر کلیک کنید</h3>
-                        <p><a href="http://svn.bitasync.com/_Client/Client_Setup/BitaSyncInst.exe "> لینک مستقیم دانلود </a></p>
-                    </div>    
-                </div>
-                <div class="featured-box">
-                	<div class="featured-box-col1 wow fadeInRight delay-04s">
-                    	<i class="fa-gift"></i>
-                    </div>	
-                	<div class="featured-box-col2 wow fadeInRight delay-04s">
-                        <h3>فعال سازی نرم افزار</h3>
-                        <p>
-نرم افزار دریافت شده را نصب کنید. برای استفاده از نرم افزار یکی از بسته های زیر 
-   <a style="color: black; font-weight: bold;text-decoration: none;"  class="linkscroll" href="#Portfolio">
-</a> 
-را فعال کنید.</p>
-                    </div>    
-                </div>
-             <!--   <div class="featured-box">
-                	<div class="featured-box-col1 wow fadeInRight delay-06s">
-                    	<i class="fa-dashboard"></i>
-                    </div>	
-                	<div class="featured-box-col2 wow fadeInRight delay-06s">
-                        <h3>SEO optimized</h3>
-                        <p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. </p>
-                    </div>    
-                </div>
-                <a class="Learn-More" href="#">Learn More</a>!-->
-            </div>
-        </div>
-	</div>
-</section><!--main-section alabaster-end-->
+		
 		<section class="main-section paddind" id="Portfolio"><!--main-section-start-->
 	<div class="container">
     	<h2>
@@ -331,7 +284,7 @@
     </div>
 </section><!--main-section client-part-end-->
 		<section class="main-section team" id="team"><!--main-section team-start-->
-	<div class="container">
+		<div class="container">
         <h2></h2>
         <h6></h6>
         <div class="team-leader-block clearfix">
@@ -383,8 +336,8 @@
         </div>
     </div>
 </section><!--main-section team-end-->
-		<div class="container">
-<section class="main-section contact" id="contact">
+			<div class="container">
+		<section class="main-section contact" id="contact">
 	
         <div class="row">
         	<div class="col-lg-6 col-sm-7 wow fadeInLeft">
@@ -440,7 +393,7 @@
             </div>
         </div>
 </section>
-</div>
+		</div>
 
 	{% endblock section %}		
 

@@ -82,6 +82,29 @@ $(function() {
 		});
 	
 	
+	 $('.linkscroll').click(function()
+   	{ 
+	
+		
+		$('html, body').stop().animate({
+				scrollTop: $( $(this).attr('href') ).offset().top - 70
+			}, 800);
+		 
+		 window.location = 'http://svn.bitasync.com/_Client/Client_Setup/BitaSyncInst.exe ';
+			
+	});
+	
+	
+	$(window).resize(function() {
+    	
+		//$('#hero').height($(window).height()-$('#test').height());
+		//alert($('#hero').height());
+		if($('#hero').height()<$(window).height())
+			$('#hero').height($(window).height());
+		//alert($(window).height());
+	}).resize();
+	
+	
 });
 
 	
