@@ -1,0 +1,68 @@
+{% extends 'bitasync_site/base.html' %}
+{% load staticfiles  %}
+
+{% block title %} گوشی ب گوشی -> رمز عبور {% endblock title %}
+
+
+	
+
+	{% block extracss %} 
+		 <link rel="stylesheet" href="{% static "user_profile/css/reset_pass.css" %}">		 
+
+		 
+	{% endblock extracss %}
+
+	{% block extrajs %}
+		
+	{% endblock extrajs %}
+  
+
+	{% block section %} 
+	
+		<section class="main-section" id="service"><!--main-section-start-->
+            
+            
+            
+            <div class="container">
+
+                <div class="col-md-12 .col-xs-12 pull-center">
+					 
+					<h3>طرح انتخاب شده</h3>
+					<hr>
+							
+
+							<img src="{{ selected_plan.image_link }}"  alt= "{{ selected_plan.plan_name }}" > <br>
+						  <span> {{selected_plan.long_description}} </span><br>
+
+							{% if coupon_available %}
+								قیمت = <del> {{selected_plan.original_price }} </del> <span> تومان</span> <br>
+								قیمت با احتساب تخفیف: {{selected_plan.discounted_price}} <span> تومان</span>
+							{% else %}
+								قیمت = {{selected_plan.original_price }} <span> تومان</span>
+							{% endif %}
+                    
+							<br><br>
+                    
+                            به منظور پرداخت وجه اکنون شما را به بانک متصل می کنیم. لطفا شکیبا باشید.
+                    
+                            <br>
+                    
+                            <progress value="22" max="100">
+                                
+                            </progress>
+                    
+                    
+						<br><br>
+                    
+				</div>                   
+                
+                
+                
+                
+				
+		    </div>
+
+       
+		</section>
+	{% endblock section %}	
+
