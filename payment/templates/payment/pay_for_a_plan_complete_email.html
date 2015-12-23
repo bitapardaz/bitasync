@@ -1,0 +1,36 @@
+{% load i18n %}
+
+{% autoescape off %}
+<div style="direction: rtl">
+سلام
+<br><br>
+
+    شما بسته ی 
+{{selected_plan.plan_name}}
+"گوشی ب گوشی" را فعال کرده اید.
+{{selected_plan.long_description}}
+    
+<br> <br>
+    
+کد رهگیری شما: 
+{{follow_up_number}}
+    
+<br><br>
+
+به خاطر انتخاب "گوشی ب گوشی" تشکر می کنیم.
+    
+<br><br>
+    
+با مهر
+<br> 
+تیم پشتیبانی "گوشی ب گوشی"
+
+<br><br>
+    
+اگه دوستت یه روزی گوشی جدید خرید، 
+"گوشی ب گوشی" 
+رو بهش معرفی کن.
+    
+</div>
+{% endautoescape %}
+

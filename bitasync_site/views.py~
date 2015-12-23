@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 from .forms import Contact_us
 
 from models import Contact_Comment
-from models import Purchase
+
 
 from coupons.models import Coupon
 from user_profile.models import UserProfile

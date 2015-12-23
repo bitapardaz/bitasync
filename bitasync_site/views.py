@@ -161,59 +161,7 @@ def activate_plan(request,plan_name):
             context['wrong_coupon_entered'] = True             
                 
         
-        
-         
-#        plan = Data_Transfer_Plan.objects.get(plan_name = plan_name) 
-        
-        # todo. when the transaction is being done, add the gateway. 
-#        transaction = Transaction(price=plan.price)    
-
-        # payment_status = process_payment(request,plan_name)            
-#        payment_status = transaction.process_transaction()
-        
-#        if payment_status == True:
-         
-            # send an email to the user. 
-#            subject = "Bit@Sync Activation"
-#            message = "Your software is activated."
-#            from_email = "outreach@bitasync.com" 
-#            recipient_list = [request.user.email]
-            
-#            send_mail(subject=subject,
-#                     message=message,
-#                     from_email = from_email,
-#                     recipient_list=recipient_list, 
-#                     fail_silently=False)
-            
-            # add to the purchase table.
-#            new_purchase = Purchase()
-#            new_purchase.user = request.user
-#            new_purchase.data_transfer_plan = plan 
-#            new_purchase.gateway = "unspecified"
-#            new_purchase.save()
-
-#            hasher = hashlib.md5()   # save follow_up number using hash       
-#            hasher.update(str(new_purchase.id))
-#            follow_up_number = hasher.hexdigest()
-#            new_purchase.follow_up_number = follow_up_number
-#            new_purchase.save()
-            
-            
-            # todo: create a statistics table and store the data for the managers. 
-            # add to the statistics table.
-            
-            #return HttpResponseRedirect("/bitasync/activate/successful_payment/")
-            #todo: put advertisement in this payment_success page. 
- #           return HttpResponseRedirect("/bitasync/activate/payment_success/" + plan.plan_name +"/" + follow_up_number + "/")
-            
-#        else:
-#            # if the payment fails. 
-#            return HttpResponseRedirect("/bitasync/activate/payment_failed/"+ plan.plan_name +"/")
-
-
-
-
- 
+      
     
         # request.method is not POST  
         # do the pricing given the customer's coupons
