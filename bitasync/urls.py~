@@ -22,7 +22,7 @@ from bitasync_site import views
 
 urlpatterns = [
     url(r'^$', views.homepage),
-    url(r'^162294.txt$', views.homepage),
+    url(r'^162294.txt$', views.test_function),
     url(r'^about_us/',views.about_us),  
     url(r'^admin/', include(admin.site.urls)),
     url(r'^bitasync/', include('bitasync_site.urls')),
