@@ -4,11 +4,6 @@ $(function() {
    
 	 
 	  $('#test').scrollToFixed();
-	$('.res-nav_click').click(function(){
-		$('.main-nav').slideToggle();
-		return false    
-
-	});
 	
 	 wow = new WOW(
       {
