@@ -11,10 +11,7 @@ class UserProfile(models.Model):
     
     def __unicode__(self): 
         return "user_profile:" + self.user.username 
-        
-    
    
-    
 class ShopProfile(models.Model):
 
     user_profile = models.OneToOneField(UserProfile)  
