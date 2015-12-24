@@ -10,7 +10,9 @@ class UserProfile(models.Model):
     
     
     def __unicode__(self): 
-        return "user_profile:" + self.user.username  
+        return "user_profile:" + self.user.username 
+        
+    
    
     
 class ShopProfile(models.Model):
@@ -20,7 +22,8 @@ class ShopProfile(models.Model):
     landline = models.CharField(null=True, blank=True, max_length=20)
     bank_card_number = models.CharField(null=True,blank=True, max_length=20)
     account_holder = models.CharField(null=True,blank=True, max_length=30)
-    reward = models.BigIntegerField(default=0)    
+    reward = models.FloatField(default=0.0)    
+    debt = models.FloatField(default=0.0)
     
     def __unicode__(self): 
         return "shop_profile:" + self.user_profile.user.username  
