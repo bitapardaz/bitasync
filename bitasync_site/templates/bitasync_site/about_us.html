@@ -22,7 +22,7 @@
 				 <div class="row">
        				 <div class="col-md-6">
 						 
-            <div class="well well-sm">
+            <div>
                 				<p style="padding-top: 50px;line-height: 2; font-size: 20px; justify-content: center; text-align: justify;">
 								وقتی یک موبایل جدید می خرید نرم افزار "گوشی ب گوشی" به شما کمک می کند تا به راحتی و بدون درد سر و سریع اطلاعاتی را که روی گوشی قدیمیتان دارید به گوشی جدید منتقل کنید. 
 								</p>
@@ -33,14 +33,14 @@
         </div>
         			<div class="col-md-6">
             <div>
-                <div class="panel panel-default">
-                    <div class="text-center header"><img alt="" src="{% static "bitasync_site/img/bitapardaz.png" %}"></div>
+                <div >
+                    <div class="text-center"><img alt="" src="{% static "bitasync_site/img/bitapardaz.png" %}"></div>
                     <div class="panel-body text-center">
                        
                         <div>
                         تهران، خیابان انقلاب، خیابان فرصت، پلاک ۴۶، واحد ۱۴. کدپستی: 1581635137<br />
                        
-                       hello@gooshibegooshi.com<br />
+                       <span style="font-family:LatoLight">hello@gooshibegooshi.com<span><br />
                         </div>
                         <hr />
                         <div id="map1" class="map">
@@ -91,7 +91,7 @@
 <script type="text/javascript">
     jQuery(function ($) {
         function init_map1() {
-            var myLocation = new google.maps.LatLng(38.885516, -77.09327200000001);
+            var myLocation = new google.maps.LatLng(35.703910, 51.421253);
             var mapOptions = {
                 center: myLocation,
                 zoom: 16
