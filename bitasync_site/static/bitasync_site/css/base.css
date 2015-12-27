@@ -46,6 +46,10 @@ h1, h2, h3, h4, h5{
 	font-family: 'B mehr',tahoma !important;
 }
 
+h2 {
+font-size: 30px !important;
+}
+
 .link {
    
     color: #fff !important;

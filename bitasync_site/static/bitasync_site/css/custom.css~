@@ -1,3 +1,9 @@
+
+body {
+	
+min-height: 100%;	
+}
+
 .we-create li {
 	font-size: 170% !important;
 }
@@ -16,20 +22,32 @@ background: -ms-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 
 background: linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
 
-padding: 80px 0 !important;
+ padding: 0px 0 0 !important;
+	
+	
+	height: 100%;
+    position: relative;
+	
 }
 
 .logo {
    
     width: 100%  !important;
+	 padding-top: 60px;
 }
 .header h1 {
     color: peru !important;
 	font-family: 'B mehr',tahoma !important;
+	font-size: 30px !important;
+    line-height: 2  !important;
 }
 
 h1, h2, h3, h4, h5{
 	font-family: 'B mehr',tahoma !important;
+}
+
+h2 {
+font-size: 34px !important;
 }
 
 .link {
@@ -46,7 +64,7 @@ h1, h2, h3, h4, h5{
 }
 .main-nav li a{
     font-family: B mehr !important;
-	font-size: 120%;
+	font-size: 100%;
 }
 .Portfolio-nav li a {
     font-family: B mehr !important;
@@ -58,16 +76,16 @@ direction: rtl;
 }
 body {
    
-    font-family: B vahid ,tahoma !important;
-	  font-size: 16px !important;
+    font-family: B roya ,tahoma !important;
+	  font-size: 18px !important;
 }
 
 .featured-work {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .featured-box {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 #download {
@@ -82,12 +100,12 @@ body {
 }
 
 
-.team-leader img {
+/*.team-leader img {
     border-radius: 70% !important;
    
     height: 300px;
     width: 450px;
-}
+}*/
 
 .main-section.alabaster {
     background: #F3F3F3 none repeat scroll 0 0 !important;
@@ -111,19 +129,77 @@ body {
 }
 
 
+.intro span {
+    color: #06979e;
+    display: inline-block;
+    font-size: 60px;
+    height: 114px;
+    margin-bottom: 27px;
+    margin-top: 24px;
+    vertical-align: middle;
+    width: 130px;
+}
+
+body {
+color :darkslategray !important;
+
+}
 
 
+.featured-box-col1 {
+    float: right !important;
+}
 
 
+#pwdresdone .footer {
+   
+    bottom: 0%;
+    position: absolute;
+    width: 100%;
+}
+
+.main-nav li a {
+   
+
+    margin: 17px 15px !important;
+}
+.main-nav {
+   
+    text-align: right !important;
+	z-index:1000;
+	top: 68px !important;
+}
 
 
+.Portfolio-box img {
+    margin-bottom: -5px !important;
+}
 
+.btn-order {
+	cursor:pointer;
+}
 
+.label-order {
+	font-family: b mehr; font-size: 18px; margin-top: 15px;
+}
+.Portfolio-box {
+   
+    height: 400px;
+}
 
+.Portfolio-box h3 {
+margin-top: 20px;
+}
 
+.client-part-haead {
+	
+	font-style:normal !important;	
+}
+	
+.portfolioFilter{
+display:none !important;		
+}
 
-
-
-
-
-
+.pricelist{
+font-family: b roya;
+}

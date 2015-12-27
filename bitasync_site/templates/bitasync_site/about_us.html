@@ -18,6 +18,40 @@
 	{% block section %} 
 		<section class="main-section" id="service"><!--main-section-start-->
 			<div class="container">
+				
+				 <div class="row">
+       				 <div class="col-md-6">
+						 
+            <div>
+                				<p style="padding-top: 50px;line-height: 2; font-size: 20px; justify-content: center; text-align: justify;">
+								وقتی یک موبایل جدید می خرید نرم افزار "گوشی ب گوشی" به شما کمک می کند تا به راحتی و بدون درد سر و سریع اطلاعاتی را که روی گوشی قدیمیتان دارید به گوشی جدید منتقل کنید. 
+								</p>
+								<p style="line-height: 2; font-size: 20px; justify-content: center; text-align: justify;">
+									این نرم افزار توسط شرکت "توسعه فناوری همراه بیتاپرداز" تولید و پشتیبانی می شود. در آینده ای نزدیک محصولات "پشتیبان آنلاین" و "تخلیه ی امن اطلاعات گوشی" به بسته ی نرم افزاری "گوشی ب گوشی" اضافه خواهد شد.
+								</p> 
+			 </div>
+        </div>
+        			<div class="col-md-6">
+            <div>
+                <div >
+                    <div class="text-center"><img alt="" src="{% static "bitasync_site/img/bitapardaz.png" %}"></div>
+                    <div class="panel-body text-center">
+                       
+                        <div>
+                        تهران، خیابان انقلاب، خیابان فرصت، پلاک ۴۶، واحد ۱۴. کدپستی: 1581635137<br />
+                       
+                       <span style="font-family:LatoLight">hello@gooshibegooshi.com<span><br />
+                        </div>
+                        <hr />
+                        <div id="map1" class="map">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    			</div>
+			
+	<!--			
 				<div class="row text-center">
 							
 
@@ -27,7 +61,7 @@
 									<div style="width: 350px; text-align: right; display: inline-block;" >  تهران، خیابان انقلاب، خیابان فرصت، پلاک ۴۶، واحد ۱۴. کدپستی: 1581635137 &nbsp;</div>
 									<span style="margin-left: 10px;" class="fa fa-map-marker fa-2x"></span>
 									<p>021-88867646 &nbsp<span class="fa fa-phone fa-2x"></span> </p>
-									<p>hello@gooshibegooshi.com &nbsp<span class="fa fa-envelope fa-2x"></span> </p>
+									<p style="font-family: latolight;">hello@gooshibegooshi.com &nbsp<span class="fa fa-envelope fa-2x"></span> </p>
 									<p><a  href="http://telegram.me/gooshibegooshi" hello@gooshibegooshi.com > کانال تلگرام</a> <span class="fa fa-paper-plane fa-2x"></span> </p>
 								</div>
 								
@@ -43,10 +77,45 @@
 								</p> 
 							</div>
 			 </div>
+
+-->
 		</div>		
             
        
 		</section>
-	{% endblock section %}	
+	
 
 
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        function init_map1() {
+            var myLocation = new google.maps.LatLng(35.703910, 51.421253);
+            var mapOptions = {
+                center: myLocation,
+                zoom: 16
+            };
+            var marker = new google.maps.Marker({
+                position: myLocation,
+                title: "Property Location"
+            });
+            var map = new google.maps.Map(document.getElementById("map1"),
+                mapOptions);
+            marker.setMap(map);
+        }
+        init_map1();
+    });
+</script>
+
+<style>
+    .map {
+        min-width: 300px;
+        min-height: 300px;
+        width: 100%;
+        height: 100%;
+    }
+
+    
+</style>
+{% endblock section %}	
