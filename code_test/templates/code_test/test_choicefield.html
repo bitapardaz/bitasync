@@ -1,0 +1,38 @@
+<form action='' method='post'>{% csrf_token %}
+    {{shop_form.non_field_errors}}    
+    {{shop_form.as_p}}
+    <input type="submit" value="find" name='find'>
+</form>
+
+
+<form action='' method='post' >{% csrf_token %}
+
+    {{creation_form.as_p}}
+
+    {% if form.copies.errors %}
+        <ol>
+        {% for error in form.copies.errors %}
+            <li><strong>{{ error|escape }}</strong></li>
+        {% endfor %}
+        </ol>
+    {% endif %}
+
+    {% if form.copies.errors %}
+        <ol>
+        {% for error in form.copies.errors %}
+            <li><strong>{{ error|escape }}</strong></li>
+        {% endfor %}
+        </ol>
+    {% endif %}
+
+    {% if form.license_type.errors %}
+        <ol>
+        {% for error in form.license_type.errors %}
+            <li><strong>{{ error|escape }}</strong></li>
+        {% endfor %}
+        </ol>
+    {% endif %}
+
+
+    <input type="submit" value='find2' name='create'>
+</form>

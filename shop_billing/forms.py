@@ -7,9 +7,11 @@ class GetUserNameForm(forms.Form):
 
 class GenerateBulkLicenseForm(forms.Form):
 
-    def __init__(self, choices, *args, **kwargs):
+    def __init__(self, custom_choices, *args, **kwargs):
         super(GenerateBulkLicenseForm, self).__init__(*args, **kwargs)
-        self.fields['shop_id'] = forms.ChoiceField(choices=choices)
+        if custom_choices:
+            #self.fields['shop_id'] = forms.ChoiceField(choices=choices
+            self.fields['shop_id'].choices = custom_choices
         self.fields['shop_id'].widget.attrs.update({'class': 'selector'})
 
     shop_id = forms.ChoiceField(required=True)

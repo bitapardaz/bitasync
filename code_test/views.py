@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 
 from django.template.context_processors import csrf
 
+from forms import ShopForm,CreationForm
+
 #from .forms import MyUserCreationForm
 
 def test_progress_bar(request): 
@@ -90,3 +92,76 @@ def test_fun_1(request):
         template = loader.get_template('code_test/kids_inquiery.html')
         context = RequestContext(request, {'form': form})
         return HttpResponse(template.render(context))
+        
+def test_choicefield(request): 
+
+    if request.method=='POST': 
+        
+        if 'find' in request.POST: 
+
+            shop_form = ShopForm(request.POST)
+            
+            if shop_form.is_valid(): 
+                print(shop_form.cleaned_data['shop_id'])
+
+                custom_choices = [  ("L1", "L1") for o in range(1,6)  ]               
+                creation_form = CreationForm(custom_choices)
+                
+            else: 
+            
+                custom_choices = [  ("L1", "L1") for o in range(1,6)  ]
+                creation_form = CreationForm(custom_choices)
+
+            
+                
+        if 'create' in request.POST:
+         
+            shop_form = ShopForm()
+            creation_form = CreationForm(request.POST)
+            
+            if creation_form.is_valid(): 
+                print(creation_form.cleaned_data['copies'])
+                print("\n")
+                print(creation_form.cleaned_data['license_type'])
+
+    
+    else: 
+        shop_form = ShopForm()
+        
+        custom_choices = [  ("L1", "L1") for o in range(1,6)  ]
+        import pdb; pdb.set_trace()
+        creation_form = CreationForm(custom_choices)
+       
+    context={}
+    context['shop_form'] = shop_form
+    context['creation_form'] = creation_form
+    context.update(csrf(request))
+    return render(request,'code_test/test_choicefield.html',context)
+        
+        
+        
+    
+def test_choicefield_2(request): 
+
+    if request.method=='POST':          
+                
+        creation_form = CreationForm(request.POST)
+            
+        if creation_form.is_valid(): 
+            print(creation_form.cleaned_data['copies'])
+            print("\n")
+            print(creation_form.cleaned_data['license_type'])
+    
+    else: 
+        
+        custom_choices = [  ("L1", "L1") for o in range(1,6)  ]
+#        import pdb; pdb.set_trace()
+        creation_form = CreationForm(custom_choices)
+       
+    context={}
+    context['creation_form'] = creation_form
+    context.update(csrf(request))
+    return render(request,'code_test/test_choicefield.html',context)
+        
+        
+        

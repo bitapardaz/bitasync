@@ -20,6 +20,7 @@ def bulk_license_select_shop(request):
             if 'find_shop' in request.POST:
 
                 select_shop_form = GetUserNameForm(request.POST)
+                generate_bulk_license_form = GenerateBulkLicenseForm(custom_choices=[])
 
                 if select_shop_form.is_valid():
                     # get the username from text box
@@ -32,15 +33,21 @@ def bulk_license_select_shop(request):
                                   shop_profile.user_profile.user.username)
                                  for shop_profile in shop_profiles]
 
+                    import pdb; pdb.set_trace()
                     # set the usernames found as initial values for next choice
 
-                    generate_bulk_license_form = GenerateBulkLicenseForm(choices=usernames)
+                    generate_bulk_license_form = GenerateBulkLicenseForm(custom_choices=usernames)
+                    import pdb; pdb.set_trace()
+
 
             if 'generate_license' in request.POST:
+                import pdb; pdb.set_trace()
 
-                
+
                 generate_bulk_license_form = GenerateBulkLicenseForm(request.POST)
 
+
+                #import pdb; pdb.set_trace()
 
                 if generate_bulk_license_form.is_valid():
                     shop_username = generate_bulk_license_form.cleaned_data['shop_id']
@@ -51,7 +58,9 @@ def bulk_license_select_shop(request):
                     #generate_and_store_bulk_license(shop_username,
                     #                                license_type,
                     #                                copies)
-                select_shop_form = GetUserNameForm()
+
+
+                #import pdb; pdb.set_trace()
 
     else:
         # get the list of all shops
@@ -59,10 +68,13 @@ def bulk_license_select_shop(request):
         # put it in the context
         shop_profiles = []
         select_shop_form = GetUserNameForm()
-        generate_bulk_license_form = GenerateBulkLicenseForm(choices=[])
+        generate_bulk_license_form = GenerateBulkLicenseForm(custom_choices=[])
 
     context = {}
+
     context.update(csrf(request))
+
+    select_shop_form = GetUserNameForm()
     context['select_shop_form'] = select_shop_form
     context['generate_bulk_license_form'] = generate_bulk_license_form
 
