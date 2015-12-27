@@ -17,18 +17,16 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from bitasync_site import views
 
-#from bitasync_site import views
-#from user_profile import views
-
 urlpatterns = [
     url(r'^$', views.homepage),
     url(r'^162294.txt$', views.test_function),
-    url(r'^about_us/',views.about_us),  
+    url(r'^about_us/', views.about_us),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^bitasync/', include('bitasync_site.urls')),
     url(r'^accounts/', include('user_profile.urls')),
-    url(r'^code_test/', include('code_test.urls')),  
-    url(r'^coupons/',include('coupons.urls')), 
-    url(r'^guides/',include('guides.urls')), 
-    url(r'^payment/',include('payment.urls')),
+    url(r'^code_test/', include('code_test.urls')),
+    url(r'^coupons/', include('coupons.urls')),
+    url(r'^guides/', include('guides.urls')),
+    url(r'^payment/', include('payment.urls')),
+    url(r'^shop_billing/', include('shop_billing.urls')),
 ]

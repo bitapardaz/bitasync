@@ -1,0 +1,39 @@
+<html>
+
+  <head>
+
+    <style>
+      .selector{
+        width:350px;
+      }
+    </style>
+
+  </head>
+
+<body>
+
+  <h3>
+  generate bulk license for shops
+  <h3>
+
+  <hr>
+
+  <form action='' method='POST'>{% csrf_token %}
+    {{select_shop_form.as_p}}
+    <input type='submit' name='find_shop' value='Find'>
+  </form>
+
+  <hr>
+
+  <form action='' method = 'POST'>{% csrf_token %}
+
+      {{generate_bulk_license_form.as_p}}
+      <input type="submit" name="generate_license" value="Generate licenses">
+
+  </form>
+
+  <hr>
+  
+</body>
+
+</html>

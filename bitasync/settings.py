@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -44,7 +43,7 @@ INSTALLED_APPS = (
     'payment',
     'guides',
     'coupons',
-#    'django.contrib.sites',
+    'shop_billing',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,8 +55,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-#    'account.middleware.LocaleMiddleware',
-#    'account.middleware.TimezoneMiddleware',
 )
 
 ROOT_URLCONF = 'bitasync.urls'
@@ -72,8 +69,6 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-#                'django.contrib.messages.context_processors.messages',
-#                'account.context_processors.account',
             ],
         },
     },
@@ -118,7 +113,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
-# email configuration. 
+# email configuration.
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -132,7 +127,5 @@ EMAIL_PORT = 2525
 EMAIL_HOST_USER = 'hello@gooshibegooshi.com'
 EMAIL_HOST_PASSWORD = 'alirezaPour1986!'
 EMAIL_USE_TLS = False
-
-
 
 LOGIN_REDIRECT_URL = "/"
