@@ -41,14 +41,7 @@ class ShopForm(forms.Form):
     shop_id = forms.CharField()
 
 
-CUSTOM_CHOICES = [('L1', 'L1'),
-                  ('L2', 'L2'),
-                  ('L5', 'L5'),
-                  ('U1', 'U1'),
-                  ('U3', 'U3'),
-                  ('U6', 'U6'),
-                  ('U7', 'U7'),
-                 ]
+
 
 #class CreationForm(forms.Form):
 #    copies = forms.IntegerField(required=True)
@@ -56,7 +49,7 @@ CUSTOM_CHOICES = [('L1', 'L1'),
 
 class CreationForm(forms.Form):
 
-    def __init__(self,text,*args,**kwargs):
+    def __init__(self,text,CUSTOM_CHOICES,*args,**kwargs):
         super(CreationForm,self).__init__(*args,**kwargs)
         #import pdb; pdb.set_trace()
 

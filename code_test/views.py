@@ -147,7 +147,15 @@ def test_choicefield_2(request):
 
 
         text = "Ali"
-        creation_form = CreationForm(text,request.POST)
+        CUSTOM_CHOICES = [('L1', 'L1'),
+                          ('L2', 'L2'),
+                          ('L5', 'L5'),
+                          ('U1', 'U1'),
+                          ('U3', 'U3'),
+                          ('U6', 'U6'),
+                          ('U7', 'U7'),
+                         ]
+        creation_form = CreationForm(text,CUSTOM_CHOICES,request.POST)
 
         import pdb; pdb.set_trace()
 
@@ -158,10 +166,17 @@ def test_choicefield_2(request):
     else:
 
 
-
+        CUSTOM_CHOICES = [('L1', 'L1'),
+                          ('L2', 'L2'),
+                          ('L5', 'L5'),
+                          ('U1', 'U1'),
+                          ('U3', 'U3'),
+                          ('U6', 'U6'),
+                          ('U7', 'U7'),
+                         ]
 
         text = "Ali"
-        creation_form = CreationForm(text=text)
+        creation_form = CreationForm(text,CUSTOM_CHOICES)
 
     context={}
     context['creation_form'] = creation_form
