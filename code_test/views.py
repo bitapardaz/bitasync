@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 
 from django.template.context_processors import csrf
 
+from user_profile.models import ShopProfile
+from django.contrib.auth.models import User
+
 from forms import ShopForm,CreationForm
 
 #from .forms import MyUserCreationForm
@@ -102,35 +105,44 @@ def test_choicefield(request):
             shop_form = ShopForm(request.POST)
 
             if shop_form.is_valid():
-                print(shop_form.cleaned_data['shop_id'])
 
-                custom_choices = [  ("L1", "L1") for o in range(1,6)  ]
-                creation_form = CreationForm(custom_choices)
+                fusername = shop_form.cleaned_data['shop_id']
+                shop_profiles = ShopProfile.objects.filter(
+                    user_profile__user__username__contains=fusername)
+                usernames = [(shop_profile.user_profile.user.username,
+                              shop_profile.user_profile.user.username)
+                             for shop_profile in shop_profiles]
+                creation_form = CreationForm(all_usernames=usernames)
+
 
             else:
-
-                custom_choices = [  ("L1", "L1") for o in range(1,6)  ]
-                creation_form = CreationForm(custom_choices)
-
+                creation_form = CreationForm(all_usernames=[])
 
 
         if 'create' in request.POST:
 
-            shop_form = ShopForm()
-            creation_form = CreationForm(request.POST)
 
-            if creation_form.is_valid():
-                print(creation_form.cleaned_data['copies'])
-                print("\n")
-                print(creation_form.cleaned_data['license_type'])
+            shop_username = request.POST['shops']
+
+            print(shop_username)
+
+
+            shop_form = ShopForm()
+            creation_form = CreationForm(all_usernames=[])
+
+
+#            creation_form = CreationForm(all_shops,request.POST)
+
+#            if creation_form.is_valid():
+#                print(creation_form.cleaned_data['copies'])
+#                print("\n")
+#                print(creation_form.cleaned_data['license_type'])
 
 
     else:
-        shop_form = ShopForm()
 
-        custom_choices = [  ("L1", "L1") for o in range(1,6)  ]
-        import pdb; pdb.set_trace()
-        creation_form = CreationForm(custom_choices)
+        shop_form = ShopForm()
+        creation_form = CreationForm(all_usernames=[])
 
     context={}
     context['shop_form'] = shop_form

@@ -1,0 +1,28 @@
+<html>
+
+  <head>
+
+    <style>
+      .selector{
+        width:350px;
+      }
+    </style>
+
+  </head>
+
+<body>
+
+  <h3>
+  generate bulk license for shops
+  <h3>
+
+  <hr>
+
+  <form action='' method='POST'>{% csrf_token %}
+    {{input_shop_fusername_form.as_p}}
+    <input type='submit' name='find_shop' value='Find'>
+  </form>
+
+</body>
+
+</html>
