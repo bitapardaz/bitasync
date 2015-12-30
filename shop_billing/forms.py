@@ -7,19 +7,19 @@ class GetUserNameForm(forms.Form):
 
 class GenerateBulkLicenseForm(forms.Form):
 
-    def __init__(self, custom_choices, *args, **kwargs):
+    def __init__(self, all_usernames, *args, **kwargs):
         super(GenerateBulkLicenseForm, self).__init__(*args, **kwargs)
-        if custom_choices:
-            #self.fields['shop_id'] = forms.ChoiceField(choices=choices
-            self.fields['shop_id'].choices = custom_choices
+
+        self.fields['shop_id'].widget = forms.Select(choices=all_usernames)
         self.fields['shop_id'].widget.attrs.update({'class': 'selector'})
 
-    shop_id = forms.ChoiceField(required=True)
+
+    shop_id = forms.CharField(required=True)
     license_type = forms.ChoiceField(choices=[('L1', 'L1'),
                                               ('L2', 'L2'),
                                               ('L5', 'L5'),
                                               ('U1', 'U1'),
-                                              ('U2', 'U2'),
-                                              ('U5', 'U5')
+                                              ('U3', 'U3'),
+                                              ('U6', 'U6')
                                               ], required=True)
     copies = forms.IntegerField(required=True)

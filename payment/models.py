@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from bitasync_site.models import Data_Transfer_Plan
 
-
 class Purchase(models.Model):
 
     user = models.ForeignKey(User, related_name='customer')
@@ -14,7 +13,7 @@ class Purchase(models.Model):
 
     purchase_date = models.DateField(auto_now_add=True)
     amount_paid = models.FloatField(default=0)
-    follow_up_number = models.CharField(max_length=100)
+    follow_up_number = models.CharField(max_length=100, null=True, blank=True)
 
     # access control.
     remaining_allowance_frequency = models.IntegerField(default=0)
@@ -28,3 +27,6 @@ class Purchase(models.Model):
 
     gateway = models.CharField(max_length=100, null=True,
                                blank=True, default="unspecified")
+
+    def __unicode__(self):
+        return (self.data_transfer_plan).plan_name + "_" + (self.user).username
