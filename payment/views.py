@@ -101,6 +101,7 @@ def pay_for_a_plan_complete(request,plan_name,token):
         new_purchase.amount_paid = selected_plan.original_price
 
     # save follow_up number using hash
+    new_purchase.save()
     follow_up_number = generate_md5_hash(str(new_purchase.id))
     new_purchase.follow_up_number = follow_up_number
     new_purchase.save()
