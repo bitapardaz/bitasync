@@ -27,3 +27,6 @@ class Purchase(models.Model):
 
     gateway = models.CharField(max_length=100, null=True,
                                blank=True, default="unspecified")
+
+    def __unicode__(self):
+        return (self.data_transfer_plan).plan_name + "_" + (self.user).username

@@ -18,6 +18,7 @@ from django.template import loader
 
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
+from utilities.utility_functions import generate_md5_hash
 
 @login_required
 def pay_for_a_plan(request,plan_name):
@@ -100,9 +101,7 @@ def pay_for_a_plan_complete(request,plan_name,token):
         new_purchase.amount_paid = selected_plan.original_price
 
     # save follow_up number using hash
-    hasher = hashlib.md5()
-    hasher.update(str(new_purchase.id))
-    follow_up_number = hasher.hexdigest()
+    follow_up_number = generate_md5_hash(str(new_purchase.id))
     new_purchase.follow_up_number = follow_up_number
     new_purchase.save()
     context['follow_up_number'] = follow_up_number

@@ -152,6 +152,12 @@ def create_one_license(selling_shop,data_transfer_plan,prefix):
         new_purchase.remaining_allowance_frequency = data_transfer_plan.freq
         new_purchase.selling_shop = selling_shop
         # purchase.shop_debited = false is by default.
+
+
+        import pdb; pdb.set_trace()
+
+
+        new_purchase.follow_up_number = generate_md5_hash(str(new_purchase.id))
         new_purchase.save()
 
         #increase the current index
