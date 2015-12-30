@@ -13,11 +13,12 @@ class Data_Transfer_Plan(models.Model):
     long_description = models.CharField(max_length=1000, default="long description for a data transfer plan")
     price = models.IntegerField(default = 0)
     
-    
-    def __unicode__(self): 
+
+
+    def __unicode__(self):
         return self.plan_name
 
-class Contact_Comment(models.Model): 
+class Contact_Comment(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     message = models.CharField(max_length=1000)
@@ -30,7 +31,3 @@ class B2C_Coupon:
 
 class B2S2C_Coupon:
     pass
-    
-
-    
-
