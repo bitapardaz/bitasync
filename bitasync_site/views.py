@@ -92,6 +92,69 @@ def contact_us(request):
         context = RequestContext(request,args)
         return HttpResponse(template.render(context))
 
+def contact_us_page(request): 
+    
+    
+    
+    if request.method == "POST":
+    
+        form = Contact_us(request.POST)
+        
+        if form.is_valid(): 
+            
+            # send an eamil to the user acknowledging that his message was received. 
+            email = form.cleaned_data['email']
+            email_message = """Thanks for contacting Bit@Sync.    
+            Our customer service team will get in touch shortly.             
+            """
+            subject = "Thanks for Contacting Bit@Sync."
+            from_email = "outreach@bitasync.com"
+            recipient_list = [email]
+            
+            send_mail(subject=subject,
+                     message=email_message,
+                     from_email = from_email,
+                     recipient_list=recipient_list, 
+                     fail_silently=False)
+                     
+                     
+            # add user message to the database. 
+            
+            comment = Contact_Comment()
+            comment.name = form.cleaned_data['name']
+            comment.message = form.cleaned_data['message']
+            comment.email = email 
+            comment.call_back_request = form.cleaned_data['call_back']
+            comment.phone_number = form.cleaned_data['phone_number']
+            
+            comment.save()       
+            
+            return HttpResponseRedirect("/bitasync/thanks_contact_us/")
+        
+        else: 
+            
+            args= {}
+            args.update(csrf(request))
+            args['form']=form
+
+        
+            template = loader.get_template('bitasync_site/contact_us.html')
+            context = RequestContext(request,args)
+            return HttpResponse(template.render(context))
+        
+        
+    else:
+        form = Contact_us()
+        
+        args= {}
+        args['form']=form
+
+        
+        template = loader.get_template('bitasync_site/contact_us.html')
+        context = RequestContext(request,args)
+        return HttpResponse(template.render(context))
+
+
 def homepage(request):
       
 
