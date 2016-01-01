@@ -112,7 +112,7 @@ img { max-width: 100%; }
 .top-content .description a:focus { border-bottom: 1px dotted #fff; }
 
 .form-box {
-	margin-top: 85px;
+	margin-top: 0px;
 }
 
 .form-top {
@@ -209,4 +209,17 @@ img { max-width: 100%; }
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out 0s;
+}
+
+.form-control {
+	font-size:17px !important;
+	font-family:tahoma;
+	height:40px;
+	
+	
+}
+
+.btn {
+	font-size:20px !important;
+	font-family:b mehr;
 }

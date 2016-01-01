@@ -195,21 +195,7 @@ img { max-width: 100%; }
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     border:none;
 }
-.main-nav li {
-    display: inline;
-    margin: 0 1px;
-}
 
-.main-nav li a {
-    color: #222222;
-    display: inline-block;
-    font-family: "Montserrat",sans-serif;
-    line-height: 20px;
-    margin: 17px 32px;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out 0s;
-}
 
 .form-control {
 	font-size:17px !important;

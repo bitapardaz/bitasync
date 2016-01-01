@@ -286,7 +286,7 @@
 							<div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div class="table-responsive" style="direction:ltr;font-family:LatoLight">
+      <div class="table-responsive" style="">
         <table summary="پشتیبانی از بیش از چهار هزار گوشی هوشمند" class="table table-bordered table-hover">
           <caption class="text-center"></caption>
           <thead>

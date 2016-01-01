@@ -57,7 +57,7 @@
 	.main-section{ padding:60px 0 70px;}
 	.main-nav{ display:none; position:absolute; left:0; width:100%; top:74px; margin:0 auto; flote : none; background:#fff;}
 	.main-nav li{ display:block;}
-	.main-nav li.small-logo{ padding: 0;;}
+	.main-nav li.small-logo{ padding: 0;}
 	.main-nav li a{ display:block; padding:7px 32px; border-bottom:none;}
 	.main-nav li a:hover{color:#7cc576}
 	.team-leader-box{ max-width:307px; width:auto; float:none; margin:0 auto;	}
