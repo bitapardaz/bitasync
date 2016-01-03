@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^register_test/$', views.register_test),
     url(r'^test_progress_bar/$', views.test_progress_bar),
     url(r'^test_choicefield/',views.test_choicefield),
+    url(r'^test_tasks/',views.test_tasks),
 ]

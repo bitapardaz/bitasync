@@ -20,6 +20,8 @@ from user_profile.models import UserProfile,CustomerProfile
 from payment.models import Purchase
 from bitasync_site.models import Data_Transfer_Plan
 
+from tasks import generate_license_pdf_files
+
 
 @login_required
 def bulk_created_done(request,shop_username,plan_name,copies):
@@ -112,9 +114,14 @@ def create_bulk_license(shop_username,plan_name,copies):
     data_transfer_plan = Data_Transfer_Plan.objects.get(plan_name=plan_name)
     selling_shop = User.objects.get(username = shop_username)
 
-    for copy_index in range(0,copies):
-        create_one_license(selling_shop,data_transfer_plan,prefix)
+    user_pass_collection = []
 
+    for copy_index in range(0,copies):
+        (username,password) = create_one_license(selling_shop,data_transfer_plan,prefix)
+        user_pass_collection.append((username,password))
+
+    # run the generation of license pdf files as a async task using celery
+    generate_license_pdf_files.delay(user_pass_collection)
 
 def create_one_license(selling_shop,data_transfer_plan,prefix):
     # read current index
@@ -162,3 +169,5 @@ def create_one_license(selling_shop,data_transfer_plan,prefix):
         current_index = current_index + 1
         bulk_license_manager.current_index = current_index
         bulk_license_manager.save()
+
+        return (username,password)
