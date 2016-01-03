@@ -1,4 +1,5 @@
 *.pyc
 *.py~
 *.html~
-static
+static/*
+shop_billing/bulk_license_generation_modules/Licenses

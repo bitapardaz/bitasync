@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.3.28)  3 JAN 2016 15:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.3.28)  3 JAN 2016 16:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**code_test/bulk_license_generation_modules/bulk_license_tmp.tex
-(./code_test/bulk_license_generation_modules/bulk_license_tmp.tex
+**shop_billing/bulk_license_generation_modules/bulk_license_tmp.tex
+(./shop_billing/bulk_license_generation_modules/bulk_license_tmp.tex
 LaTeX2e <2014/05/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/article.cls
@@ -455,7 +455,7 @@ File: tikzlibrarybackgrounds.code.tex 2013/07/18 v3.0.0 (rcs-revision 1.3)
 \pgf@layerbox@background=\box57
 \pgf@layerboxsaved@background=\box58
 )
-(code_test/bulk_license_generation_modules//bulk_license_tmp.aux)
+(shop_billing/bulk_license_generation_modules//bulk_license_tmp.aux)
 \openout1 = `bulk_license_tmp.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
@@ -584,19 +584,19 @@ Overfull \vbox (36.09155pt too high) has occurred while \output is active []
 
 [2{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./cod
 e_test/bulk_license_generation_modules/background.pdf>]
-(code_test/bulk_license_generation_modules//bulk_license_tmp.aux) ) 
+(shop_billing/bulk_license_generation_modules//bulk_license_tmp.aux) ) 
 Here is how much of TeX's memory you used:
- 14164 strings out of 493109
- 309607 string characters out of 6135010
+ 14165 strings out of 493109
+ 309679 string characters out of 6135010
  367966 words of memory out of 5000000
  17381 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,6n,67p,439b,558s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on code_test/bulk_license_generation_modules//bulk_license_tmp.p
-df (2 pages, 103980 bytes).
+ 55i,6n,67p,442b,558s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on shop_billing/bulk_license_generation_modules//bulk_license_tm
+p.pdf (2 pages, 105866 bytes).
 PDF statistics:
  45 PDF objects out of 1000 (max. 8388607)
  34 compressed objects within 1 object stream

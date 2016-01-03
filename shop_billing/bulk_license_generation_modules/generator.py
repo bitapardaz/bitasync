@@ -11,11 +11,9 @@ def generate_bulk_licenses(user_pass_collection):
         counter = counter + 1
 
     # zip folder Licenses
-
+    
 
     # send it by email to printing@gooshibegooshi.com
-
-
 
 
 def generate_one_license(username,password,counter):
@@ -24,22 +22,23 @@ def generate_one_license(username,password,counter):
     generate_latex_file(username,password)
 
     # run latex
-    command = ["pdflatex","-output-directory", "code_test/bulk_license_generation_modules/","code_test/bulk_license_generation_modules/bulk_license_tmp.tex"]
+    command = [ "pdflatex" , "-output-directory" ,  directory_path('')  ,  directory_path('bulk_license_tmp.tex')  ]
     call(command)
 
     # get the second page in the file
-#    outputname = "Licenses/"+ str(counter) + ".pdf"
-#    command = ["pdftk", "bulk_license_tmp.pdf", "cat", "2", "output", outputname]
-#    call(command)
+    outputname = "Licenses/"+ str(counter) + ".pdf"
+    outputname = directory_path(outputname)
+    command = ["pdftk", directory_path("bulk_license_tmp.pdf"), "cat", "2", "output", outputname]
+    call(command)
 
 
 def generate_latex_file(username,password):
 
     # read the file : bulk_license.tex
-    st = open('code_test/bulk_license_generation_modules/bulk_license.tex','r').read()
+    st = open( directory_path('bulk_license.tex') , 'r' ).read()
     st2 = replace_username_password(st,username,password)
 
-    new_file = open('code_test/bulk_license_generation_modules/bulk_license_tmp.tex','w')
+    new_file = open(  directory_path('bulk_license_tmp.tex') , 'w' )
     new_file.write(st2)
     new_file.close()
 
@@ -52,3 +51,7 @@ def replace_username_password(text,username,password):
     pattern = re.compile("|".join(rep.keys()))
     text = pattern.sub(lambda m: rep[re.escape(m.group(0))], text)
     return text
+
+def directory_path(original_file):
+    directory = 'shop_billing/bulk_license_generation_modules/'
+    return directory+original_file
