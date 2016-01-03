@@ -116,8 +116,6 @@
 		float: right !important;
 		 margin-top: 0 !important;
 		margin-bottom: 10px !important;
-		margin-right: 15px !important;
-
 	}
 	
 	.icont {

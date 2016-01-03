@@ -19,16 +19,48 @@
 		<section class="main-section" id="service"><!--main-section-start-->
 			<div class="container">
 
-				<div class="row">
-					<form action="/bitasync/contact_us/" method="post">
+				 <div class="row" style="direction:rtl">
+        	<div class="col-lg-6 col-sm-7 wow fadeInLeft">
+            	<!--<div class="contact-info-box address clearfix">
+                	<h3><i class=" icon-map-marker"></i>ادرس:</h3>
+                	<span>تهران، میدان فردوسی،خیابان موسوی (فرصت) </span>
+                </div>-->
+                <div class="contact-info-box phone clearfix">
+                	<h3><i class="fa-phone"></i> تلفن:</h3>
+                	<span>021-88867646</span>
+                </div>
+                <div class="contact-info-box email clearfix">
+                	<h3><i class="fa-pencil"></i> ایمیل:</h3>
+                	<span>hello@gooshibegooshi.com</span>
+                </div>
+            	
+				
+				
+			
+            </div>
+        	<div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s" style="padding-right: 35px;">
+            	<div class="form">
+                	<form action="" method="post">
 						{% csrf_token %}
-						<table border = "1">
-						{{form.as_table}}
-						</table>
-						<input type='submit' value='Submit'>
-					</form>
+						{{ form.field_errors }}	
+						
+					<input id= "{{ form.name.id_for_label }}" class="input-text" type="text" name="{{ form.name.html_name }}" value="نام *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+                    <input id="{{ form.email.id_for_label }}" class="input-text" type="text" name="{{ form.email.html_name }}" value="ایمیل *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+                   	<textarea id="{{ form.message.id_for_label }}"  name="{{ form.message.html_name }}" class="input-text text-area" cols="0" rows="0" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">پیام *</textarea>
+                    
+					<label for="{{ form.call_back.id_for_label }}">
+با انتخاب این گزینه ما با شما تماس خواهیم گرفت.
+</label> <input id="{{ form.call_back.id_for_label }}" name="{{ form.call_back.html_name }}" class="" type="checkbox" 	/>
+                    <input id="{{ form.phone_number.id_for_label }}" class="input-text" type="text" name="{{ form.phone_number.html_name }}" value="شماره تماس *" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+                
+					
+					<input class="input-btn" type="submit" value="ارسال پیام">
+						{{ form.non_field_errors }}
+				</form>
 
-				</div>
+                </div>	
+            </div>
+        </div>
 			 </div>
             
        

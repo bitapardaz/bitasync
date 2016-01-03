@@ -35,7 +35,7 @@
 						<a href="#"><img src="{% static "bitasync_site/img/logo.png" %}" alt=""></a>	
 					</figure>	
 					<h1 class="animated fadeInDown delay-07s">				
-وقتی یه موبایل جدید می خرید، با نرم افزار "گوشی ب گوشی" می تونی شماره تلفن ها، عکس ها، آهنگ ها و همه ی اطلاعات گوشی قدیمی ات رو سریع و آسون به گوشی جدیدت منتقل کنی.
+وقتی یه موبایل جدید می خرید، با نرم افزار "گوشی ب گوشی" می تونی شماره تلفن ها، عکس ها، آهنگ ها و همه اطلاعات گوشی قدیمی ات رو سریع و آسون به گوشی جدیدت منتقل کنی.
 					</h1>
 					<!--<ul class="we-create animated fadeInUp delay-1s">
 						<li></li>
@@ -72,7 +72,7 @@
 							{% endif %}
 
 							{% if request.user.is_authenticated %}
-							<li style="float: left; background-color: gold; border-radius: 15px; height: 50px; margin-top: 20px;"> <a href="/accounts/logout"><span class="icont" style="position: relative; top: -19px;">  خروج </span>&nbsp<span  style="position: relative; top: -9px;" class="fa fa-sign-out fa-2x iconf"></span></a> </li>
+							<li id="loglink" style="float: left; background-color: gold; border-radius: 15px; height: 50px; margin-top: 20px;"> <a href="/accounts/logout"><span class="icont" style="position: relative; top: -19px;">  خروج </span>&nbsp<span  style="position: relative; top: -9px;" class="fa fa-sign-out fa-2x iconf"></span></a> </li>
 
 							
 							{% endif %}
@@ -286,27 +286,27 @@
 							<div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div class="table-responsive" style="direction:ltr;font-family:LatoLight">
-        <table summary="پشتیبانی از بیش از چهار هزار گوشی هوشمند" class="table table-bordered table-hover">
+      <div class="table-responsive" style="">
+        <table summary="پشتیبانی از بیش از چهار هزار گوشی هوشمند" class="table table-bordered table-hover" style="text-align: center;">
           <caption class="text-center"></caption>
           <thead>
             <tr>
 				<th> </th>
-				<th>Contacts</th>
-				<th>Messages</th>
-				<th>Wallpaper</th>
-				<th>Photos</th>
-				<th>Music</th>
-				<th>Video</th>
-				<th>Call logs</th>
-				<th>Apps</th>
-				<th>Voice Rcd</th>
-				<th>Call Rcd</th>
+				<th>مخاطبین</th>
+				<th>پیام ها</th>
+				<th>پس زمینه</th>
+				<th>عکس ها</th>
+				<th>آهنگ</th>
+				<th>ویدیو</th>
+				<th>تاریخچه تماس ها</th>
+				<th>برنامه ها</th>
+				<th>صداهای ضبط شده</th>
+				<th>تماس های ضبط شده</th>
 			</tr>
           </thead>
           <tbody>
             <tr>
-							<th>Android to Android</th>
+							<th>آندروید به آندروید</th>
 							<td>O</td>
 							<td>O</td>
 							<td>O</td>
@@ -319,7 +319,7 @@
 							<td>O</td>
 						</tr>
             <tr>
-							<th>Android to iOS</th>
+							<th>آندروید به iOS</th>
 							<td>O</td>
 							<td>O</td>
 							<td>O</td>
@@ -333,7 +333,7 @@
 
 						</tr>
 						<tr>
-							<th>iOS to Android</th>
+							<th>iOS به آندروید</th>
 							<td>O</td>
 							<td>O</td>
 							<td>O</td>
@@ -346,7 +346,7 @@
 							<td>-</td>
 						</tr>
 						<tr>
-							<th>iOS to iOS</th>
+							<th>iOS به iOS</th>
 							<td>O</td>
 							<td>O</td>
 							<td>O</td>
@@ -385,12 +385,14 @@
         </ul>
     </div>
 </section><!--main-section client-part-end-->
-		<section class="main-section team" id="team"><!--main-section team-start-->
+		
+<section class="main-section team" id="team"><!--main-section team-start-->
 		<div class="container">
         <h2></h2>
         <h6></h6>
         <div class="team-leader-block clearfix">
-            <div class="team-leader-box">
+         
+			<div class="team-leader-box ">
                 <div class="team-leader wow fadeInDown delay-03s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
                     <img src="{% static "bitasync_site/img/n1.jpg" %}" alt="">
@@ -401,12 +403,13 @@
                         <li><a href="#" class="fa-google-plus"></a></li>
                     </ul>-->
                 </div>
-                <h3 class="wow fadeInDown delay-03s">آسان</h3>
+                <h3 class="wow fadeInDown delay-03s">سادگی</h3>
                 <span class="wow fadeInDown delay-03s"></span>
                 <p class="wow fadeInDown delay-03s">فقط با ۳ کلیک اطلاعات انتخابی خود را منتقل کنید</p>
             </div>
-            <div class="team-leader-box">
-                <div class="team-leader  wow fadeInDown delay-06s"> 
+            
+			<div class="team-leader-box">
+                <div class="team-leader  wow fadeInDown delay-03s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
                     <img src="{% static "bitasync_site/img/n2.jpg" %}" alt="">
                    <!-- <ul>
@@ -416,12 +419,13 @@
                         <li><a href="#" class="fa-google-plus"></a></li>
                     </ul>-->
                 </div>
-                <h3 class="wow fadeInDown delay-06s">امنیت</h3>
-                <span class="wow fadeInDown delay-06s"></span>
+                <h3 class="wow fadeInDown delay-03s">امنیت</h3>
+                <span class="wow fadeInDown delay-03s"></span>
                 <p class="wow fadeInDown delay-06s">حفاظت از حریم شخصی شما</p>
             </div>
-            <div class="team-leader-box">
-                <div class="team-leader wow fadeInDown delay-09s"> 
+           
+			<div class="team-leader-box">
+                <div class="team-leader wow fadeInDown delay-03s"> 
                     <div class="team-leader-shadow"><a href="#"></a></div>
                     <img src="{% static "bitasync_site/img/n3.jpg" %}" alt="">
                    <!-- <ul>
@@ -431,11 +435,12 @@
                         <li><a href="#" class="fa-google-plus"></a></li>
                     </ul>-->
                 </div>
-                <h3 class="wow fadeInDown delay-09s">پشتیبانی</h3>
-                <span class="wow fadeInDown delay-09s"></span>
-                <p class="wow fadeInDown delay-09s">پشتیبانی در تمام ساعات شبانه روز</p>
+                <h3 class="wow fadeInDown delay-03s">پشتیبانی</h3>
+                <span class="wow fadeInDown delay-03s"></span>
+                <p class="wow fadeInDown delay-03s">پشتیبانی در تمام ساعات شبانه روز</p>
             </div>
-        </div>
+        
+			</div>
     </div>
 </section><!--main-section team-end-->
 		<section class="main-section contact" id="contact">

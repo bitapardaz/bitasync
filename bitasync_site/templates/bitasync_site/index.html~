@@ -9,6 +9,14 @@
 	{% block title %}گوشی ب گوشی{% endblock title %} 
 {#	{% block title %}OUUZQQW{% endblock title %}  #}
 
+	
+
+
+	{% block extracss %} 
+		  <link rel="stylesheet" href="{% static "bitasync_site/css/index.css" %}">
+	{% endblock extracss %}
+
+
 	{% block extrajs %}
 	
 		<script type="text/javascript" src="{% static "bitasync_site/js/index.js" %}" > </script>
@@ -27,12 +35,12 @@
 						<a href="#"><img src="{% static "bitasync_site/img/logo.png" %}" alt=""></a>	
 					</figure>	
 					<h1 class="animated fadeInDown delay-07s">				
-وقتی یه موبایل جدید می خری، با نرم افزار "گوشی ب گوشی" می تونی شماره تلفن ها، عکس ها، آهنگ ها و همه ی اطلاعات گوشی قدیمی ات رو سریع و آسون به گوشی جدیدت منتقل کنی.
+وقتی یه موبایل جدید می خرید، با نرم افزار "گوشی ب گوشی" می تونی شماره تلفن ها، عکس ها، آهنگ ها و همه اطلاعات گوشی قدیمی ات رو سریع و آسون به گوشی جدیدت منتقل کنی.
 					</h1>
-					<ul class="we-create animated fadeInUp delay-1s">
+					<!--<ul class="we-create animated fadeInUp delay-1s">
 						<li></li>
-					</ul>
-						<a  style="z-index:auto;" class="linkscroll link animated fadeInUp delay-1s" href="#service">دریافت نرم افزار</a>
+					</ul>-->
+						<a  style="z-index:auto;" class="linkscroll link animated fadeInUp delay-1s" href="#Portfolio">دریافت نرم افزار</a>
 				</div>
 			 {% endif %}
 			  
@@ -41,7 +49,7 @@
 						<ul class="main-nav">
 						
 							<li class="small-logo"><a href="#header"><img src="{% static "bitasync_site/img/small-logo.png" %}" alt=""></a></li> 
-							<li><a href="#download">دریافت نرم افزار</a></li>
+							<li><a id="goport" href="#Portfolio">دریافت نرم افزار</a></li>
 							
 {#							<li><a href="/guides/using_gbg/">راهنمای نرم افزار</a></li>  #}
                             <li><a href="/bitasync/terms_conditions/">شرایط و مقررات</a></li>
@@ -86,118 +94,11 @@
 
 	{% block section %} 
 
-		<section class="main-section" id="service"  style="background-color: white;" >
-			<div class="container">
-    	
-				<div class="intro row">
-					<div class="container">
-						<div class="row text-center">
-							<h2>
-							مراحل استفاده از نرم افزار "گوشی ب گوشی"
-							</h2>
-
-
-
-							<div class="col-sm-3 col-xs-6 pull-right">
-								<span class="icon-howit01"></span>
-								<h3>
-								دریافت نرم افزار
-								</h3>
-								<p>
-						"گوشی ب گوشی" رو از سایت دریافت و روی کامپیوتر نصب و اجرا کنید. حالا موبایل جدید و قدیم خود را به کامپیوتر متصل کنید.
-								</p>
-							</div>
-
-							<div class="col-sm-3 col-xs-6 pull-right">
-								<span class="icon-howit02"></span>
-								<h3> انتخاب محتوا برای انتقال</h3>
-
-								<p>
-		شما می توانید شماره تلفن ها،پیامک ها، اطلاعات تماس، عکس ها، ویدیوها، برنامه ها، آهنگ ها، عکس های پس زمینه و ... را برای انتقال انتخاب کنید.
-								</p>
-							</div>
-
-							<div class="col-sm-3 col-xs-6 pull-right">
-								<span class="icon-howit03"></span>
-								<h3>انتقال توسط نرم افزار</h3>
-								<p>
-روی دکمه ی انتقال کلیک کنید و برای انتقال کمی صبر کنید.
-								</p>
-							</div>
-
-							<div class="col-sm-3 col-xs-6 pull-right">
-								<span class="icon-howit04"></span>
-								<h3>به همین سادگی</h3>
-								<p>موبایل جدید اطلاعات شما را دارد</p>
-							</div>
-
-
-
-
-
-
-
-
-						</div>
-						<!-- br -->
-	</div> 
-				</div>
-
-			</div>
-		</section>
 		
-		<section class="main-section alabaster" id="download"><!--main-section alabaster-start-->
-	<div class="container">
+		<section class="main-section paddind" id="Portfolio" style=" background-color: white"><!--main-section-start-->
+			<div class="container">
     	<h2>
-    	    دریافت نرم افزار "گوشی ب گوشی"
-    	</h2>
-		<div class="row">
-			<figure class="col-lg-5 col-sm-4 wow fadeInLeft">
-            	<img  src="{% static "bitasync_site/img/iphone.png" %}" alt="">
-            </figure>
-        	<div class="col-lg-7 col-sm-8 featured-work">
-            
-            	<P class="padding-b"></P>
-            	<div class="featured-box">
-                	<div class="featured-box-col1 wow fadeInRight delay-02s">
-                    	<i class="fa-magic"></i>
-                    </div>	
-                	<div class="featured-box-col2 wow fadeInRight delay-02s">
-                        <h3>برای دانلود روی لینک زیر کلیک کنید</h3>
-                        <p><a href="http://svn.bitasync.com/_Client/Client_Setup/BitaSyncInst.exe "> لینک مستقیم دانلود </a></p>
-                    </div>    
-                </div>
-                <div class="featured-box">
-                	<div class="featured-box-col1 wow fadeInRight delay-04s">
-                    	<i class="fa-gift"></i>
-                    </div>	
-                	<div class="featured-box-col2 wow fadeInRight delay-04s">
-                        <h3>فعال سازی نرم افزار</h3>
-                        <p>
-نرم افزار دریافت شده را نصب کنید. برای استفاده از نرم افزار یکی از بسته های زیر 
-   <a style="color: black; font-weight: bold;text-decoration: none;"  class="linkscroll" href="#Portfolio">
-</a> 
-را فعال کنید.</p>
-                    </div>    
-                </div>
-             <!--   <div class="featured-box">
-                	<div class="featured-box-col1 wow fadeInRight delay-06s">
-                    	<i class="fa-dashboard"></i>
-                    </div>	
-                	<div class="featured-box-col2 wow fadeInRight delay-06s">
-                        <h3>SEO optimized</h3>
-                        <p>Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum suscipit aenean rhoncus posuere odio in tincidunt. </p>
-                    </div>    
-                </div>
-                <a class="Learn-More" href="#">Learn More</a>!-->
-            </div>
-        </div>
-	</div>
-</section><!--main-section alabaster-end-->
-		<section class="main-section paddind" id="Portfolio"><!--main-section-start-->
-	<div class="container">
-    	<h2>
- فعال سازی نرم افزار "گوشی ب گوشی"
+ برای استفاده از "گوشی ب گوشی" در سایت ثبت نام و یکی از طرح های زیر را خریداری کنید
 </h2>
     	<h6></h6>
       <div class="portfolioFilter">  
@@ -211,7 +112,7 @@
        </div> 
         
 	</div>
-    <div class="portfolioContainer wow fadeInUp delay-04s">
+  		  <div class="portfolioContainer wow fadeInUp delay-04s">
             	
                 
 			<div class=" Portfolio-box branding">
@@ -313,12 +214,166 @@
                
     </div>
 </section><!--main-section-end-->
+		
+
+
+		<section class="main-section" id="service"  style="background-color: #F3F3F3;" >
+			<div class="container">
+    	
+				<div class="intro row">
+					<div class="container">
+						<div class="row text-center">
+							<h2>
+							مراحل استفاده از نرم افزار "گوشی ب گوشی"
+							</h2>
+
+
+
+							<div class="col-sm-3 col-xs-6 pull-right">
+								<span class="icon-howit01"></span>
+								<h3>
+								دریافت نرم افزار
+								</h3>
+								<p>
+						"گوشی ب گوشی" رو از سایت دریافت و روی کامپیوتر نصب و اجرا کنید. حالا موبایل جدید و قدیم خود را به کامپیوتر متصل کنید.
+								</p>
+							</div>
+
+							<div class="col-sm-3 col-xs-6 pull-right">
+								<span class="icon-howit02"></span>
+								<h3> انتخاب محتوا برای انتقال</h3>
+
+								<p>
+		شما می توانید شماره تلفن ها،پیامک ها، اطلاعات تماس، عکس ها، ویدیوها، برنامه ها، آهنگ ها، عکس های پس زمینه و ... را برای انتقال انتخاب کنید.
+								</p>
+							</div>
+
+							<div class="col-sm-3 col-xs-6 pull-right">
+								<span class="icon-howit03"></span>
+								<h3>انتقال توسط نرم افزار</h3>
+								<p>
+روی دکمه ی انتقال کلیک کنید و برای انتقال کمی صبر کنید.
+								</p>
+							</div>
+
+							<div class="col-sm-3 col-xs-6 pull-right">
+								<span class="icon-howit04"></span>
+								<h3>به همین سادگی</h3>
+								<p>موبایل جدید اطلاعات شما را دارد</p>
+							</div>
+
+
+
+
+
+
+
+
+						</div>
+						<!-- br -->
+	</div> 
+				</div>
+
+			</div>
+		</section>
+		
+		
+		
+		<section class="main-section" id="support" >
+			 
+						<h2>پشتیبانی از بیش از چهار هزار گوشی هوشمند</h2>
+
+							<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="table-responsive" style="">
+        <table summary="پشتیبانی از بیش از چهار هزار گوشی هوشمند" class="table table-bordered table-hover">
+          <caption class="text-center"></caption>
+          <thead>
+            <tr>
+				<th> </th>
+				<th>تماس ها</th>
+				<th>پیام ها</th>
+				<th>پس زمینه</th>
+				<th>عکس ها</th>
+				<th>آهنگ</th>
+				<th>ویدیو</th>
+				<th>Call logs</th>
+				<th>برنامه ها</th>
+				<th>Voice Rcd</th>
+				<th>Call Rcd</th>
+			</tr>
+          </thead>
+          <tbody>
+            <tr>
+							<th>آندروید به آندروید</th>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+						</tr>
+            <tr>
+							<th>آندروید به iOS</th>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>-</td>
+							<td>O</td>
+							<td>O</td>
+							<td>-</td>
+							<td>O</td>
+							<td>-</td>
+
+						</tr>
+						<tr>
+							<th>iOS به آندروید</th>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>-</td>
+							<td>O</td>
+							<td>O</td>
+							<td>-</td>
+							<td>O</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<th>iOS به iOS</th>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>O</td>
+							<td>-</td>
+							<td>O</td>
+							<td>O</td>
+							<td>-</td>
+							<td>O</td>
+							<td>-</td>
+						</tr>
+          </tbody>
+         
+        </table>
+      </div><!--end of .table-responsive-->
+    </div>
+  </div>
+</div>
+
+			  
+		</section>
 		<section class="main-section client-part" id="client"><!--main-section client-part-start-->
 	<div class="container">
 		<b class="quote-right wow fadeInDown delay-03"><i class="fa-quote-right"></i></b>
     	<div class="row">
         	<div class="col-lg-12">
-            	<p class="client-part-haead wow fadeInDown delay-05">استفاده از "گوشی ب گوشی" فوق العاده ساده و راحت بود. فکرشم نمی کردم که بتونم با چند کلیک اطلاعاتمو از گوشی قبلی به جدید منتقل کنم</p>
+            	<p class="client-part-haead wow fadeInDown delay-05">استفاده از "گوشی ب گوشی" فوق العاده ساده و راحت بود. فکرشم نمی کردم که بتونم با چند کلیک همه ی  ۱۵۰۰ تا شماره تلفن، کلی پیامک و برنامه و بیشتر از ۱۰۰۰ تا عکس و آهنگ و فیلم رو از گوشی قبلی به جدید منتقل کنم</p>
             </div>
         </div>
     	<ul class="client wow fadeIn delay-05s">
@@ -331,7 +386,7 @@
     </div>
 </section><!--main-section client-part-end-->
 		<section class="main-section team" id="team"><!--main-section team-start-->
-	<div class="container">
+		<div class="container">
         <h2></h2>
         <h6></h6>
         <div class="team-leader-block clearfix">
@@ -383,10 +438,9 @@
         </div>
     </div>
 </section><!--main-section team-end-->
-		<div class="container">
-<section class="main-section contact" id="contact">
+		<section class="main-section contact" id="contact">
 	
-        <div class="row">
+        <div class="row" style="direction:rtl">
         	<div class="col-lg-6 col-sm-7 wow fadeInLeft">
             	<!--<div class="contact-info-box address clearfix">
                 	<h3><i class=" icon-map-marker"></i>ادرس:</h3>
@@ -403,20 +457,9 @@
             	
 				
 				
-				<!--<div class="contact-info-box hours clearfix">
-                	<h3><i class="fa-clock-o"></i>Hours:</h3>
-                	<span><strong>Monday - Thursday:</strong> 10am - 6pm<br><strong>Friday:</strong> People work on Fridays now?<br><strong>Saturday - Sunday:</strong> Best not to ask.</span>
-                </div>
-                <ul class="social-link">
-                	<li class="twitter"><a href="#"><i class="fa-twitter"></i></a></li>
-                    <li class="facebook"><a href="#"><i class="fa-facebook"></i></a></li>
-                    <li class="pinterest"><a href="#"><i class="fa-pinterest"></i></a></li>
-                    <li class="gplus"><a href="#"><i class="fa-google-plus"></i></a></li>
-                    <li class="dribbble"><a href="#"><i class="fa-dribbble"></i></a></li>
-                </ul>
-				-->
+			
             </div>
-        	<div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s">
+        	<div class="col-lg-6 col-sm-5 wow fadeInUp delay-05s" style="padding-right: 35px;">
             	<div class="form">
                 	<form action="" method="post">
 						{% csrf_token %}
@@ -440,7 +483,7 @@
             </div>
         </div>
 </section>
-</div>
+		
 
 	{% endblock section %}		
 
