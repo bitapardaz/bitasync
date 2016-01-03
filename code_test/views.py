@@ -10,8 +10,15 @@ from user_profile.models import ShopProfile
 from django.contrib.auth.models import User
 
 from forms import ShopForm,CreationForm
+from tasks import generator_bulk_licenses_task,add
 
-#from .forms import MyUserCreationForm
+def test_tasks(request):
+
+    # run the task here
+    user_pass_collection=[('ali','testali'),('hamid','testhamid'),('mozi','testmozi'),('reza','testreza'),('soosan','testsoosan'),('jamshid','testjamshid')]
+    generator_bulk_licenses_task.delay(user_pass_collection)
+#    add.delay(2,2)
+    return HttpResponse("you are here")
 
 def test_progress_bar(request):
     return render(request,'code_test/test_progress_bar.html')
