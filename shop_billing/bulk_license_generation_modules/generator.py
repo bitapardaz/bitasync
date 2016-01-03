@@ -1,20 +1,28 @@
 import re
 from subprocess import call
+import datetime
 
 def generate_bulk_licenses(user_pass_collection):
 
-    # creating licenses in folder Licenses
+    #creating licenses in folder Licenses
     counter = 1
     for (username,password) in user_pass_collection:
 
         generate_one_license(username,password,counter)
         counter = counter + 1
 
-    # zip folder Licenses
-    
+    # zip folder Licenses given current data and time
+    time_stamp = datetime.datetime.today().strftime("%B_%d_%Y_%H_%M_%S")
+    output = 'Licenses_zip/Licenses_'
+    output = output + time_stamp
+    output = output + ".zip"
+    command = ['zip', '-r', directory_path(output) , directory_path('Licenses')]
+    call(command)
 
-    # send it by email to printing@gooshibegooshi.com
-
+    # remove the individual license files
+    location = directory_path('/Licenses/*')
+    command = 'rm ' + location
+    call(command,shell=True)
 
 def generate_one_license(username,password,counter):
 
