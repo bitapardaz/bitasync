@@ -10,7 +10,7 @@ table {
 height:25px;	
 }
 
-#palanselected:hover {
+#giftcards:hover,#palanselected:hover {
     transform: none;
     transition: none;
 }
