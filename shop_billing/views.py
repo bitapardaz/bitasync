@@ -131,6 +131,7 @@ def create_one_license(selling_shop,data_transfer_plan,prefix):
     # set up username and password
     username = prefix + str(current_index)
     password = generate_md5_hash(selling_shop.username + str(current_index))
+    password = password[: ( len(password)/2  ) ]
     new_user = User(username=username, password=password)
 
     current_index2 = BulkLicenseManagement.objects.all()[0].current_index
