@@ -31,7 +31,7 @@ def gateway(request):
 
     amount_post = request.POST['amount']
     amount = int(amount_post)
-    pending_purchase_id = generate_md5_hash(amount)
+    pending_purchase_id = generate_md5_hash(str(amount))
     redirect_url = 'http://gooshibegooshi.com/payment/result/'+pending_purchase_id+'/'
 
     gateway_url = send_url(amount, redirect_url,
