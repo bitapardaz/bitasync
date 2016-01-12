@@ -50,7 +50,7 @@ def result(request):
     else:
         result_end = 'UNsuccessful'
 
-    return render(request, 'successful_payment.html',
+    return render(request, 'payment/successful_payment.html',
                   {'result_end': result_end})
 
 
