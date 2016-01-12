@@ -54,7 +54,6 @@ def result(request,pending_purchase_id):
     return render(request, 'payment/successful_payment.html',
                   {'result_end': result_end})
 
-
 @login_required
 def pay_for_a_plan(request,plan_name):
 
