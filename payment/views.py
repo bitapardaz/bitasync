@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.template.context_processors import csrf
 
 from django.http import HttpResponse
