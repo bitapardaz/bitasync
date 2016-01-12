@@ -20,6 +20,22 @@ from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from utilities.utility_functions import generate_md5_hash
 
+from payline_dotir.payment_gateway import send_url, get_result
+from payline_dotir.settings import SEND_URL_FINAL, PAYLINE_DOTIR_API_FINAL
+
+def pay(request):
+    return render(request,'payment/pay.html')
+
+def gateway(request):
+
+    amount_post = request.POST['amount']
+    amount = int(amount_post)
+    redirect_url = 'http://gooshibegooshi.com/payment/result/'
+
+    gateway_url = send_url(amount, redirect_url,
+                           SEND_URL_FINAL, PAYLINE_DOTIR_API_FINAL)
+    return redirect(gateway_url)
+
 @login_required
 def pay_for_a_plan(request,plan_name):
 
