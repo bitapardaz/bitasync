@@ -31,14 +31,15 @@ def gateway(request):
 
     amount_post = request.POST['amount']
     amount = int(amount_post)
-    redirect_url = 'http://gooshibegooshi.com/payment/result/'
+    pending_purchase_id = generate_md5_hash(amount)
+    redirect_url = 'http://gooshibegooshi.com/payment/result/'+pending_purchase_id+'/'
 
     gateway_url = send_url(amount, redirect_url,
                            SEND_URL_FINAL, PAYLINE_DOTIR_API_FINAL)
     return redirect(gateway_url)
 
 @csrf_exempt
-def result(request):
+def result(request,pending_purchase_id):
 
     trans_id = request.POST['trans_id']
     id_get = request.POST['id_get']
