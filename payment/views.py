@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.template.context_processors import csrf
+from django.views.decorators.csrf import csrf_exempt
 
 from django.http import HttpResponse
 
