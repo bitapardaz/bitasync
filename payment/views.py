@@ -156,7 +156,7 @@ def pay_for_a_plan_complete(pending_purchase_hashcode):
     #    context['existing_coupons'] = user_existing_coupons
         # get the best coupon
 
-    best_coupon = utility_functions.get_best_coupon(user_existing_coupons)
+
 
     # add the purchase to the database
     new_purchase = Purchase()
@@ -179,6 +179,7 @@ def pay_for_a_plan_complete(pending_purchase_hashcode):
 
     # if necessary, remove user's best coupon
     if user_existing_coupons:
+        best_coupon = utility_functions.get_best_coupon(user_existing_coupons)
         best_coupon.delete()
 
     # remove pending purchase
