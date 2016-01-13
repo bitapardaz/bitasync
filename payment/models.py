@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from bitasync_site.models import Data_Transfer_Plan
+from django.db.models import signals
+from .signals import pending_purchase_created
+
+
 
 class Purchase(models.Model):
 
@@ -30,3 +34,13 @@ class Purchase(models.Model):
 
     def __unicode__(self):
         return (self.data_transfer_plan).plan_name + "_" + (self.user).username
+
+class PendingPurchase(models.Model):
+
+    data_transfer_plan = models.ForeignKey(Data_Transfer_Plan)
+    user = models.ForeignKey(User, related_name='end_customer')
+
+    hashcode = models.CharField(max_length=50, null = True, blank=True)
+    time_created =  models.DateField(auto_now_add=True)
+
+signals.post_save.connect(pending_purchase_created, sender=PendingPurchase, weak=False)

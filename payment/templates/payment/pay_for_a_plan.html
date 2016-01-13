@@ -5,40 +5,42 @@
 
 
 
-	{% block extracss %} 
-		 <link rel="stylesheet" href="{% static "user_profile/css/reset_pass.css" %}">		 
+	{% block extracss %}
+		 <link rel="stylesheet" href="{% static "user_profile/css/reset_pass.css" %}">
 
-		 
+
 	{% endblock extracss %}
 
 	{% block extrajs %}
 
 <script>
-    
+
     window.onload = function() {
-        $(".progress-bar").animate({width: "100%"}, 3000);  
+        $(".progress-bar").animate({width: "100%"}, 3000);
     };
 
 </script>
 
 	{% endblock extrajs %}
-  
 
-	{% block section %} 
-	
+
+	{% block section %}
+
 		<section class="main-section" id="service"><!--main-section-start-->
-            
-            
-            
+
+
+
             <div class="container">
 
                 <div class="col-md-12 .col-xs-12 pull-center">
-					 
-					<h3>طرح انتخاب شده</h3>
-					<hr>
-							
 
-							<img src="{{ selected_plan.image_link }}"  alt= "{{ selected_plan.plan_name }}" > <br>
+					<h3>
+					 طرح انتخاب شده - پیش فاکتور
+					</h3>
+					<hr>
+
+
+						  <img src="{{ selected_plan.image_link }}"  alt= "{{ selected_plan.plan_name }}" > <br>
 						  <span> {{selected_plan.long_description}} </span><br>
 
 							{% if coupon_available %}
@@ -47,32 +49,37 @@
 							{% else %}
 								قیمت = {{selected_plan.original_price }} <span> تومان</span>
 							{% endif %}
-                    
+
 							<br><br>
+
+							<a href="/payment/initialise_payment/{{selected_plan.plan_name}}/" class="btn btn-success" role="button">پرداخت الکترونیکی</a>
+
+							<br><br>
+
+
                                 اکنون شما را به درگاه پرداخت متصل می کنیم. لطفا شکیبا باشید
                             <br>
-                            
+
                             <br>
-                    
-                            <div class="progress" style="width: 500px;-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-o-transform:rotate(180deg);-ms-transform: rotate(180deg);transform: rotate(180deg); text-align:center"> 
-                                
+
+                            <div class="progress" style="width: 500px;-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);-o-transform:rotate(180deg);-ms-transform: rotate(180deg);transform: rotate(180deg); text-align:center">
+
                                 <div class="progress-bar" role="progressbar" style="width: 0%;">
                                 </div>
-                                
+
                             </div>
-                    
-                    
+
+
 						<br><br>
-                    
-				</div>                   
-                
-                
-                
-                
-				
+
+				</div>
+
+
+
+
+
 		    </div>
 
-       
-		</section>
-	{% endblock section %}	
 
+		</section>
+	{% endblock section %}
