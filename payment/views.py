@@ -126,9 +126,7 @@ def result_payline(request,pending_purchase_hashcode):
         pay_for_a_plan_complete(pending_purchase_hashcode)
     else:
         # remove pending purchase
-        result_end = 'UNsuccessful'
-        return render(request, 'payment/successful_payment.html',
-                  {'result_end': result_end})
+        return HttpResponse("payment failed")
 
 
 def pay_for_a_plan_complete(pending_purchase_hashcode):
