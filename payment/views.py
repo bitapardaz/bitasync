@@ -24,9 +24,6 @@ from utilities.utility_functions import generate_md5_hash
 from payline_dotir.payment_gateway import send_url, get_result
 from payline_dotir.settings import SEND_URL_FINAL, PAYLINE_DOTIR_API_FINAL
 
-def pay(request):
-    return render(request,'payment/pay.html')
-
 def gateway(request):
 
     amount_post = request.POST['amount']
@@ -116,6 +113,9 @@ def initialise_payment_payline(request,plan_name):
 
 @csrf_exempt
 def result_payline(request,pending_purchase_hashcode):
+
+    return HttpResponse("Processing payment result from payline")
+
 
     trans_id = request.POST['trans_id']
     id_get = request.POST['id_get']
