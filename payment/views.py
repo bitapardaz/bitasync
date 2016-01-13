@@ -131,9 +131,6 @@ def pay_for_a_plan_complete(pending_purchase_hashcode):
 
     context = {}
 
-    return HttpResponse("your plan is now activated")
-
-
     # retrieve the pending purchase
     pending_purchase = PendingPurchase.objects.get(hashcode = pending_purchase_hashcode)
 
@@ -201,3 +198,4 @@ def pay_for_a_plan_complete(pending_purchase_hashcode):
     msg.send()
 
     # return response to the user.
+    return HttpResponse("your plan is now activated")
