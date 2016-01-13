@@ -110,8 +110,6 @@ def initialise_payment_payline(request,plan_name):
     redirect_url = 'http://gooshibegooshi.com/payment/result_payline/'+pending_purchase.hashcode+'/'
     gateway_url = send_url(amount, redirect_url,SEND_URL_FINAL, PAYLINE_DOTIR_API_FINAL)
 
-    import pdb; pdb.set_trace()
-
     # redirect to payline.ir
     return redirect(gateway_url)
 
