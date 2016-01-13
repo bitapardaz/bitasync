@@ -194,7 +194,7 @@ def pay_for_a_plan_complete(pending_purchase_hashcode):
     html_content = htmly.render(context)
 
     from_email = 'sales@gooshibegooshi.com'
-    recipient_list = [request.user.email]
+    recipient_list = [new_purchase.user.user.email]
 
     msg = EmailMultiAlternatives(subject_content, text_content, from_email, recipient_list)
     msg.attach_alternative(html_content, "text/html")
