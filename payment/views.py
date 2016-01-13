@@ -103,7 +103,7 @@ def initialise_payment_payline(request,plan_name):
     if user_existing_coupons:
         amount = selected_plan.discounted_price
     else:
-        amount = original_price
+        amount =  selected_plan.original_price
 
     # get gateway_url
     # integrate pending purchase hashcode in redirect url
