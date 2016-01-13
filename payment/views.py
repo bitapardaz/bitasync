@@ -114,8 +114,6 @@ def initialise_payment_payline(request,plan_name):
 @csrf_exempt
 def result_payline(request,pending_purchase_hashcode):
 
-    return HttpResponse("Processing payment result from payline")
-
 
     trans_id = request.POST['trans_id']
     id_get = request.POST['id_get']
@@ -123,6 +121,7 @@ def result_payline(request,pending_purchase_hashcode):
 
     if int(final_result) == 1:
         # inset the purchase into database, and remove pending purchase
+        return HttpResponse("Processing payment result from payline")
         pay_for_a_plan_complete(pending_purchase_hashcode)
     else:
         # remove pending purchase
