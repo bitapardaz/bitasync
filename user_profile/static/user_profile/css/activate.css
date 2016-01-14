@@ -81,9 +81,7 @@ transition: all 0.4s ease-in-out;
   .container {
     max-width: 750px;
   }
-  .col-sm-6 {
-    width: 50%;
-  }
+ 
 }
 @media (min-width: 900px) {
   .container {

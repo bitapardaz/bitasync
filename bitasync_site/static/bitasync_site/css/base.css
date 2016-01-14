@@ -203,3 +203,64 @@ display:none !important;
 .pricelist{
 font-family: b roya;
 }
+
+
+
+
+footer {
+    padding: 44px 0 0;
+}
+
+footer {
+    background: #222 none repeat scroll 0 0;
+    border-top: 2px solid #444;
+    color: #777;
+}
+footer h1, footer h2, footer h3, footer h4 {
+    color: #ddd;
+    font-weight: 300;
+}
+#footerRights {
+    background-color: #333;
+    border-top: 1px solid #1b1b1b;
+    color: #999;
+}
+ul.socialNetwork li {
+    display: inline-block;
+    list-style-type: none;
+    margin-top: 0.8em;
+}
+#footerRights {
+    color: #999;
+}
+#footerRights {
+    font-size: 10px;
+    text-align: center;
+}
+a {
+    color: #525252;
+}
+.iconList li::before {
+    content:'\02F1';
+    display: inline-block;
+    font-family: "custom-icons";
+    font-size: 10px;
+    line-height: 1em;
+    margin: 0 10px 0 0;
+    padding: 0;
+    text-align: left;
+}
+
+
+a:link, a:visited {
+    text-decoration: none;
+}
+a:hover, a:active {
+    text-decoration: none;
+}
+a:hover {
+	color: #525252;
+}
+
+
+

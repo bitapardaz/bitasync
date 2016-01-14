@@ -24,7 +24,7 @@
 				 <div class="row">
 					
 					
-					 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 pull-right">
+					 <div class="col-md-4  pull-right">
 						<div id="palanselected" class="offer offer-danger">
 							<div class="shape">
 								<div class="shape-text">
@@ -52,14 +52,14 @@
 							{% endif %}
 							<br>
 							
-							<a href="/payment/{{selected_plan.plan_name}}/"><button type="button">پرداخت الکترونیکی</button></a>
+							<a href="/payment/{{selected_plan.plan_name}}/"><button class="btn btn-danger" type="button">پرداخت الکترونیکی</button></a>
 						<br>
 							
 							</div>
 						</div>
 					</div>
 				
-				<div  class="col-xs-12 col-sm-6 col-md-6 col-lg-3 pull-right">
+				<div  class=" col-md-8 pull-right">
 						<div id="giftcards" class="offer offer-success">
 							<div class="shape">
 								<div class="shape-text">
@@ -112,7 +112,7 @@
 									<input type="text" placeholder="کد هدیه ی خود را وارد کنید" name="hashcode" id="id_hashcode">    
 								{% endif %}    
 
-									<input type="submit" value="اضافه کردن کارت هدیه">
+									<input class="btn btn-success" type="submit" value="اضافه کردن کارت هدیه">
 
 
 							</form>

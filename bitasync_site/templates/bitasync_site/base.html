@@ -101,15 +101,90 @@
 		
 		{% block footer %} 
 		
-				<footer class="footer">
+				<!--<footer class="footer">
 					<div class="container">
 						<div class="footer-logo"><a href="#"><img src="{% static "bitasync_site/img/footer-logo.png" %}" alt=""></a></div>
 						<span class="copyright"> تمامی حقوق برای شرکت توسعه فناوری همراه بیتاپرداز محفوظ است &copy;</span>
 					</div>
+				</footer>-->
+
+				<footer id="footerWrapper" class="footer2">
+					<section id="mainFooter">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-3 col-sm-6 ">
+									<div class="footerWidget">
+										<img src="{% static "bitasync_site/img/footer-logo.png" %}" alt="" id="footerLogo">
+										<p><a style="color: white;font-size:14px" href="/about_us/" title=""> وقتی یک موبایل جدید می خرید نرم افزار "گوشی ب گوشی" به شما کمک می کند تا به راحتی و بدون درد سر و سریع اطلاعاتی را که روی گوشی قدیمیتان دارید به گوشی جدید منتقل کنید ... </a>  </p>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-6 ">
+									<div class="footerWidget">
+										<h3></h3>
+										<ul class="list-unstyled worksList">
+										<!--	<li><a href="#" class="tips" title=""><img src="{% static "bitasync_site/img/rightel-logo.png" %}" alt="works"></a></li>
+											<li><a href="#" class="tips" title=""><img src="{% static "bitasync_site/img/irancell.png" %}" alt="works"></a></li>
+											<li><a href="#" class="tips" title=""><img src="{% static "bitasync_site/img/rightel-logo.png" %}" alt="works"></a></li>
+										-->
+
+										</ul>
+									</div>
+								</div>
+						
+								<div class="col-md-3 col-sm-6 ">
+									<div class="footerWidget">
+										<h3>سوالات متداول</h3>
+										<ul class="list-unstyled iconList">
+											<li><a href="#"></a></li>
+											<li><a href="#"></a></li>
+											<li><a href="#"></a></li>
+											<li><a href="#"></a></li>
+											<li><a href="#"></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-md-3 col-sm-6 ">
+									<div class="footerWidget">
+										<h3>بیتاپرداز</h3>
+										<address>
+											<p>
+												<i class="icon-location fa-map-marker"></i>  تهران، خیابان انقلاب، خیابان فرصت،<br>
+												 پلاک ۴۶، واحد ۱۴. کدپستی: 1581635137 <br>
+												<!--<i class="icon-phone"></i>&nbsp;1581635137 <br>-->
+												<a style="font-size: 14px;" href="mailto:hello@gooshibegooshi.com">hello@gooshibegooshi.com</a>&nbsp;<i class="icon-mail-alt fa-envelope"></i>
+											</p>
+										</address>
+									</div>
+								</div>
+								
+								
+							
+							</div>
+						</div>
+					</section>
+					<section id="footerRights">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="socialNetwork">
+						<li><a href="#" class="tips" title="کانال تلگرام" ><i class="icon-facebook-1 iconRounded"></i></a></li>
+						<!--<li><a href="#" class="tips" title="follow me on Twitter"><i class="icon-twitter-bird iconRounded"></i></a></li>
+						<li><a href="#" class="tips" title="follow me on Google+"><i class="icon-gplus-1 iconRounded"></i></a></li>
+						<li><a href="#" class="tips" title="follow me on Linkedin"><i class="icon-linkedin-1 iconRounded"></i></a></li>
+						<li><a href="#" class="tips" title="follow me on Dribble"><i class="icon-dribbble iconRounded"></i></a></li>-->
+					</ul>     
+				</div>
+				<div class="col-md-12">
+					<p><span class="copyright"> تمامی حقوق برای شرکت توسعه فناوری همراه بیتاپرداز محفوظ است &copy;</span></p>
+				</div>
+			</div>
+		</div>
+	</section>
 				</footer>
+		
 		{% endblock footer %}
-
-
+		
+		
 	</div>
 </body>
 </html>
