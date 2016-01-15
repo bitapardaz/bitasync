@@ -1,9 +1,65 @@
-<html>
-<head>
-    <title>congratulation!</title>
-</head>
-<body>
+{% extends 'bitasync_site/base.html' %}
+{% load staticfiles  %}
 
-<p>payment was successful<p/>
-</body>
-</html>
+{% block title %} گوشی ب گوشی -> فعال سازی  {% endblock title %}
+
+
+
+
+	{% block extracss %}
+		  <link rel="stylesheet" href="{% static "user_profile/css/activate.css" %}">
+	{% endblock extracss %}
+
+	{% block extrajs %}
+
+	{% endblock extrajs %}
+
+
+	{% block section %}
+		<section class="main-section" id="service"><!--main-section-start-->
+
+			<div class="container">
+
+
+				 <div class="row">
+
+
+					 <div class="col-md-4  pull-right">
+						<div id="palanselected" class="offer offer-danger">
+							<div class="shape">
+								<div class="shape-text">
+
+								</div>
+							</div>
+							<div class="offer-content">
+								<h3 class="lead">
+
+								</h3>
+
+									 <h3>طرح انتخاب شده</h3>
+					<hr>
+
+
+						 <br/>
+							<img src="{{ selected_plan.image_link }}"  alt= "{{ selected_plan.plan_name }}" > <br>
+
+							<br>
+
+							</div>
+						</div>
+					</div>
+
+
+
+
+				</div>
+				
+
+
+			</div>
+
+
+		</section>
+
+
+	{% endblock section %}
