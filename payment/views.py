@@ -24,17 +24,6 @@ from utilities.utility_functions import generate_md5_hash
 from payline_dotir.payment_gateway import send_url, get_result
 from payline_dotir.settings import SEND_URL_FINAL, PAYLINE_DOTIR_API_FINAL
 
-def gateway(request):
-
-    amount_post = request.POST['amount']
-    amount = int(amount_post)
-    pending_purchase_id = generate_md5_hash(str(amount))
-    redirect_url = 'http://gooshibegooshi.com/payment/result/'+pending_purchase_id+'/'
-
-    gateway_url = send_url(amount, redirect_url,
-                           SEND_URL_FINAL, PAYLINE_DOTIR_API_FINAL)
-    return redirect(gateway_url)
-
 @login_required
 def pay_for_a_plan(request,plan_name):
 
@@ -114,7 +103,6 @@ def initialise_payment_payline(request,plan_name):
 @csrf_exempt
 def result_payline(request,pending_purchase_hashcode):
 
-
     trans_id = request.POST['trans_id']
     id_get = request.POST['id_get']
     final_result = get_result(PAYLINE_DOTIR_API_FINAL, trans_id, id_get)
@@ -140,19 +128,7 @@ def pay_for_a_plan_complete(pending_purchase_hashcode):
 
     # create the temp plan for the plan selected by user
     selected_plan = utility_functions.create_temp_plan(pending_purchase.data_transfer_plan, user_existing_coupons)
-    #context['selected_plan'] = selected_plan
-
-    # does the user have any coupons?
-    #if not user_existing_coupons:
-    #    context['coupon_available'] = False
-
-    #else:
-                # if the customer has some coupons
-    #    context['coupon_available'] = True
-    #    context['existing_coupons'] = user_existing_coupons
-        # get the best coupon
-
-
+    context['selected_plan'] = selected_plan
 
     # add the purchase to the database
     new_purchase = Purchase()
@@ -198,4 +174,4 @@ def pay_for_a_plan_complete(pending_purchase_hashcode):
     msg.send()
 
     # return response to the user.
-    return HttpResponse("your plan is now activated")
+    return render(request,'payment/successful_payment.html',context)
