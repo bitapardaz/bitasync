@@ -109,13 +109,13 @@ def result_payline(request,pending_purchase_hashcode):
 
     if int(final_result) == 1:
         # inset the purchase into database, and remove pending purchase
-        return pay_for_a_plan_complete(pending_purchase_hashcode)
+        return pay_for_a_plan_complete(request,pending_purchase_hashcode)
     else:
         # remove pending purchase
         return HttpResponse("payment failed")
 
 
-def pay_for_a_plan_complete(pending_purchase_hashcode):
+def pay_for_a_plan_complete(request,pending_purchase_hashcode):
 
     context = {}
 
