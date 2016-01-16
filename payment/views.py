@@ -122,7 +122,7 @@ def result_payline(request,pending_purchase_hashcode):
 
     if int(final_result) == 1:
         # inset the purchase into database, and remove pending purchase
-        respone =  pay_for_a_plan_success(request,pending_purchase,context,user_existing_coupons)
+        respone =  pay_for_a_plan_success(request,pending_purchase,context,user_existing_coupons,selected_plan)
     else:
         response =  pay_for_a_plan_failure(request,context)
 
@@ -132,7 +132,7 @@ def result_payline(request,pending_purchase_hashcode):
     return response
 
 
-def pay_for_a_plan_success(request,pending_purchase,context,user_existing_coupons):
+def pay_for_a_plan_success(request,pending_purchase,context,user_existing_coupons,selected_plan):
 
     # add the purchase to the database
     new_purchase = Purchase()
