@@ -120,14 +120,19 @@ def result_payline(request,pending_purchase_hashcode):
     selected_plan = utility_functions.create_temp_plan(pending_purchase.data_transfer_plan, user_existing_coupons)
     context['selected_plan'] = selected_plan
 
-    response = None
-
-    if final_result == 'None':
-        response =  pay_for_a_plan_failure(request,context)
-    elif int(final_result) == 1:
-        response =  pay_for_a_plan_success(request,pending_purchase,context,user_existing_coupons,selected_plan)
+    if final_result is None:
+        return HttpResponse("invalid payment")
     else:
-        response =  pay_for_a_plan_failure(request,context)
+        return HttpResponse(int(final_result))
+
+#    response = None
+
+#    if final_result == 'None':
+#        response =  pay_for_a_plan_failure(request,context)
+#    elif int(final_result) == 1:
+#        response =  pay_for_a_plan_success(request,pending_purchase,context,user_existing_coupons,selected_plan)
+#    else:
+#        response =  pay_for_a_plan_failure(request,context)
 
 #    if int(final_result) == 1:
         # inset the purchase into database, and remove pending purchase
