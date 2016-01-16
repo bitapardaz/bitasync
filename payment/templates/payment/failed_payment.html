@@ -1,0 +1,105 @@
+{% extends 'bitasync_site/base.html' %}
+{% load staticfiles  %}
+
+{% block title %} گوشی ب گوشی -> فعال سازی  {% endblock title %}
+
+
+
+
+	{% block extracss %}
+		  <link rel="stylesheet" href="{% static "user_profile/css/activate.css" %}">
+	{% endblock extracss %}
+
+	{% block extrajs %}
+
+	{% endblock extrajs %}
+
+
+	{% block section %}
+		<section class="main-section" id="service"><!--main-section-start-->
+
+			<div class="container">
+
+
+				 <div class="row">
+
+
+					 <div class="col-md-4  pull-right">
+						<div id="palanselected" class="offer offer-danger">
+							<div class="shape">
+								<div class="shape-text">
+
+								</div>
+							</div>
+							<div class="offer-content">
+								<h3 class="lead">
+
+								</h3>
+
+									 <h3>طرح انتخاب شده</h3>
+					<hr>
+
+
+						      <br>
+				                <img src="{{ selected_plan.image_link }}"  alt= "{{ selected_plan.plan_name }}" > 
+						      <br><br>						      
+					
+									<a href="/payment/{{selected_plan.plan_name}}/" class="btn btn-success" role="button">	سفارش </a>	      
+											      
+							</div>
+						</div>
+					</div>
+
+                     
+                     
+
+				<div  class=" col-md-8 pull-right">
+                    <br><br>
+                    <p>
+                        متاسفانه پرداخت الکترونیکی موفقیت آمیز نبود. لطفا مجددا امتحان فرمایید. 
+                    </p>
+                    
+                    <br>
+                    
+                    <p>
+                        در صورتی که برای پرداخت آنلاین به مشکل برخوردید می توانید با شماره ی ۸۸۸۶۷۶۴۶-۰۲۱ تماس بگیرید. تیم پشتیبانی «گوشی ب گوشی» خوشحال می شوند به شما کمک کند. 
+                    </p>
+                    
+                    <br>
+                
+                    
+				</div>
+					                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+
+
+				</div>
+				
+
+
+			</div>
+
+
+		</section>
+
+
+	{% endblock section %}

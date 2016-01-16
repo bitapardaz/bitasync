@@ -107,16 +107,6 @@ def result_payline(request,pending_purchase_hashcode):
     id_get = request.POST['id_get']
     final_result = get_result(PAYLINE_DOTIR_API_FINAL, trans_id, id_get)
 
-    if int(final_result) == 1:
-        # inset the purchase into database, and remove pending purchase
-        return pay_for_a_plan_complete(request,pending_purchase_hashcode)
-    else:
-        # remove pending purchase
-        return HttpResponse("payment failed")
-
-
-def pay_for_a_plan_complete(request,pending_purchase_hashcode):
-
     context = {}
 
     # retrieve the pending purchase
@@ -130,6 +120,20 @@ def pay_for_a_plan_complete(request,pending_purchase_hashcode):
     selected_plan = utility_functions.create_temp_plan(pending_purchase.data_transfer_plan, user_existing_coupons)
     context['selected_plan'] = selected_plan
 
+    if int(final_result) == 1:
+        # inset the purchase into database, and remove pending purchase
+        respone =  pay_for_a_plan_success(request,pending_purchase,context)
+    else:
+        response =  pay_for_a_plan_failure(request,context)
+
+    # remove pending purchase
+    pending_purchase.delete()
+
+    return response
+
+
+def pay_for_a_plan_success(request,pending_purchase,context):
+
     # add the purchase to the database
     new_purchase = Purchase()
     new_purchase.user = pending_purchase.user
@@ -141,21 +145,17 @@ def pay_for_a_plan_complete(request,pending_purchase_hashcode):
         new_purchase.amount_paid = selected_plan.original_price
 
     new_purchase.save()
-    # save follow_up number using hash
 
+    # save follow_up number using hash
     follow_up_number = generate_md5_hash(str(new_purchase.id))
     new_purchase.follow_up_number = follow_up_number
     new_purchase.save()
-
     context['follow_up_number'] = follow_up_number
 
     # if necessary, remove user's best coupon
     if user_existing_coupons:
         best_coupon = utility_functions.get_best_coupon(user_existing_coupons)
         best_coupon.delete()
-
-    # remove pending purchase
-    pending_purchase.delete()
 
     # send an email
     plaintext = loader.get_template('payment/pay_for_a_plan_complete_email.txt')
@@ -175,3 +175,6 @@ def pay_for_a_plan_complete(request,pending_purchase_hashcode):
 
     # return response to the user.
     return render(request,'payment/successful_payment.html',context)
+
+def pay_for_a_plan_failure(request,context):
+    return render(request,'payment/failed_payment.html',context)
