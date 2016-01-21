@@ -6,4 +6,3 @@ from .models import Contact_Comment
 # Register your models here.
 admin.site.register(Data_Transfer_Plan)
 admin.site.register(Contact_Comment)
-

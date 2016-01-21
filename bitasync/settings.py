@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'guides',
     'coupons',
     'shop_billing',
+    'ads',
 )
 
 MIDDLEWARE_CLASSES = (

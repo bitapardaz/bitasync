@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^guides/', include('guides.urls')),
     url(r'^payment/', include('payment.urls')),
     url(r'^shop_billing/', include('shop_billing.urls')),
+    url(r'^ads/', include('ads.urls')),
 ]
