@@ -29,6 +29,11 @@ def generate_one_license(username,password,counter):
     # generate bulk_license_tmp.tex
     generate_latex_file(username,password)
 
+    # fix the ownership
+    command = [ "chown" , "-R" ,  'celery_username:celery_username'  ,  directory_path('bulk_license_tmp.tex')  ]
+    call(command)
+
+
     # run latex
     command = [ "pdflatex" , "-output-directory" ,  directory_path('')  ,  directory_path('bulk_license_tmp.tex')  ]
     print(command)
