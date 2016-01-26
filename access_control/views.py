@@ -15,8 +15,29 @@ from payment.models import Purchase
 
 from rest_framework.permissions import IsAuthenticated
 
+
 @csrf_exempt
-@api_view(['Get','POST'])
+@api_view(['Get'])
+#@authentication_classes([TokenAuthentication])
+@permission_classes((IsAuthenticated,))
+def transfer_done(request,username,format=None):
+
+    '''
+    updates the customer profile after the data transfer is done.
+    '''
+
+    '''
+    if the data allowance reaches zero, remove the purchase history
+    '''
+
+    result={}
+    result['message'] = 'thanks for updating us'
+
+    return Response(result)
+
+
+@csrf_exempt
+@api_view(['Get'])
 #@authentication_classes([TokenAuthentication])
 @permission_classes((IsAuthenticated,))
 def access(request,username,format=None):

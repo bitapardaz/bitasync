@@ -5,4 +5,5 @@ import views
 
 urlpatterns = [
     url(r'^access/(?P<username>[a-zA-Z0-9_.-]+)/$',views.access),
+    url(r'^transfer/(?P<username>[a-zA-Z0-9_.-]+)/$',views.transfer_done),
 ]
