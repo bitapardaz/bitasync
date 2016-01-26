@@ -31,6 +31,7 @@ def generate_one_license(username,password,counter):
 
     # run latex
     command = [ "pdflatex" , "-output-directory" ,  directory_path('')  ,  directory_path('bulk_license_tmp.tex')  ]
+    print(command)
     call(command)
 
     # get the second page in the file

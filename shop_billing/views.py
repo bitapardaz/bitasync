@@ -23,11 +23,6 @@ from bitasync_site.models import Data_Transfer_Plan
 from tasks import generate_license_pdf_files
 
 
-@login_required
-def bulk_created_done(request,shop_username,plan_name,copies):
-    output = "Successfully generated " + copies + " of license type " + plan_name + " for shop with id: " + shop_username
-    return HttpResponse(output)
-
 
 @login_required
 def bulk_license_input_shop_username(request):
@@ -49,8 +44,6 @@ def bulk_license_input_shop_username(request):
 
     return render(request, 'shop_billing/bulk_license_input_shop.html',
                   context)
-
-
 
 @login_required
 def bulk_license_create(request,fusername):
@@ -106,6 +99,12 @@ def bulk_license_create(request,fusername):
     context['input_shop_fusername_form'] = input_shop_fusername_form
 
     return render(request,'shop_billing/bulk_license_create.html',context)
+
+
+@login_required
+def bulk_created_done(request,shop_username,plan_name,copies):
+    output = "Successfully generated " + copies + " of license type " + plan_name + " for shop with id: " + shop_username
+    return HttpResponse(output)
 
 
 def create_bulk_license(shop_username,plan_name,copies):
