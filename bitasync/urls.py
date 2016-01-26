@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from bitasync_site import views
 
+
 urlpatterns = [
     url(r'^$', views.homepage),
     url(r'^162294.txt$', views.test_function),
@@ -30,4 +31,5 @@ urlpatterns = [
     url(r'^payment/', include('payment.urls')),
     url(r'^shop_billing/', include('shop_billing.urls')),
     url(r'^ads/', include('ads.urls')),
+    url(r'^access_control/', include('access_control.urls')),
 ]
