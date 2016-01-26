@@ -61,6 +61,7 @@ def check_selling_shop(user):
             debit_shop(purchase)
 
 def debit_shop(purchase):
+    pass
 
         # identify which shop has sold the license
 
