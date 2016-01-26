@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'shop_billing',
     'ads',
     'rest_framework',
+    'rest_framework.authtoken',
     'access_control',
 
 )
@@ -136,3 +137,15 @@ LOGIN_REDIRECT_URL = "/"
 
 PAYLINE_DOTIR_API = "33979-80375-17f44-6205a-699d90919447601ca48d2dad69a8"
 IS_PAYLINE_DOTIR_TEST = False
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+#        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}

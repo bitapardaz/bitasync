@@ -1,27 +1,25 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
+
+from rest_framework.decorators import api_view,authentication_classes,permission_classes
+from rest_framework.response import Response
+from rest_framework import status
 
 from django.utils import timezone
 import datetime
-
-
-
 
 from django.contrib.auth.models import User
 from user_profile.models import UserProfile,CustomerProfile,ShopProfile
 from payment.models import Purchase
 
-class JSONResponse(HttpResponse):
-    def __init__(self,data,**kwargs):
-        content=JSONRenderer().render(data)
-        kwargs['content_type']='application/json'
-        super(JSONResponse,self).__init__(content,**kwargs)
+from rest_framework.permissions import IsAuthenticated
 
 @csrf_exempt
-def access(request,username):
+@api_view(['Get','POST'])
+#@authentication_classes([TokenAuthentication])
+@permission_classes((IsAuthenticated,))
+def access(request,username,format=None):
 
     '''
     checks if a given username has any active purchase
@@ -48,7 +46,7 @@ def access(request,username):
     except Purchase.DoesNotExist:
         result['access'] = 'forbidden'
 
-    return JSONResponse(result)
+    return Response(result)
 
 
 def check_selling_shop(user):
