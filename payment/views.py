@@ -147,7 +147,7 @@ def pay_for_a_plan_success(request,pending_purchase,context,user_existing_coupon
     else:
         new_purchase.amount_paid = selected_plan.original_price
 
-    new_purchase.remaining_allowance_frequency = data_transfer_plan.freq
+    new_purchase.remaining_allowance_frequency = pending_purchase.data_transfer_plan.freq
     new_purchase.save()
 
     # save follow_up number using hash
