@@ -19,10 +19,7 @@
 		<section class="main-section" id="service"><!--main-section-start-->
 			<div class="container">
 
-				<div class="row">
-					<section class="main-section contact" id="contact">
-	
-        <div class="row" style="direction:rtl">
+				 <div class="row" style="direction:rtl">
         	<div class="col-lg-6 col-sm-7 wow fadeInLeft">
             	<!--<div class="contact-info-box address clearfix">
                 	<h3><i class=" icon-map-marker"></i>ادرس:</h3>
@@ -64,9 +61,6 @@
                 </div>	
             </div>
         </div>
-</section>
-
-				</div>
 			 </div>
             
        
