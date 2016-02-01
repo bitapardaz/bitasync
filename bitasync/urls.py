@@ -20,6 +20,7 @@ from bitasync_site import views
 
 urlpatterns = [
     url(r'^$', views.homepage),
+    url(r'^api-auth/', include('rest_framework.urls',namespace='rest_framework')),
     url(r'^162294.txt$', views.test_function),
     url(r'^about_us/', views.about_us),
     url(r'^admin/', include(admin.site.urls)),

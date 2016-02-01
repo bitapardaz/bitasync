@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 from user_profile.models import UserProfile,CustomerProfile,ShopProfile
 from payment.models import Purchase
 
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly
 
 
 @csrf_exempt
