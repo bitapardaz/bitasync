@@ -18,7 +18,6 @@ from rest_framework.permissions import IsAuthenticated,IsAuthenticatedOrReadOnly
 
 @csrf_exempt
 @api_view(['Get'])
-#@authentication_classes([TokenAuthentication])
 @permission_classes((IsAuthenticated,))
 def transfer_done(request,username,format=None):
 
@@ -38,7 +37,6 @@ def transfer_done(request,username,format=None):
 
 @csrf_exempt
 @api_view(['Get'])
-#@authentication_classes([TokenAuthentication])
 @permission_classes((IsAuthenticated,))
 def access(request,username,format=None):
 
