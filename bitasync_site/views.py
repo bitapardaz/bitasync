@@ -159,14 +159,8 @@ def homepage(request):
 
     return render(request,'bitasync_site/gooshibegooshi_homepage.html')
 
-	 #return contact_us(request);
-
-
+    #return contact_us(request);
 	#return render(request, 'bitasync_site/index.html')
-
-
-def homepage2(request):
-      return HttpResponse("Test Homepage. You are at www.bitasync.com")
 
 
 def data_transfer_plans(request):
