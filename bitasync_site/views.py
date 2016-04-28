@@ -157,7 +157,7 @@ def contact_us_page(request):
 
 def homepage(request):
 
-    return render(request,'bitasync_site/gooshibegooshi_homepage.html')
+    return render(request,'bitasync_site/homepage_responsive.html')
 
     #return contact_us(request);
 	#return render(request, 'bitasync_site/index.html')

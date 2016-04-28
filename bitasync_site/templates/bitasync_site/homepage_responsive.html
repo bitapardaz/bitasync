@@ -1,0 +1,322 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="{% static "bitasync_site/css/style.css" %}">
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+		<style>
+
+            body {
+            	font-family: IRANSans !important;
+            	font-weight: 300;
+            	background-color: #E2E2E2;
+            	margin: 0;
+            }
+
+			#intro_image{
+  				float:left;
+		   	    background:url("img/main_image.png" ) no-repeat center center;
+  				height: 500px;
+				background-size:cover;
+			}
+			#android_link{
+				background-color:#607d8b;
+				border-radius:8px 8px;
+
+			}
+
+			#android_link:hover  {
+				background-color: #37474f;
+			}
+
+			.vcenter {
+				display: inline-block;
+				vertical-align: middle;
+				float: none;
+			}
+
+		</style>
+
+		<title>GBG HOMEPAGE</title>
+
+	</head>
+
+	<body>
+
+
+		<nav class="navbar navbar-default">
+
+		  <div class="container ">
+
+		    <div class="navbar-header pull-right">
+		      <a href="#" class="pull-right"><img src="{% static "bitasync_site/img/GBG_typography.png" %}" class="img-responsive" style="width:210px;height:50px;padding:3px" alt=""></a>
+
+		    </div>
+
+		  </div>
+
+		</nav>
+
+
+
+		<div class="container" style="padding-bottom:30px" >
+
+
+			<div class="row" >
+
+				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 vcenter" >
+					<img src="{% static "bitasync_site/img/main_image.png" %}" class="img-responsive" width="800px" height="800px" alt="">
+
+
+				</div>
+
+				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 vcenter">
+
+					<div class="row well" style="text-align: center;">
+						<p style="font-family:IRANSans; font-weight:500;font-size:140%;direction:rtl;">
+						وقتی موبایل جدید می خری، با برنامه ”گوشی ب گوشی" می تونی شماره تلفن ها، عکس ها، آهنگ ها، ویدیو ها و همه اطلاعات موبایل قدیمی ات رو سریع، آسون و امن به موبایل جدیدت منتقل کنی.
+						</p>
+					</div>
+
+					<div class="row" style="padding-top:20px;">
+
+						<div class="col-sm-6 ">
+
+							<a href="{% static "bitasync_site/gooshibegooshi.apk" %}" >
+    							<div  class="row" style="padding:7px" style="height:100px">
+
+
+
+    									<div id="android_link" style="background-color:#546e7a;color:white" >
+                                            <div class="col-xs-5 vcenter"> <p style="text-align:left;font-weight:500;font-size:200%">اندروید</p> </div>
+    										<div class="col-xs-6 vcenter" >
+    											<img src="{% static "bitasync_site/img/android_logo.png" %}" class="img-responsive" style="width:100px;display:block;margin-left:auto; margin-right:auto;padding:10px;" >
+    										</div>
+
+    									</div>
+
+
+
+
+    							</div>
+						    </a>
+
+						</div>
+
+						<div class="col-sm-6 ">
+
+							<a href="http://svn.bitasync.com/_Client/Client_Setup/GooshiBeGooshi_install.exe" >
+	                			<div  class="row" style="padding:7px" >
+
+
+										<div id="android_link" style="background-color:#546e7a;color:white" >
+                                            <div class="col-xs-5 vcenter"> <p style="text-align:left;font-weight:500;font-size:200%">ویندوز</p> </div>
+                                            <div class="col-xs-6 vcenter" >
+												<img src="{% static "bitasync_site/img/windows_logo.png" %}" class="img-responsive" style="width:100px;display:block;margin-left:auto; margin-right:auto;padding:12px;" >
+											</div>
+
+										</div>
+
+
+
+
+	                			</div>
+          					</a>
+
+						</div>
+
+
+					</div>
+
+
+				</div>
+
+
+
+			</div>
+
+
+		</div>
+
+
+		<div class="container-fluid" style="background-color:white; padding-top:50px;padding-bottom:50px">
+
+			<div class="row">
+
+
+
+				 <div class="col-sm-2 col-sm-offset-2">
+
+					 <div class="row">
+						 <img src="{% static "bitasync_site/img/ic-APP.png" %}" alt="" style="height:100%; width:100%">
+					 </div>
+
+					 <div class="row">
+						 <div class="col-xs-12" >
+							 <h4 style="text-align:center;">سرعت انتقال زیاد</h4>
+							 <p style="text-align:center;direction:rtl;"> با گوشی ب گوشی تمام اطلاعات خود را ظرف ۲۰ دقیقه انتقال دهید. </p>
+						</div>
+					 </div>
+
+ 				 </div>
+
+				 <div class="col-sm-2 col-sm-offset-1">
+
+					 <div class="row">
+						 <img src="{% static "bitasync_site/img/ic-APP.png" %}" alt="" style="height:100%; width:100%">
+					 </div>
+
+					 <div class="row">
+						 <div class="col-sm-12" >
+							 <h4 style="text-align:center;">سرعت انتقال زیاد</h4>
+							 <p style="text-align:center;direction:rtl;"> با گوشی ب گوشی تمام اطلاعات خود را ظرف ۲۰ دقیقه انتقال دهید. </p>
+						</div>
+					 </div>
+
+ 				 </div>
+
+				 <div class="col-sm-2 col-sm-offset-1">
+
+					 <div class="row">
+						 <img src="{% static "bitasync_site/img/ic-APP.png" %}" alt="" style="height:100%; width:100%">
+					 </div>
+
+					 <div class="row">
+						 <div class="col-sm-12" >
+							 <h4 style="text-align:center;">سرعت انتقال زیاد</h4>
+							 <p style="text-align:center;direction:rtl;"> با گوشی ب گوشی تمام اطلاعات خود را ظرف ۲۰ دقیقه انتقال دهید. </p>
+						</div>
+					 </div>
+
+ 				 </div>
+
+
+
+ 			</div>
+
+        </div>
+
+
+        <div class="container-fluid" style="padding-top:60px;background-color:#6d717a;padding-bottom:50px">
+
+			<div class="row" style="direction:rtl;">
+
+				<div class="col-lg-2 col-lg-offset-2" style="padding-bottom:30px;">
+
+                    <div class="row" >
+                            <div class="col-xs-12" style="background-color:#0586be;color:white;border-radius:4px;">
+
+                                <p style="text-align:center;padding-top:7px;font-weight:600;font-size:110%;direction:rtl;">
+                                        <span class="glyphicon glyphicon-heart-empty"></span>&nbsp;
+                                        دوست های ما
+                                </p>
+                            </div>
+                    </div>
+
+                    <div class="row" style="padding-top:20px;" >
+                            <div class="col-xs-12" style="color:white; background:url({% static "bitasync_site/img/gion_light_cropped.png" %} ) no-repeat center center; background-size:contain;height:30px; ">
+                            </div>
+                    </div>
+
+                    <div class="row" style="padding-top:20px;" >
+                        <div class="col-xs-12" style="color:white; background:url({% static "bitasync_site/img/magia_light_cropped.png" %} ) no-repeat center center; background-size:contain;height:30px ">
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-top:20px;" >
+                        <div class="col-xs-12" style="color:white; background:url({% static "bitasync_site/img/mci_logo_light_cropped.png" %} ) no-repeat center center; background-size:contain;height:30px; ">
+                        </div>
+                    </div>
+
+				 </div>
+
+                 <div class="col-lg-2 col-lg-offset-1" style="padding-bottom:30px;">
+
+                     <div class="row">
+                             <div class="col-xs-12 " style="background-color:#bf5392;color:white;border-radius:4px;">
+
+                                 <p style="text-align:center;padding-top:7px;font-weight:600;font-size:110%;direction:rtl;">
+                                         <span class="glyphicon glyphicon-user"></span>&nbsp;
+                                تماس با ما
+                                 </p>
+                             </div>
+                     </div>
+
+                     <div class="row" style="padding-top:20px;">
+                             <div class="col-xs-12" style="color:white;">
+                                 <div class="col-sm-1" style="direction:ltr;text-align:center;">
+                                     <span class="glyphicon glyphicon-phone-alt" style="font-size:140%"></span>
+                                 </div>
+                                 <div class="col-sm-10" style="direction:ltr;text-align:center;">
+                                     <span style="font-weight:500;font-size:120%" >۰۲۱-۸۸۸۶۷۶۴۶</span>
+                                 </div>
+                             </div>
+                     </div>
+
+
+                     <div class="row" style="padding-top:20px;">
+                             <div class="col-xs-12" style="color:white;">
+                                 <div class="col-sm-1" style="direction:ltr;text-align:center;">
+                                     <span class="glyphicon glyphicon-envelope" style="font-size:140%"></span>
+                                 </div>
+                                 <div class="col-sm-10" style="direction:ltr;text-align:center;">
+                                     <span style="font-weight:500;" >hi@gooshibegooshi</span>
+                                 </div>
+                             </div>
+                     </div>
+
+
+ 				 </div>
+
+
+                 <div class="col-lg-2 col-lg-offset-1";>
+
+                     <div class="row">
+                             <div class="col-xs-12 " style="background-color:#e7aa3f;color:white;border-radius:4px;">
+
+                                 <p style="text-align:center;padding-top:7px;font-weight:600;font-size:110%;direction:rtl;">
+                                         <span class="glyphicon glyphicon-ok"></span>&nbsp;
+                                انتقال آسان اطلاعات
+                                 </p>
+                             </div>
+                     </div>
+
+                     <div class="row" style="padding-top:20px;">
+                             <div class="col-xs-12" style="color:white;">
+
+                                 <div class="col-sm-12" style="direction:ltr;text-align:center;">
+                                     <p style="font-weight:500;font-size:110%;direction:rtl;">
+                                        وقتی دوستت موبایل جدید خرید،‌گوشی ب گوشی رو بهش معرفی کن، شاید به دردش بخوره!
+                                     </p>
+                                 </div>
+                             </div>
+                     </div>
+
+
+                     <div class="row" style="padding-top:20px;" >
+                         <div class="col-xs-12" style="color:white; background:url({% static "bitasync_site/img/gbg_typography_light_cropped.png" %} ) no-repeat center center; background-size:contain;height:30px; ">
+                         </div>
+                     </div>
+
+
+                 </div>
+
+
+			</div>
+
+		</div>
+
+	</body>
+
+
+
+</html>
