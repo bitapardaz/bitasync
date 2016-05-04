@@ -26,13 +26,10 @@ from coupons.forms import AddCouponForm
 
 def thanks_contact_us(request):
 
-
     return render(request, 'bitasync_site/thanks_contact_us.html')
 
 
 def contact_us(request):
-
-
 
     if request.method == "POST":
 

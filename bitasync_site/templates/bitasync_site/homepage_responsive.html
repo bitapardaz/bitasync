@@ -34,9 +34,6 @@
 
 			}
 
-			#android_link:hover  {
-				background-color: #37474f;
-			}
 
 			.vcenter {
 				display: inline-block;
@@ -81,8 +78,7 @@
 
 					<div class="row well" style="text-align: center;">
 						<p style="font-family:IRANSans; font-weight:500;font-size:140%;direction:rtl;">
-وقتی موبایل جدید می خری، با ”گوشی ب گوشی" می تونی شماره تلفن، عکس، آهنگ، ویدیو و همه اطلاعات موبایل قدیمی رو سریع، آسون و امن به موبایل جدیدت منتقل کنی.
-						</p>
+وقتی موبایل جدید می خری، با ”گوشی&nbspب&nbspگوشی" می&nbspتونی شماره&nbspتلفن، عکس، آهنگ، ویدیو و همه&nbspاطلاعات موبایل قدیمی رو سریع، آسون و امن به موبایل جدیدت منتقل کنی.						</p>
 					</div>
 
 					<div class="row" style="padding-top:20px;">
@@ -90,43 +86,40 @@
 						<div class="col-sm-6 ">
 
 							<a href="{% static "bitasync_site/gooshibegooshi.apk" %}" >
-    							<div  class="row" style="padding:7px" style="height:100px">
 
+    							<div  class="row" style="padding:7px" style="height:100px;background-color:#546e7a;">
 
+									<div id="download_link_android" class="col-xs-12 col-md-12"  style="background:url({%static "bitasync_site/img/button_android.png"%}) no-repeat center center; background-size:contain; height:80px; border-radius: 10px;">
 
-    									<div id="android_link" style="background-color:#546e7a;color:white" >
-                                            <div class="col-xs-5 vcenter"> <p style="text-align:left;font-weight:500;font-size:200%">اندروید</p> </div>
-    										<div class="col-xs-6 vcenter" >
-    											<img src="{% static "bitasync_site/img/android_logo.png" %}" class="img-responsive" style="width:100px;display:block;margin-left:auto; margin-right:auto;padding:10px;" >
-    										</div>
+									</div>
 
-    									</div>
+											<!--
+											<div class="row" style="height:80px">
 
+												<div class="col-xs-3 col-sm-5 col-sm-offset-1 vcenter"> <p style="text-align:right;font-weight:500;font-size:140%;padding-top:5px">اندروید</p> </div>
+	    										<div class="col-xs-6 col-sm-5 vcenter" >
+	    											<img src="{% static "bitasync_site/img/button_android.png" %}" style="width:80px;height:80px;padding:5px;padding-right:7px">
+	    										</div>
+
+											</div>
+										-->
 
     							</div>
 						    </a>
 
 						</div>
 
-						<div class="col-sm-6 ">
+						<div class="col-sm-6 " style="">
 
 							<a href="http://svn.bitasync.com/_Client/Client_Setup/GooshiBeGooshi_install.exe" >
-	                			<div  class="row" style="padding:7px" >
+    							<div  class="row" style="padding:7px" style="height:100px">
 
-
-										<div id="android_link" style="background-color:#546e7a;color:white" >
-                                            <div class="col-xs-5 vcenter"> <p style="text-align:left;font-weight:500;font-size:200%">ویندوز</p> </div>
-                                            <div class="col-xs-6 vcenter" >
-												<img src="{% static "bitasync_site/img/windows_logo.png" %}" class="img-responsive" style="width:100px;display:block;margin-left:auto; margin-right:auto;padding:12px;" >
-											</div>
+    									<div id="download_link_windows" class="col-xs-12 col-md-12"  style="background:url({%static "bitasync_site/img/button_windows.png"%}) no-repeat center center; background-size:contain; height:80px;border-radius: 10px;">
 
 										</div>
 
-
-
-
-	                			</div>
-          					</a>
+    							</div>
+						    </a>
 
 						</div>
 
@@ -153,7 +146,7 @@
 				 <div class="col-sm-2 col-sm-offset-2">
 
 					 <div class="row">
-						 <img src="{% static "bitasync_site/img/security monogram.png" %}" alt="" style="height:100%; width:100%;">
+						 <img src="{% static "bitasync_site/img/security monogram.png" %}" alt="" style="height:90%; width:90%;display:block;margin-left:auto;margin-right:auto">
 					 </div>
 
 					 <div class="row">
@@ -172,7 +165,7 @@
 				 <div class="col-sm-2 col-sm-offset-1">
 
 					 <div class="row">
-						 <img src="{% static "bitasync_site/img/value_monograph.png" %}" alt="" style="height:100%; width:100%">
+						 <img src="{% static "bitasync_site/img/value_monograph.png" %}" alt="" style="height:90%; width:90%;display:block;margin-left:auto;margin-right:auto">
 					 </div>
 
 					 <div class="row">
@@ -189,7 +182,7 @@
 				 <div class="col-sm-2 col-sm-offset-1">
 
 					 <div class="row">
-						 <img src="{% static "bitasync_site/img/comfort_monogram.png" %}" alt="" style="height:100%; width:100%">
+						 <img src="{% static "bitasync_site/img/comfort_monogram.png" %}" alt="" style="height:90%; width:90%;display:block;margin-left:auto;margin-right:auto">
 					 </div>
 
 					 <div class="row">
