@@ -3,65 +3,56 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 	<head>
 
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="{% static "bitasync_site/css/style.css" %}">
 
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-		<style>
-
-            body {
-            	font-family: IRANSans !important;
-            	font-weight: 300;
-            	background-color: #E2E2E2;
-            	margin: 0;
-            }
-
-			#intro_image{
-  				float:left;
-		   	    background:url("img/main_image.png" ) no-repeat center center;
-  				height: 500px;
-				background-size:cover;
-			}
-			#android_link{
-				background-color:#607d8b;
-				border-radius:8px 8px;
-
-			}
-
-
-			.vcenter {
-				display: inline-block;
-				vertical-align: middle;
-				float: none;
-			}
-
-		</style>
-
 		<title>گوشی ب گوشی</title>
+
+		<link rel="stylesheet" href="{% static "bitasync_site/css/mystyle.css" %}">
 
 	</head>
 
 	<body>
 
 
-		<nav class="navbar navbar-default">
+		<nav class="navbar navbar-default" style="background-color: #3a536b; padding-top:13px; padding-bottom:13px;border-bottom-color:#c5f390; border-bottom-width: 3px;">
 
-		  <div class="container ">
+		  <div class="container">
 
-		    <div class="navbar-header pull-right">
-		      <a href="#" class="pull-right"><img src="{% static "bitasync_site/img/GBG_typography.png" %}" class="img-responsive" style="width:210px;height:50px;padding:3px" alt=""></a>
+			 <a class="navbar-brand navbar-right"  style="margin-right:30px;" href="#">
+				 <b id="navbar_logo" style="padding-right:10px;" >گوشی ب گوشی</b>
+				 <img src="/static/bitasync_site/img/navbar_gbg_logo.png" style="width:30px; display: inline-block;">
+			 </a>
 
+		    <div class="navbar-header" >
+				<button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				</button>
 		    </div>
+
+
+
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right" style="padding-right:10px;direction:rtl">
+	      			<li><a href="#" >راهنمای برنامه موبایل</a></li>
+					<li><a href="#"  >خانه</a></li>
+	    		</ul>
+			</div>
+
 
 		  </div>
 
 		</nav>
+
 
 
 

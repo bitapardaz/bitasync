@@ -1,0 +1,49 @@
+@import url(fontiran.css); /* لینک فایلی که وظیفه بارگذاری فونت ها را برعهده دارد */
+
+
+body {
+    font-family: IRANSans !important;
+    font-weight: 300;
+    background-color: #E2E2E2;
+    margin: 0;
+}
+
+
+
+.navbar .navbar-nav li a{
+    font-weight: 400;
+    color:white;
+}
+
+.navbar .navbar-nav li a:hover{
+    font-weight: 400;
+    color:#c5f390;
+}
+
+
+#navbar_logo {
+    color:white;
+    display: inline-block;
+    /*background: url("/static/bitasync_site/img/navbar_gbg_logo.png") 12px 8px no-repeat;*/
+    height: 40px;
+    font-size: 19px;
+    padding-left: 25px;
+}
+
+#intro_image {
+    float:left;
+    background:url("img/main_image.png" ) no-repeat center center;
+    height: 500px;
+    background-size:cover;
+}
+
+#android_link{
+    background-color:#607d8b;
+    border-radius:8px 8px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}

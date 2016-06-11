@@ -1,5 +1,30 @@
 ﻿@import url(fontiran.css); /* لینک فایلی که وظیفه بارگذاری فونت ها را برعهده دارد */
 
+body {
+	font-family: IRANSans;
+	font-weight: 300;
+	background-color: #E2E2E2;
+	margin: 0;
+}
+
+#intro_image{
+	float:left;
+	background:url("img/main_image.png" ) no-repeat center center;
+	height: 500px;
+	background-size:cover;
+}
+#android_link{
+	background-color:#607d8b;
+	border-radius:8px 8px;
+
+}
+
+
+.vcenter {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
 
 
 h1, h2, h3, h4, h5, h6,input, textarea {
