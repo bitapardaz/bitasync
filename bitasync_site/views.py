@@ -24,6 +24,11 @@ from utilities import utility_functions
 
 from coupons.forms import AddCouponForm
 
+
+def help_mobile_version(request):
+    return render(request,'bitasync_site/help_mobile_version.html') 
+
+
 def thanks_contact_us(request):
 
     return render(request, 'bitasync_site/thanks_contact_us.html')

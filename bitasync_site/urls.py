@@ -3,6 +3,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
+    url(r'^help_mobile_version/$', views.help_mobile_version),
     url(r'^data_transfer_plans/$', views.data_transfer_plans),
     url(r'^contact_us/$', views.contact_us_page),
     url(r'^thanks_contact_us/$', views.thanks_contact_us),

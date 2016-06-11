@@ -1,62 +1,22 @@
+{% extends 'bitasync_site/base_responsive.html' %}
 {% load staticfiles %}
 
-<!DOCTYPE html>
 
-<html lang="en">
-
-	<head>
-
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-		<title>گوشی ب گوشی</title>
-
-		<link rel="stylesheet" href="{% static "bitasync_site/css/mystyle.css" %}">
-
-	</head>
-
-	<body>
-
-
-		<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #3a536b; padding-top:13px; padding-bottom:13px;border-bottom-color:#c5f390; border-bottom-width: 3px;">
-
-		  <div class="container">
-
-			 <a class="navbar-brand navbar-right"  style="margin-right:30px;" href="#">
-				 <b id="navbar_logo" style="padding-right:10px;" >گوشی ب گوشی</b>
-				 <img src="/static/bitasync_site/img/navbar_gbg_logo.png" style="width:30px; display: inline-block;">
-			 </a>
-
-		    <div class="navbar-header" >
-				<button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
-				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
-				  <span class="icon-bar"></span>
-				</button>
-		    </div>
-
-
-
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav navbar-right" style="padding-right:10px;direction:rtl">
-	      			<li><a href="#" >راهنمای برنامه موبایل</a></li>
-					<li><a href="#"  >خانه</a></li>
-	    		</ul>
-			</div>
-
-
-		  </div>
-
-		</nav>
+{% block content %}
 
 
 
 
-		<div class="container" style="padding-bottom:30px" >
+
+
+
+
+
+
+
+
+
+		<div id="top" class="container" style="padding-bottom:30px" >
 
 
 			<div class="row" >
@@ -219,7 +179,6 @@
  				 </div>
 
 
-
  			</div>
 
         </div>
@@ -227,159 +186,56 @@
 
         <div class="container-fluid" style="padding-top:60px;background-color:#6d717a;padding-bottom:50px">
 
-
 			<div class="row" style="padding-bottom:30px">
 
-				<div class="col-xs-3">
-				</div>
+			    <div class="col-xs-3">
+			    </div>
 
 
-				<div class="col-xs-6">
-					<a href="http://afranet.com/">
-						<img src="{% static "bitasync_site/img/afranet.png" %}" class="img-responsive" alt="" style="display:block;margin-left:auto;margin-right:auto;width:250px">
-					</a>
+			    <div class="col-xs-6">
+			        <a href="http://afranet.com/">
+			            <img src="{% static "bitasync_site/img/afranet.png" %}" class="img-responsive" alt="" style="display:block;margin-left:auto;margin-right:auto;width:250px">
+			        </a>
 
-				</div>
+			    </div>
 
 			</div>
 
-			<div class="row" style="padding-bottom:50px">
+			<div class="row" style="padding-bottom:20px">
 
-				<div class="col-sm-12">
+			    <div class="col-sm-12">
 
-					<p style="text-align:center;direction:rtl;color:white; font-weight:500;font-size:120%">
-						برنامه پیشاهنگ توسط
-						<span style="font-weight:600;font-size:150%;color:#e7aa3f">
-						 سرور های قدرتمند افرانت
-						</span>
-							  پشتیبانی میشه. ما افرانت رو به شما توصیه می کنیم.
-					</p>
-				</div>
+			        <p style="text-align:center;direction:rtl;color:white; font-weight:500;font-size:120%">
+			            برنامه پیشاهنگ توسط
+			            <span style="font-weight:600;font-size:150%;color:#e7aa3f">
+			             سرور های قدرتمند افرانت
+			            </span>
+			                  پشتیبانی میشه. ما افرانت رو به شما توصیه می کنیم.
+			        </p>
+			    </div>
 			</div>
-
-
-			<div class="row" style="direction:rtl;">
-
-				<div class="col-lg-2"></div>
-
-				<div class="col-lg-2 col-lg-push-6" style="padding-bottom:30px" >
-
-					<div class="row">
-							<div class="col-xs-12 " style="background-color:#e7aa3f;color:white;border-radius:4px;">
-
-								<p style="text-align:center;padding-top:7px;font-weight:600;font-size:110%;direction:rtl;">
-										<span class="glyphicon glyphicon-ok"></span>&nbsp;
-							   انتقال آسان اطلاعات
-								</p>
-							</div>
-					</div>
-
-					<div class="row" style="padding-top:20px;">
-							<div class="col-xs-12" style="color:white;">
-
-								<div class="col-sm-12" style="direction:ltr;text-align:center;">
-									<p style="font-weight:500;font-size:110%;direction:rtl;">
-									   وقتی دوستت موبایل جدید خرید،‌گوشی ب گوشی رو بهش معرفی کن، شاید به دردش بخوره!
-									</p>
-								</div>
-							</div>
-					</div>
-
-
-					<div class="row" style="padding-top:20px;" >
-						<div class="col-xs-12" style="color:white; background:url({% static "bitasync_site/img/gbg_typography_light_cropped.png" %} ) no-repeat center center; background-size:contain;height:30px; ">
-						</div>
-					</div>
-
-
-				</div>
-
-				<div class="col-lg-1"></div>
-
-				<div class="col-lg-2" style="padding-bottom:30px;">
-
-					<div class="row">
-							<div class="col-xs-12 " style="background-color:#bf5392;color:white;border-radius:4px;">
-
-								<p style="text-align:center;padding-top:7px;font-weight:600;font-size:110%;direction:rtl;">
-										<span class="glyphicon glyphicon-user"></span>&nbsp;
-							   تماس با ما
-								</p>
-							</div>
-					</div>
-
-					<div class="row" style="padding-top:20px;">
-							<div class="col-xs-12" style="color:white;text-align:center">
-
-								<p style="font-weight:500;font-size:120%;" >
-									<span class="glyphicon glyphicon-phone-alt" style="font-size:140%;vertical-align:middle"></span>
-								</p>
-
-								<p style="font-weight:500;font-size:120%;" >
-									۰۲۱-۸۸۸۶۷۶۴۶
-								</p>
-
-							</div>
-					</div>
-
-
-					<div class="row" style="padding-top:20px;">
-							<div class="col-xs-12" style="color:white;">
-
-								<p style="font-weight:500;font-size:120%;text-align:center;direction:ltr" >
-									<span class="glyphicon glyphicon-envelope" style="font-size:140%;vertical-align:middle"></span>
-								</p>
-
-								<p style="font-weight:500;font-size:120%;text-align:center;direction:ltr" >
-									hi@gooshibegooshi.com
-								</p>
-
-							</div>
-					</div>
-
-
-				</div>
-
-				<div class="col-lg-1"></div>
-
-
-				<div class="col-lg-2 col-lg-pull-6" style="padding-bottom:30px;">
-
-                    <div class="row" >
-                            <div class="col-xs-12" style="background-color:#0586be;color:white;border-radius:4px;">
-
-                                <p style="text-align:center;padding-top:7px;font-weight:600;font-size:110%;direction:rtl;">
-                                        <span class="glyphicon glyphicon-heart-empty"></span>&nbsp;
-                                        دوست های ما
-                                </p>
-                            </div>
-                    </div>
-
-
-					<div class="row" style="padding-top:20px;" >
-                        <div class="col-xs-12" style="color:white; background:url({% static "bitasync_site/img/mci_logo_light_cropped.png" %} ) no-repeat center center; background-size:contain;height:30px; ">
-                        </div>
-                    </div>
-
-                    <div class="row" style="padding-top:20px;" >
-                            <div class="col-xs-12" style="color:white; background:url({% static "bitasync_site/img/kaspersky_logo.png" %} ) no-repeat center center; background-size:contain;height:30px; ">
-                            </div>
-                    </div>
-
-                    <div class="row" style="padding-top:20px;" >
-                        <div class="col-xs-12" style="color:white; background:url({% static "bitasync_site/img/magia_light_cropped.png" %} ) no-repeat center center; background-size:contain;height:30px ">
-                        </div>
-                    </div>
-
-
-
-				 </div>
-
 
 
 		</div>
 
-	</body>
 
 
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
