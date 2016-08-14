@@ -53,8 +53,8 @@ def charge(sc,to,from_shortcode,service_id,charging_code,username,password,messa
 
 
 def incoming_message_notification(request):
-    return HttpResponse("incoming message notificatsion",status=200)
+    return HttpResponse("Notification Received!",status=200)
 
 
 def incoming_message_delivery_notification(request):
-    return HttpResponse("incoming message delivery notification",status=200)
+    return HttpResponse("Delivery Report Received!",status=200)
