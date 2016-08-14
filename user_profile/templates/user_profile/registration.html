@@ -4,24 +4,24 @@
 {% block title %} گوشی ب گوشی -> ثبت نام {% endblock title %}
 
 
-	
 
-	{% block extracss %} 
+
+	{% block extracss %}
 		   <link rel="stylesheet" href="{% static "user_profile/css/register.css" %}">
 	{% endblock extracss %}
 
 	{% block extrajs %}
 		<script src="{% static "user_profile/js/register.js" %}"></script>
 	{% endblock extrajs %}
-  
 
-	{% block section %} 
+
+	{% block section %}
 		<section class="main-section" id="service"><!--main-section-start-->
 	<div class="container">
     	<!--<h2></h2>
     	<h6></h6>-->
-      
-        
+
+
            <div class="row">
                     	<!--<div class="col-sm-6 phone">
                     		<img src="{% static "user_profile/assets/img/iphone.png" %}" alt="">
@@ -38,77 +38,77 @@
 				</div>
 				<div class="form-bottom">
 					<form role="form" action="" method="post" class="registration-form">
-{% csrf_token  %}
-	{{ form.field_errors }}	
+						{% csrf_token  %}
+						{{ form.field_errors }}	
 
 			<div class="form-group">
 				<label class="sr-only" for="{{ user_form.username.id_for_label }}"> نام کاربری</label>
 				<input style="text-align: right; direction: ltr;"  type="text" name="{{ user_form.username.html_name }}" placeholder="نام کاربری " class="form-first-name form-control" id="{{ user_form.username.id_for_label }}">
-				
+
 				{% if user_form.username.errors %}
                     <span  > <strong style="color:red" > این حساب کاربری قبلا ثبت شده است. دوباره امتحان کنید </strong> </span>
                 {% endif %}
-				
+
 
 			</div>
 
 			<div class="form-group">
 				<label class="sr-only" for="{{ user_form.password1.id_for_label }}">رمز عبور </label>
 				<input type="password" name="{{ user_form.password1.html_name }}" placeholder="رمز عبور " class="form-last-name form-control" id="{{ user_form.password1.id_for_label }}">
-				
+
 				{% if user_form.password1.errors %}
                     <span style="color:red"> <strong> رمز عبور وارد شده یکسان باید باشند </strong> </span>
                 {% endif %}
-				
+
 			</div>
 
 			<div class="form-group">
 				<label class="sr-only" for="{{ user_form.password2.id_for_label }}">تایید کلمه عبور</label>
 				<input type="password" name="{{ user_form.password2.html_name }}" placeholder="تایید رمز عبور" class="form-control" id="{{ user_form.password2.id_for_label }}">
-				
+
 				{% if user_form.password2.errors %}
                     <span style="color:red"> <strong> کلمات عبور وارد شده یکسان باید باشند </strong> </span>
                 {% endif %}
-				
+
 			</div>
 
-			<div class="form-group">			                    
+			<div class="form-group">
 			<label class="sr-only" for="{{ user_profile_form.email.id_for_label }}">پست الکترونیک</label>
 				<input style="text-align: right; direction: ltr;" type="email" name="{{ user_profile_form.email.html_name }}" placeholder="ایمیل " class="form-email form-control" id="{{ user_profile_form.email.id_for_label }}">
-				
+
 				{% if user_profile_form.email.errors %}
                     <span style="color:red"> <strong> این ایمیل قبلا ثبت شده است.یک ایمیل جدید وارد نمایید </strong> </span>
                 {% endif %}
-				
+
 			</div>
 
-			<div class="form-group">			                    
+			<div class="form-group">
 			<label class="sr-only" for="{{ user_profile_form.mobile.id_for_label }}"> شماره موبایل</label>
 				<input style="text-align: right; direction: ltr;" type="text" name="{{ user_profile_form.mobile.html_name }}" placeholder="(شماره موبایل (اختیاری" class="form-control" id="{{ user_profile_form.mobile.id_for_label }}">
 			</div>
 
-			<div class="form-group">			                    
+			<div class="form-group">
 			<label style="float:right;" for="{{ user_profile_form.is_shop.id_for_label }}">فروشگاه تلفن همراه دارید؟</label>
 				<input style="width: 10%; float: right;" type="checkbox" name="{{ user_profile_form.is_shop.html_name }}"   id="{{ user_profile_form.is_shop.id_for_label }}">
 			</div>
 
-			<div class="form-group" style="clear: both;">			                    
+			<div class="form-group" style="clear: both;">
 			<label class="sr-only" for="{{ user_profile_form.address.id_for_label }}">آدرس (اختیاری)</label>
 				<input style="display: none;" type="text" name="{{ user_profile_form.address.html_name }}" placeholder="آدرس (اختیاری - از حروف فارسی استفاده نمایید)" class="form-control" id="{{ user_profile_form.address.id_for_label }}">
 			</div>
 
-<div class="form-group">			                    
+<div class="form-group">
 			<label class="sr-only" for="{{ user_profile_form.landline.id_for_label }}">تلفن (اختیاری)</label>
 				<input style="display: none;text-align: right; direction: ltr" type="text" name="{{ user_profile_form.landline.html_name }}" placeholder="(تلفن ثابت - به همراه کد شهر (اختیاری" class="form-control" id="{{ user_profile_form.landline.id_for_label }}">
 			</div>
 
-<div class="form-group">			                    
+<div class="form-group">
 			<label style="float:right;" for="{{ user_profile_form.read_agreement.id_for_label }}">
-                <a href="/bitasync/terms_conditions/">			
+                <a href="/bitasync/terms_conditions/">
                     قوانین و مقررات "گوشی ب گوشی"
                 </a>
   را خوانده ام
-			
+
 			</label>
 				<input style="width: 10%;float: right;" type="checkbox" name="{{ user_profile_form.read_agreement.html_name }}"  id="{{ user_profile_form.read_agreement.id_for_label }}">
 			</div>
@@ -124,17 +124,8 @@
                         </div>
                     </div>
                 </div>
-            
-            
-       
+
+
+
 </section><!--main-section-end-->
-	{% endblock section %}	
-
-
-
-
-
-
-
-
-
+	{% endblock section %}

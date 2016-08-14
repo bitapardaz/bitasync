@@ -33,4 +33,5 @@ urlpatterns = [
     url(r'^shop_billing/', include('shop_billing.urls')),
     url(r'^ads/', include('ads.urls')),
     url(r'^access_control/', include('access_control.urls')),
+    url(r'^telepromo_integration/', include('telepromo_integration.urls')),
 ]
