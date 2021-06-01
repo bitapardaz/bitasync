@@ -53,7 +53,7 @@ system-service==0.1.6
 Twisted-Core==13.2.0
 Twisted-Web==13.2.0
 unity-lens-photos==1.0
-urllib3==1.7.1
+urllib3==1.26.5
 vboxapi==1.0
 virtualenv==13.1.0
 wheel==0.24.0
